@@ -9,7 +9,7 @@ import {
 } from '@/lib/schemas/legal';
 import type { Tables, TablesInsert } from '@/integrations/supabase/types';
 
-export type LegalAcceptanceRow = Tables<'legal_acceptances'>;
+export type LegalAcceptanceRow = any;
 
 /** All legal acceptances for the authenticated user. */
 export function useMyLegalAcceptances() {

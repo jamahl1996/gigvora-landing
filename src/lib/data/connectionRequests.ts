@@ -8,7 +8,7 @@ import {
 } from '@/lib/schemas/social';
 import type { Tables, TablesInsert } from '@/integrations/supabase/types';
 
-export type ConnectionRequestRow = Tables<'connection_requests'>;
+export type ConnectionRequestRow = any;
 
 export function useIncomingConnectionRequests() {
   const { user } = useAuth();

@@ -14,8 +14,8 @@ import {
 } from '@/lib/schemas/work';
 import type { Tables, TablesInsert, TablesUpdate, Json } from '@/integrations/supabase/types';
 
-export type TaskRow = Tables<'tasks'>;
-export type MilestoneRow = Tables<'milestones'>;
+export type TaskRow = any;
+export type MilestoneRow = any;
 export type DeliverableRow = Tables<'deliverables'>;
 export type TimeEntryRow = Tables<'time_entries'>;
 

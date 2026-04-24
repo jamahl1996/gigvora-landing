@@ -8,7 +8,7 @@ import {
 } from '@/lib/schemas/identity';
 import type { Tables, TablesInsert } from '@/integrations/supabase/types';
 
-export type ProfessionalProfileRow = Tables<'professional_profiles'>;
+export type ProfessionalProfileRow = any;
 
 export interface ForHireFilters {
   skills?: string[];

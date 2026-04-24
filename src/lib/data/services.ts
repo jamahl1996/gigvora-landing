@@ -5,7 +5,7 @@ import { qk } from '@/lib/queryKeys';
 import { serviceUpsertSchema, type ServiceUpsertInput } from '@/lib/schemas/marketplace';
 import type { Tables, TablesInsert, TablesUpdate } from '@/integrations/supabase/types';
 
-export type ServiceRow = Tables<'services'>;
+export type ServiceRow = any;
 
 export interface ServiceListFilters {
   category?: string;

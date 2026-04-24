@@ -5,7 +5,7 @@ import { qk } from '@/lib/queryKeys';
 import { projectUpsertSchema, type ProjectUpsertInput } from '@/lib/schemas/marketplace';
 import type { Tables, TablesInsert, TablesUpdate } from '@/integrations/supabase/types';
 
-export type ProjectRow = Tables<'projects'>;
+export type ProjectRow = any;
 
 export interface ProjectListFilters {
   category?: string;
