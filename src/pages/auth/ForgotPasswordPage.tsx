@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from '@/components/tanstack/RouterLink';
 import { Button } from '@/components/ui/button';
 import { AuthShell } from '@/components/auth/AuthShell';
+import { useAuth } from '@/contexts/AuthContext';
 import { toast } from 'sonner';
 import { ArrowLeft, Mail, CheckCircle2, AlertTriangle, Loader2, KeyRound, Shield } from 'lucide-react';
 
@@ -10,18 +11,21 @@ const ForgotPasswordPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState('');
+  const { sendPasswordReset } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setLoading(true);
     try {
+      const result = await sendPasswordReset(email);
+      if (result.error) {
+        setError(result.error);
+        toast.error(result.error);
+        return;
+      }
       setSent(true);
       toast.success('Reset link sent!');
-    } catch (err: any) {
-      const msg = err.message || 'Failed to send reset link';
-      setError(msg);
-      toast.error(msg);
     } finally {
       setLoading(false);
     }
@@ -30,7 +34,7 @@ const ForgotPasswordPage: React.FC = () => {
   return (
     <AuthShell>
       <div className="rounded-3xl border bg-card p-7 shadow-elevated">
-        <Link to="/signin" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors mb-5">
+        <Link to="/auth/sign-in" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors mb-5">
           <ArrowLeft className="h-3.5 w-3.5" /> Back to sign in
         </Link>
 

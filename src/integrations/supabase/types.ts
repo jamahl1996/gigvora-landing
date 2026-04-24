@@ -14,6 +14,96 @@ export type Database = {
   }
   public: {
     Tables: {
+      account_lockouts: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          locked_until: string
+          reason: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          locked_until: string
+          reason?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          locked_until?: string
+          reason?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      auth_audit_log: {
+        Row: {
+          created_at: string
+          email: string | null
+          event_type: string
+          id: string
+          ip_address: string | null
+          metadata: Json
+          user_agent: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          event_type: string
+          id?: string
+          ip_address?: string | null
+          metadata?: Json
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          event_type?: string
+          id?: string
+          ip_address?: string | null
+          metadata?: Json
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      auth_login_attempts: {
+        Row: {
+          created_at: string
+          email: string
+          failure_reason: string | null
+          id: string
+          ip_address: string | null
+          success: boolean
+          user_agent: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          failure_reason?: string | null
+          id?: string
+          ip_address?: string | null
+          success?: boolean
+          user_agent?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          failure_reason?: string | null
+          id?: string
+          ip_address?: string | null
+          success?: boolean
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
       conversation_participants: {
         Row: {
           conversation_id: string
@@ -70,6 +160,54 @@ export type Database = {
           id?: string
           last_message_at?: string
           subject?: string | null
+        }
+        Relationships: []
+      }
+      device_sessions: {
+        Row: {
+          browser: string | null
+          city: string | null
+          country: string | null
+          created_at: string
+          device_name: string | null
+          device_type: string | null
+          id: string
+          ip_address: string | null
+          last_active_at: string
+          os: string | null
+          revoked_at: string | null
+          session_token_hash: string | null
+          user_id: string
+        }
+        Insert: {
+          browser?: string | null
+          city?: string | null
+          country?: string | null
+          created_at?: string
+          device_name?: string | null
+          device_type?: string | null
+          id?: string
+          ip_address?: string | null
+          last_active_at?: string
+          os?: string | null
+          revoked_at?: string | null
+          session_token_hash?: string | null
+          user_id: string
+        }
+        Update: {
+          browser?: string | null
+          city?: string | null
+          country?: string | null
+          created_at?: string
+          device_name?: string | null
+          device_type?: string | null
+          id?: string
+          ip_address?: string | null
+          last_active_at?: string
+          os?: string | null
+          revoked_at?: string | null
+          session_token_hash?: string | null
+          user_id?: string
         }
         Relationships: []
       }
@@ -504,6 +642,39 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      mfa_factors: {
+        Row: {
+          created_at: string
+          factor_type: string
+          friendly_name: string | null
+          id: string
+          last_used_at: string | null
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          factor_type: string
+          friendly_name?: string | null
+          id?: string
+          last_used_at?: string | null
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          factor_type?: string
+          friendly_name?: string | null
+          id?: string
+          last_used_at?: string | null
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
       }
       notifications: {
         Row: {
@@ -1150,6 +1321,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      check_account_lockout: {
+        Args: { _email: string }
+        Returns: {
+          attempts_remaining: number
+          locked: boolean
+          locked_until: string
+        }[]
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
@@ -1163,6 +1342,16 @@ export type Database = {
       }
       is_following: {
         Args: { _followee: string; _follower: string }
+        Returns: boolean
+      }
+      record_login_attempt: {
+        Args: {
+          _email: string
+          _ip?: string
+          _reason?: string
+          _success: boolean
+          _ua?: string
+        }
         Returns: boolean
       }
     }

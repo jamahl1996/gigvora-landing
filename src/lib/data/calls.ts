@@ -10,7 +10,7 @@ export function useMyCalls(limit = 50) {
     queryKey: qk.calls.mine,
     enabled: Boolean(user?.id),
     queryFn: async () => {
-      const { data, error } = await supabase.from('calls').select('*')
+      const { data, error } = await (supabase as any).from('calls').select('*')
         .or(`initiator_id.eq.${user!.id},participant_ids.cs.{${user!.id}}`)
         .order('created_at', { ascending: false }).limit(limit);
       if (error) throw error;
@@ -26,7 +26,7 @@ export function useStartCall() {
     mutationFn: async (input: CallCreateInput) => {
       if (!user?.id) throw new Error('Not authenticated');
       const parsed = callCreateSchema.parse(input);
-      const { data, error } = await supabase.from('calls').insert({
+      const { data, error } = await (supabase as any).from('calls').insert({
         initiator_id: user.id,
         participant_ids: parsed.participant_ids,
         kind: parsed.kind,
@@ -45,7 +45,7 @@ export function useEndCall() {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: async (args: { id: string; durationSeconds?: number }) => {
-      const { data, error } = await supabase.from('calls').update({
+      const { data, error } = await (supabase as any).from('calls').update({
         status: 'ended',
         ended_at: new Date().toISOString(),
         duration_seconds: args.durationSeconds ?? null,

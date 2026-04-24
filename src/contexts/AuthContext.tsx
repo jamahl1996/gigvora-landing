@@ -1,29 +1,21 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-
-interface User {
-  id: string;
-  email: string;
-  name: string;
-  avatar?: string;
-}
-
-interface AuthSession {
-  accessToken: string;
-  createdAt: string;
-  user: User;
-}
+import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
+import type { Session, User } from '@supabase/supabase-js';
+import { supabase } from '@/integrations/supabase/client';
 
 interface AuthContextValue {
   user: User | null;
-  session: AuthSession | null;
+  session: Session | null;
   isAuthenticated: boolean;
   isLoading: boolean;
-  login: (email: string, password: string) => Promise<void>;
+  login: (email: string, password: string) => Promise<{ error?: string }>;
+  signup: (email: string, password: string, name: string) => Promise<{ error?: string; needsVerification?: boolean }>;
+  signInWithGoogle: () => Promise<void>;
   logout: () => Promise<void>;
-  signup: (email: string, password: string, name: string) => Promise<void>;
+  sendPasswordReset: (email: string) => Promise<{ error?: string }>;
+  updatePassword: (newPassword: string) => Promise<{ error?: string }>;
+  refreshSession: () => Promise<void>;
 }
 
-const STORAGE_KEY = 'gigvora.auth.session.v1';
 const AuthContext = createContext<AuthContextValue | null>(null);
 
 export const useAuth = () => {
@@ -32,81 +24,168 @@ export const useAuth = () => {
   return ctx;
 };
 
-function createLocalUser(email: string, name?: string): User {
-  let hash = 0;
-  for (let i = 0; i < email.length; i += 1) {
-    hash = (hash * 31 + email.charCodeAt(i)) | 0;
-  }
-
-  return {
-    id: `local-${Math.abs(hash)}`,
-    email,
-    name: name?.trim() || email.split('@')[0] || 'User',
-  };
-}
-
-function createLocalSession(user: User): AuthSession {
-  return {
-    accessToken: `local-${crypto.randomUUID()}`,
-    createdAt: new Date().toISOString(),
-    user,
-  };
-}
-
-function readStoredSession(): AuthSession | null {
-  if (typeof window === 'undefined') return null;
-
+async function recordAudit(userId: string | null, email: string | null, eventType: string, metadata: Record<string, unknown> = {}) {
   try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw) as AuthSession;
-    return parsed?.user?.email ? parsed : null;
+    await (supabase as any).from('auth_audit_log').insert({
+      user_id: userId,
+      email,
+      event_type: eventType,
+      user_agent: typeof navigator !== 'undefined' ? navigator.userAgent : null,
+      metadata,
+    });
   } catch {
-    return null;
+    /* non-fatal */
   }
 }
 
-function writeStoredSession(session: AuthSession | null) {
-  if (typeof window === 'undefined') return;
-  if (session) window.localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
-  else window.localStorage.removeItem(STORAGE_KEY);
+async function recordAttempt(email: string, success: boolean, reason?: string) {
+  try {
+    await (supabase as any).rpc('record_login_attempt', {
+      _email: email,
+      _success: success,
+      _ua: typeof navigator !== 'undefined' ? navigator.userAgent : null,
+      _reason: reason ?? null,
+    });
+  } catch {
+    /* non-fatal */
+  }
+}
+
+async function checkLockout(email: string) {
+  try {
+    const { data } = await (supabase as any).rpc('check_account_lockout', { _email: email });
+    const row = Array.isArray(data) ? data[0] : data;
+    return {
+      locked: !!row?.locked,
+      lockedUntil: row?.locked_until ? new Date(row.locked_until) : null,
+      attemptsRemaining: typeof row?.attempts_remaining === 'number' ? row.attempts_remaining : 5,
+    };
+  } catch {
+    return { locked: false, lockedUntil: null, attemptsRemaining: 5 };
+  }
+}
+
+async function registerDeviceSession(userId: string) {
+  try {
+    const ua = typeof navigator !== 'undefined' ? navigator.userAgent : '';
+    const isMobile = /Mobi|Android|iPhone|iPad/i.test(ua);
+    let browser = 'Unknown';
+    if (/Chrome\//.test(ua) && !/Edg|OPR/.test(ua)) browser = 'Chrome';
+    else if (/Safari\//.test(ua) && !/Chrome/.test(ua)) browser = 'Safari';
+    else if (/Firefox\//.test(ua)) browser = 'Firefox';
+    else if (/Edg\//.test(ua)) browser = 'Edge';
+    let os = 'Unknown';
+    if (/Windows/.test(ua)) os = 'Windows';
+    else if (/Mac OS X/.test(ua)) os = 'macOS';
+    else if (/Android/.test(ua)) os = 'Android';
+    else if (/iPhone|iPad/.test(ua)) os = 'iOS';
+    else if (/Linux/.test(ua)) os = 'Linux';
+
+    await (supabase as any).from('device_sessions').insert({
+      user_id: userId,
+      device_type: isMobile ? 'mobile' : 'desktop',
+      browser,
+      os,
+      device_name: `${browser} on ${os}`,
+    });
+  } catch {
+    /* non-fatal */
+  }
 }
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [session, setSession] = useState<AuthSession | null>(null);
+  const [session, setSession] = useState<Session | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const storedSession = readStoredSession();
-    setSession(storedSession);
-    setUser(storedSession?.user ?? null);
-    setIsLoading(false);
+    // Set up listener BEFORE getSession (per Supabase guidance)
+    const { data: sub } = supabase.auth.onAuthStateChange((event, sess) => {
+      setSession(sess);
+      setUser(sess?.user ?? null);
+      if (event === 'SIGNED_IN' && sess?.user) {
+        // Defer non-critical writes
+        setTimeout(() => {
+          registerDeviceSession(sess.user.id);
+          recordAudit(sess.user.id, sess.user.email ?? null, 'sign_in');
+        }, 0);
+      }
+      if (event === 'SIGNED_OUT') {
+        recordAudit(null, null, 'sign_out');
+      }
+    });
+
+    supabase.auth.getSession().then(({ data }) => {
+      setSession(data.session);
+      setUser(data.session?.user ?? null);
+      setIsLoading(false);
+    });
+
+    return () => sub.subscription.unsubscribe();
   }, []);
 
-  const login = async (email: string, password: string) => {
-    if (!email || !password) throw new Error('Email and password required');
+  const login = useCallback(async (email: string, password: string) => {
+    const lock = await checkLockout(email);
+    if (lock.locked) {
+      return { error: 'Account temporarily locked. Try again later.' };
+    }
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) {
+      await recordAttempt(email, false, error.message);
+      return { error: error.message };
+    }
+    await recordAttempt(email, true);
+    return {};
+  }, []);
 
-    const nextSession = createLocalSession(createLocalUser(email));
-    writeStoredSession(nextSession);
-    setSession(nextSession);
-    setUser(nextSession.user);
-  };
+  const signup = useCallback(async (email: string, password: string, name: string) => {
+    const redirectTo = `${window.location.origin}/auth/verify`;
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        emailRedirectTo: redirectTo,
+        data: { display_name: name, full_name: name },
+      },
+    });
+    if (error) return { error: error.message };
+    await recordAudit(data.user?.id ?? null, email, 'sign_up');
+    const needsVerification = !data.session;
+    return { needsVerification };
+  }, []);
 
-  const logout = async () => {
-    writeStoredSession(null);
-    setUser(null);
-    setSession(null);
-  };
+  const signInWithGoogle = useCallback(async () => {
+    await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo: `${window.location.origin}/auth/callback` },
+    });
+  }, []);
 
-  const signup = async (email: string, password: string, name: string) => {
-    if (!email || !password) throw new Error('Email and password required');
+  const logout = useCallback(async () => {
+    await supabase.auth.signOut();
+  }, []);
 
-    const nextSession = createLocalSession(createLocalUser(email, name));
-    writeStoredSession(nextSession);
-    setSession(nextSession);
-    setUser(nextSession.user);
-  };
+  const sendPasswordReset = useCallback(async (email: string) => {
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/auth/reset-password`,
+    });
+    if (error) return { error: error.message };
+    await recordAudit(null, email, 'password_reset_requested');
+    return {};
+  }, []);
+
+  const updatePassword = useCallback(async (newPassword: string) => {
+    const { error } = await supabase.auth.updateUser({ password: newPassword });
+    if (error) return { error: error.message };
+    await recordAudit(user?.id ?? null, user?.email ?? null, 'password_changed');
+    return {};
+  }, [user]);
+
+  const refreshSession = useCallback(async () => {
+    const { data } = await supabase.auth.getSession();
+    setSession(data.session);
+    setUser(data.session?.user ?? null);
+  }, []);
 
   return (
     <AuthContext.Provider
@@ -116,8 +195,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         isAuthenticated: !!session,
         isLoading,
         login,
-        logout,
         signup,
+        signInWithGoogle,
+        logout,
+        sendPasswordReset,
+        updatePassword,
+        refreshSession,
       }}
     >
       {children}

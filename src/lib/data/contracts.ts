@@ -28,7 +28,7 @@ export function useContract(id: string | null) {
     queryKey: id ? qk.contracts.byId(id) : ['contracts','none'],
     enabled: Boolean(id),
     queryFn: async () => {
-      const { data, error } = await supabase.from('contracts').select('*').eq('id', id!).maybeSingle();
+      const { data, error } = await (supabase as any).from('contracts').select('*').eq('id', id!).maybeSingle();
       if (error) throw error;
       return data;
     },
@@ -40,7 +40,7 @@ export function useCreateContract() {
   return useMutation({
     mutationFn: async (input: ContractCreateInput) => {
       const parsed = contractCreateSchema.parse(input);
-      const { data, error } = await supabase.from('contracts').insert({
+      const { data, error } = await (supabase as any).from('contracts').insert({
         client_id: parsed.client_id,
         provider_id: parsed.provider_id,
         title: parsed.title,
@@ -67,7 +67,7 @@ export function useUpdateContract() {
     mutationFn: async (args: { id: string; patch: ContractUpdateInput }) => {
       const parsed = contractUpdateSchema.parse(args.patch);
       const { terms, ...rest } = parsed;
-      const { data, error } = await supabase.from('contracts')
+      const { data, error } = await (supabase as any).from('contracts')
         .update({ ...rest, ...(terms ? { terms: terms as any } : {}) })
         .eq('id', args.id).select().single();
       if (error) throw error;
@@ -86,7 +86,7 @@ export function useSignContract() {
       const patch = args.as === 'client'
         ? { client_signed_at: new Date().toISOString() }
         : { provider_signed_at: new Date().toISOString() };
-      const { data, error } = await supabase.from('contracts').update(patch).eq('id', args.id).select().single();
+      const { data, error } = await (supabase as any).from('contracts').update(patch).eq('id', args.id).select().single();
       if (error) throw error;
       return data;
     },
