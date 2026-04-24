@@ -46,13 +46,19 @@ const SignUpPage: React.FC = () => {
     setError('');
     setLoading(true);
     try {
-      await signup(email, password, name);
-      toast.success('Account created! Check your email to verify.');
-      navigate('/verify');
-    } catch (err: any) {
-      const msg = err.message || 'Sign up failed';
-      setError(msg);
-      toast.error(msg);
+      const result = await signup(email, password, name);
+      if (result.error) {
+        setError(result.error);
+        toast.error(result.error);
+        return;
+      }
+      if (result.needsVerification) {
+        toast.success('Account created! Check your email to verify.');
+        navigate('/auth/verify');
+      } else {
+        toast.success('Welcome to Gigvora!');
+        navigate('/auth/onboarding');
+      }
     } finally {
       setLoading(false);
     }
@@ -170,7 +176,7 @@ const SignUpPage: React.FC = () => {
 
         <p className="text-center text-xs text-muted-foreground mt-5">
           Already have an account?{' '}
-          <Link to="/signin" className="text-[hsl(var(--gigvora-blue))] font-semibold hover:underline">Sign in</Link>
+          <Link to="/auth/sign-in" className="text-[hsl(var(--gigvora-blue))] font-semibold hover:underline">Sign in</Link>
         </p>
       </div>
     </AuthShell>
