@@ -1,50 +1,20 @@
-function disabledQuery() {
-  const result = Promise.resolve({
-    data: null,
-    error: new Error('Supabase is not configured for this build.'),
-  });
+import { createClient } from '@supabase/supabase-js';
+import type { Database } from './types';
 
-  let proxy: any;
-  proxy = new Proxy(result, {
-    get(target, prop) {
-      if (prop === 'then' || prop === 'catch' || prop === 'finally') {
-        return (target as any)[prop].bind(target);
-      }
-      return () => proxy;
-    },
-  });
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
+const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
 
-  return proxy;
+if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
+  // eslint-disable-next-line no-console
+  console.warn('[supabase] Missing VITE_SUPABASE_URL or VITE_SUPABASE_PUBLISHABLE_KEY');
 }
 
-function createDisabledSupabaseClient() {
-  return {
-    from: () => disabledQuery(),
-    rpc: () => disabledQuery(),
-    storage: { from: () => disabledQuery() },
-    channel: () => ({
-      on: () => ({ subscribe: () => ({ unsubscribe: () => undefined }) }),
-      subscribe: () => ({ unsubscribe: () => undefined }),
-    }),
-    removeChannel: () => undefined,
-    auth: {
-      getSession: async () => ({ data: { session: null }, error: null }),
-      onAuthStateChange: () => ({
-        data: { subscription: { unsubscribe: () => undefined } },
-      }),
-      signInWithPassword: async () => ({
-        data: { user: null, session: null },
-        error: new Error('Supabase auth has been removed.'),
-      }),
-      signUp: async () => ({
-        data: { user: null, session: null },
-        error: new Error('Supabase auth has been removed.'),
-      }),
-      signOut: async () => ({ error: null }),
-      resetPasswordForEmail: async () => ({ data: null, error: null }),
-      updateUser: async () => ({ data: { user: null }, error: null }),
-    },
-  };
-}
-
-export const supabase = createDisabledSupabaseClient() as any;
+export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
+  auth: {
+    storage: typeof window !== 'undefined' ? window.localStorage : undefined,
+    persistSession: true,
+    autoRefreshToken: true,
+    detectSessionInUrl: true,
+    flowType: 'pkce',
+  },
+});
