@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
+const sb: any = supabase;
 import { useAuth } from '@/contexts/AuthContext';
 import { qk } from '@/lib/queryKeys';
 import { gigUpsertSchema, type GigUpsertInput } from '@/lib/schemas/marketplace';
@@ -41,7 +42,7 @@ export function useGig(id: string | null | undefined) {
     queryKey: id ? qk.gigs.byId(id) : ['gigs', 'byId', 'none'],
     enabled: Boolean(id),
     queryFn: async (): Promise<GigRow | null> => {
-      const { data, error } = await supabase.from('gigs').select('*').eq('id', id!).maybeSingle();
+      const { data, error } = await sb.from('gigs').select('*').eq('id', id!).maybeSingle();
       if (error) throw error;
       return data;
     },
@@ -79,7 +80,7 @@ export function useCreateGig() {
         tiers: parsed.tiers as unknown as Json,
         gallery: parsed.gallery as unknown as Json,
       };
-      const { data, error } = await supabase.from('gigs').insert(row).select().single();
+      const { data, error } = await sb.from('gigs').insert(row).select().single();
       if (error) throw error;
       return data;
     },
@@ -100,7 +101,7 @@ export function useUpdateGig() {
         tiers: parsed.tiers as unknown as Json | undefined,
         gallery: parsed.gallery as unknown as Json | undefined,
       };
-      const { data, error } = await supabase.from('gigs').update(update).eq('id', id).select().single();
+      const { data, error } = await sb.from('gigs').update(update).eq('id', id).select().single();
       if (error) throw error;
       return data;
     },
@@ -116,7 +117,7 @@ export function useDeleteGig() {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: async (id: string) => {
-      const { error } = await supabase.from('gigs').delete().eq('id', id);
+      const { error } = await sb.from('gigs').delete().eq('id', id);
       if (error) throw error;
       return id;
     },

@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
+const sb: any = supabase;
 import { useAuth } from '@/contexts/AuthContext';
 import { qk } from '@/lib/queryKeys';
 import type { Tables } from '@/integrations/supabase/types';

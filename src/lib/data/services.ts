@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
+const sb: any = supabase;
 import { useAuth } from '@/contexts/AuthContext';
 import { qk } from '@/lib/queryKeys';
 import { serviceUpsertSchema, type ServiceUpsertInput } from '@/lib/schemas/marketplace';
@@ -41,7 +42,7 @@ export function useService(id: string | null | undefined) {
     queryKey: id ? qk.services.byId(id) : ['services', 'byId', 'none'],
     enabled: Boolean(id),
     queryFn: async (): Promise<ServiceRow | null> => {
-      const { data, error } = await supabase.from('services').select('*').eq('id', id!).maybeSingle();
+      const { data, error } = await sb.from('services').select('*').eq('id', id!).maybeSingle();
       if (error) throw error;
       return data;
     },
@@ -73,7 +74,7 @@ export function useCreateService() {
       if (!user?.id) throw new Error('Not authenticated');
       const parsed = serviceUpsertSchema.parse(input);
       const row: TablesInsert<'services'> = { ...parsed, title: parsed.title, owner_id: user.id };
-      const { data, error } = await supabase.from('services').insert(row).select().single();
+      const { data, error } = await sb.from('services').insert(row).select().single();
       if (error) throw error;
       return data;
     },
@@ -90,7 +91,7 @@ export function useUpdateService() {
     mutationFn: async ({ id, ...input }: ServiceUpsertInput & { id: string }) => {
       const parsed = serviceUpsertSchema.partial().parse(input);
       const update: TablesUpdate<'services'> = parsed;
-      const { data, error } = await supabase.from('services').update(update).eq('id', id).select().single();
+      const { data, error } = await sb.from('services').update(update).eq('id', id).select().single();
       if (error) throw error;
       return data;
     },
@@ -106,7 +107,7 @@ export function useDeleteService() {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: async (id: string) => {
-      const { error } = await supabase.from('services').delete().eq('id', id);
+      const { error } = await sb.from('services').delete().eq('id', id);
       if (error) throw error;
       return id;
     },
