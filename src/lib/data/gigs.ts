@@ -73,13 +73,13 @@ export function useCreateGig() {
     mutationFn: async (input: GigUpsertInput) => {
       if (!user?.id) throw new Error('Not authenticated');
       const parsed = gigUpsertSchema.parse(input);
-      const row: any = {
+      const row = {
         ...parsed,
         title: parsed.title,
         owner_id: user.id,
         tiers: parsed.tiers as unknown as Json,
         gallery: parsed.gallery as unknown as Json,
-      };
+      } as any;
       const { data, error } = await sb.from('gigs').insert(row).select().single();
       if (error) throw error;
       return data;
@@ -96,11 +96,11 @@ export function useUpdateGig() {
   return useMutation({
     mutationFn: async ({ id, ...input }: GigUpsertInput & { id: string }) => {
       const parsed = gigUpsertSchema.partial().parse(input);
-      const update: any = {
+      const update = {
         ...parsed,
         tiers: parsed.tiers as unknown as Json | undefined,
         gallery: parsed.gallery as unknown as Json | undefined,
-      };
+      } as any;
       const { data, error } = await sb.from('gigs').update(update).eq('id', id).select().single();
       if (error) throw error;
       return data;

@@ -72,7 +72,7 @@ export function useUpsertMyProfessionalProfile() {
     mutationFn: async (input: ProfessionalProfileUpsertInput) => {
       if (!user?.id) throw new Error('Not authenticated');
       const parsed = professionalProfileUpsertSchema.parse(input);
-      const row: TablesInsert<'professional_profiles'> = { id: user.id, ...parsed };
+      const row: any = { id: user.id, ...parsed };
       const { data, error } = await supabase
         .from('professional_profiles')
         .upsert(row, { onConflict: 'id' })

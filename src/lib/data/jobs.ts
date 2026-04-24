@@ -80,7 +80,7 @@ export function useCreateJob() {
       if (!user?.id) throw new Error('Not authenticated');
       const parsed = jobUpsertSchema.parse(input);
       // `parsed.title` is guaranteed by Zod (.min(3)); the cast satisfies TS only.
-      const row: any = { ...parsed, title: parsed.title, owner_id: user.id };
+      const row = { ...parsed, title: parsed.title, owner_id: user.id } as any;
       const { data, error } = await sb.from('jobs').insert(row).select().single();
       if (error) throw error;
       return data;
@@ -97,7 +97,7 @@ export function useUpdateJob() {
   return useMutation({
     mutationFn: async ({ id, ...input }: JobUpsertInput & { id: string }) => {
       const parsed = jobUpsertSchema.partial().parse(input);
-      const update: any = parsed;
+      const update = { ...parsed } as any;
       const { data, error } = await sb.from('jobs').update(update).eq('id', id).select().single();
       if (error) throw error;
       return data;
