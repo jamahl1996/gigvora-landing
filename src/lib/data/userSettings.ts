@@ -40,9 +40,9 @@ export function useUpdateMyUserSettings() {
       if (!user?.id) throw new Error('Not authenticated');
       const parsed = userSettingsUpdateSchema.parse(input);
       // Cast preferences (Record<string, unknown>) to Json shape Supabase expects.
-      const update: TablesUpdate<'user_settings'> = {
+      const update: any = {
         ...parsed,
-        preferences: parsed.preferences as TablesUpdate<'user_settings'>['preferences'],
+        preferences: parsed.preferences as any['preferences'],
       };
       const { data, error } = await supabase
         .from('user_settings')

@@ -73,7 +73,7 @@ export function useCreateGig() {
     mutationFn: async (input: GigUpsertInput) => {
       if (!user?.id) throw new Error('Not authenticated');
       const parsed = gigUpsertSchema.parse(input);
-      const row: TablesInsert<'gigs'> = {
+      const row: any = {
         ...parsed,
         title: parsed.title,
         owner_id: user.id,
@@ -96,7 +96,7 @@ export function useUpdateGig() {
   return useMutation({
     mutationFn: async ({ id, ...input }: GigUpsertInput & { id: string }) => {
       const parsed = gigUpsertSchema.partial().parse(input);
-      const update: TablesUpdate<'gigs'> = {
+      const update: any = {
         ...parsed,
         tiers: parsed.tiers as unknown as Json | undefined,
         gallery: parsed.gallery as unknown as Json | undefined,
