@@ -311,7 +311,7 @@ export const AvatarDropdown: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const initials = user?.name
-    ? user.name.split(' ').map((n) => n[0]).join('').toUpperCase().slice(0, 2)
+    ? (user?.user_metadata?.display_name ?? user?.email ?? 'U').split(' ').map((n) => n[0]).join('').toUpperCase().slice(0, 2)
     : 'U';
 
   const handleNavigate = (path: string) => {
