@@ -11,7 +11,7 @@ interface PageMetaOptions {
 }
 
 const BASE_TITLE = 'Gigvora';
-const BASE_URL = 'https://gigvora.lovable.app';
+const BASE_URL = 'https://gigvora.com';
 
 /**
  * Hook to set per-page document title and meta tags for SEO.

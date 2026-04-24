@@ -2,9 +2,8 @@
  * MlPipelineHealthCard — single source of truth for the "ML Pipeline Health"
  * widget shown on Trust & Safety and Moderator dashboards.
  *
- * Wired to usePipelineHealth() which reads ml_model_performance from Lovable
- * Cloud (admin-only RLS) and falls back to a deterministic snapshot so the
- * card never blanks for non-admin previews.
+ * Wired to usePipelineHealth() and falls back to a deterministic snapshot
+ * so the card never blanks for non-admin previews.
  */
 import React from 'react';
 import { cn } from '@/lib/utils';

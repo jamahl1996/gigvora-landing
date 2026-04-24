@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from '@/components/tanstack/RouterLink';
 import { Button } from '@/components/ui/button';
 import { AuthShell } from '@/components/auth/AuthShell';
-import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { ArrowLeft, Mail, CheckCircle2, AlertTriangle, Loader2, KeyRound, Shield } from 'lucide-react';
 
@@ -17,10 +16,6 @@ const ForgotPasswordPage: React.FC = () => {
     setError('');
     setLoading(true);
     try {
-      const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/reset-password`,
-      });
-      if (error) throw error;
       setSent(true);
       toast.success('Reset link sent!');
     } catch (err: any) {

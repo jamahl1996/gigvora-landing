@@ -7,20 +7,16 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Python cache artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+
 node_modules
 dist
 dist-ssr
-.output
-.vinxi
-.tanstack/**
-.nitro
-*.local
 .env
-.env.*
-
-# Wrangler / Cloudflare
-.wrangler/
-.dev.vars
+*.local
 
 # Editor directories and files
 .vscode/*

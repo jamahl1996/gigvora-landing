@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
+    "moduleDetection": "force",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": false,
+    "noImplicitAny": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@gigvora/sdk": [
+        "./packages/sdk/src/index.ts"
+      ],
+      "@gigvora/sdk/*": [
+        "./packages/sdk/src/*"
+      ],
+      "@tanstack/react-router": [
+        "./src/lib/router-shim/index.tsx"
+      ]
+    },
+    "skipLibCheck": true,
+    "strict": false,
+    "strictNullChecks": true,
+    "target": "ES2020",
+    "types": [
+      "vitest/globals"
+    ],
+    "useDefineForClassFields": true
+  },
+  "include": [
+    "src"
+  ]
+}

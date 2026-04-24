@@ -1,6 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { supabase } from '@/integrations/supabase/client';
-import type { User as SupaUser, Session } from '@supabase/supabase-js';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 interface User {
   id: string;
@@ -9,9 +7,15 @@ interface User {
   avatar?: string;
 }
 
+interface AuthSession {
+  accessToken: string;
+  createdAt: string;
+  user: User;
+}
+
 interface AuthContextValue {
   user: User | null;
-  session: Session | null;
+  session: AuthSession | null;
   isAuthenticated: boolean;
   isLoading: boolean;
   login: (email: string, password: string) => Promise<void>;
@@ -19,6 +23,7 @@ interface AuthContextValue {
   signup: (email: string, password: string, name: string) => Promise<void>;
 }
 
+const STORAGE_KEY = 'gigvora.auth.session.v1';
 const AuthContext = createContext<AuthContextValue | null>(null);
 
 export const useAuth = () => {
@@ -27,55 +32,80 @@ export const useAuth = () => {
   return ctx;
 };
 
-const mapUser = (su: SupaUser): User => ({
-  id: su.id,
-  email: su.email ?? '',
-  name: su.user_metadata?.full_name ?? su.email?.split('@')[0] ?? '',
-  avatar: su.user_metadata?.avatar_url,
-});
+function createLocalUser(email: string, name?: string): User {
+  let hash = 0;
+  for (let i = 0; i < email.length; i += 1) {
+    hash = (hash * 31 + email.charCodeAt(i)) | 0;
+  }
+
+  return {
+    id: `local-${Math.abs(hash)}`,
+    email,
+    name: name?.trim() || email.split('@')[0] || 'User',
+  };
+}
+
+function createLocalSession(user: User): AuthSession {
+  return {
+    accessToken: `local-${crypto.randomUUID()}`,
+    createdAt: new Date().toISOString(),
+    user,
+  };
+}
+
+function readStoredSession(): AuthSession | null {
+  if (typeof window === 'undefined') return null;
+
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as AuthSession;
+    return parsed?.user?.email ? parsed : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeStoredSession(session: AuthSession | null) {
+  if (typeof window === 'undefined') return;
+  if (session) window.localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+  else window.localStorage.removeItem(STORAGE_KEY);
+}
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [session, setSession] = useState<Session | null>(null);
+  const [session, setSession] = useState<AuthSession | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-      setUser(session?.user ? mapUser(session.user) : null);
-      setIsLoading(false);
-    });
-
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ? mapUser(session.user) : null);
-      setIsLoading(false);
-    });
-
-    return () => subscription.unsubscribe();
+    const storedSession = readStoredSession();
+    setSession(storedSession);
+    setUser(storedSession?.user ?? null);
+    setIsLoading(false);
   }, []);
 
   const login = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) throw error;
+    if (!email || !password) throw new Error('Email and password required');
+
+    const nextSession = createLocalSession(createLocalUser(email));
+    writeStoredSession(nextSession);
+    setSession(nextSession);
+    setUser(nextSession.user);
   };
 
   const logout = async () => {
-    await supabase.auth.signOut();
+    writeStoredSession(null);
     setUser(null);
     setSession(null);
   };
 
   const signup = async (email: string, password: string, name: string) => {
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: { full_name: name },
-        emailRedirectTo: window.location.origin,
-      },
-    });
-    if (error) throw error;
+    if (!email || !password) throw new Error('Email and password required');
+
+    const nextSession = createLocalSession(createLocalUser(email, name));
+    writeStoredSession(nextSession);
+    setSession(nextSession);
+    setUser(nextSession.user);
   };
 
   return (

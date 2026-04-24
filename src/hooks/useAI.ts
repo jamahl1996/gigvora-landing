@@ -1,5 +1,4 @@
-import { useState, useCallback } from 'react';
-import { supabase } from '@/integrations/supabase/client';
+import { useCallback, useState } from 'react';
 import { toast } from 'sonner';
 
 type AIType =
@@ -27,15 +26,30 @@ export const useAI = ({ type, onError }: UseAIOptions) => {
   const invoke = useCallback(async (context: any) => {
     setLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke('ai-assistant', {
-        body: { type, context },
+      const endpoint = import.meta.env.VITE_AI_ASSISTANT_URL as string | undefined;
+      if (!endpoint) {
+        const msg = 'AI assistant is not configured.';
+        if (onError) onError(msg);
+        else toast.info(msg);
+        setResult(null);
+        return null;
+      }
+
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type, context }),
       });
-      if (error) throw error;
+
+      if (!response.ok) throw new Error(`AI request failed: ${response.status}`);
+
+      const data = await response.json();
       if (data?.error) {
         if (onError) onError(data.error);
         else toast.error(data.error);
         return null;
       }
+
       setResult(data?.result || null);
       return data?.result || null;
     } catch (err: any) {

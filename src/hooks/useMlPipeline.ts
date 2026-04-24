@@ -3,7 +3,7 @@
  *
  * Reads exclusively from the NestJS bridge (`/api/v1/ml-pipeline/*`) which
  * itself talks to the user's own Postgres + the FastAPI ML service. We do
- * NOT touch Lovable Cloud / Supabase here — domain data lives outside.
+ * domain data lives outside this frontend.
  *
  * Falls back to a deterministic seeded snapshot when the bridge is
  * unreachable (preview, offline) so the dashboards never blank.

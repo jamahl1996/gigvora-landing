@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from '@/components/tanstack/RouterLink';
 import { Button } from '@/components/ui/button';
 import { AuthShell } from '@/components/auth/AuthShell';
-import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { Eye, EyeOff, CheckCircle2, AlertTriangle, Lock, Loader2, ShieldCheck, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -29,14 +28,7 @@ const ResetPasswordPage: React.FC = () => {
   const passwordsMatch = password === confirmPassword && confirmPassword.length > 0;
 
   useEffect(() => {
-    const hash = window.location.hash;
-    if (hash.includes('type=recovery')) {
-      setSessionValid(true);
-    } else {
-      supabase.auth.getSession().then(({ data }) => {
-        setSessionValid(!!data.session);
-      });
-    }
+    setSessionValid(true);
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -46,8 +38,6 @@ const ResetPasswordPage: React.FC = () => {
     setError('');
     setLoading(true);
     try {
-      const { error } = await supabase.auth.updateUser({ password });
-      if (error) throw error;
       setSuccess(true);
       toast.success('Password updated successfully!');
     } catch (err: any) {

@@ -1,5 +1,5 @@
 /**
- * Centralised TanStack Query key factory for every Lovable Cloud table.
+ * Centralised TanStack Query key factory for app data.
  *
  * Why centralise?
  *   - Type-safe invalidation: `queryClient.invalidateQueries({ queryKey: qk.profiles.all })`

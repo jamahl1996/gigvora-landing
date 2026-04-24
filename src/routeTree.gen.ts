@@ -9,31 +9,362 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TrackersRouteImport } from './routes/trackers'
+import { Route as WorkRouteImport } from './routes/work'
+import { Route as UserAgreementsRouteImport } from './routes/user-agreements'
+import { Route as TrustSafetyRouteImport } from './routes/trust-safety'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SupportRouteImport } from './routes/support'
+import { Route as StatusRouteImport } from './routes/status'
+import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as ProductRouteImport } from './routes/product'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PodcastsRouteImport } from './routes/podcasts'
 import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as NetworkRouteImport } from './routes/network'
+import { Route as MentorshipRouteImport } from './routes/mentorship'
+import { Route as MediaRouteImport } from './routes/media'
+import { Route as LearnRouteImport } from './routes/learn'
+import { Route as LaunchpadRouteImport } from './routes/launchpad'
+import { Route as JobsRouteImport } from './routes/jobs'
 import { Route as InboxRouteImport } from './routes/inbox'
-import { Route as HiringRouteImport } from './routes/hiring'
+import { Route as HireRouteImport } from './routes/hire'
+import { Route as GroupsRouteImport } from './routes/groups'
+import { Route as GigsRouteImport } from './routes/gigs'
+import { Route as FinanceRouteImport } from './routes/finance'
 import { Route as FeedRouteImport } from './routes/feed'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ExploreRouteImport } from './routes/explore'
+import { Route as EventsRouteImport } from './routes/events'
+import { Route as EnterpriseRouteImport } from './routes/enterprise'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as CreationStudioRouteImport } from './routes/creation-studio'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CommunityRouteImport } from './routes/community'
 import { Route as CalendarRouteImport } from './routes/calendar'
-import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AiRouteImport } from './routes/ai'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as MarketplaceIndexRouteImport } from './routes/marketplace.index'
-import { Route as JobsIndexRouteImport } from './routes/jobs.index'
-import { Route as UUsernameRouteImport } from './routes/u.$username'
+import { Route as SupportContactRouteImport } from './routes/support.contact'
+import { Route as SolutionsRoleRouteImport } from './routes/solutions.$role'
+import { Route as ShowcaseServicesRouteImport } from './routes/showcase.services'
+import { Route as ShowcaseRecruiterRouteImport } from './routes/showcase.recruiter'
+import { Route as ShowcaseProjectsRouteImport } from './routes/showcase.projects'
+import { Route as ShowcasePodcastsRouteImport } from './routes/showcase.podcasts'
+import { Route as ShowcaseNetworkingRouteImport } from './routes/showcase.networking'
+import { Route as ShowcaseNavigatorRouteImport } from './routes/showcase.navigator'
+import { Route as ShowcaseMentorshipRouteImport } from './routes/showcase.mentorship'
+import { Route as ShowcaseLaunchpadRouteImport } from './routes/showcase.launchpad'
+import { Route as ShowcaseJobsRouteImport } from './routes/showcase.jobs'
+import { Route as ShowcaseGigsRouteImport } from './routes/showcase.gigs'
+import { Route as ShowcaseEventsRouteImport } from './routes/showcase.events'
+import { Route as ShowcaseEnterpriseRouteImport } from './routes/showcase.enterprise'
+import { Route as ShowcaseCreatorRouteImport } from './routes/showcase.creator'
+import { Route as ShowcaseAdsRouteImport } from './routes/showcase.ads'
+import { Route as SettingsWebsiteRouteImport } from './routes/settings.website'
+import { Route as SettingsIntegrationsRouteImport } from './routes/settings.integrations'
+import { Route as ServicesPromotionsRouteImport } from './routes/services.promotions'
+import { Route as ServicesPackagesRouteImport } from './routes/services.packages'
+import { Route as ServicesOrdersRouteImport } from './routes/services.orders'
+import { Route as ServicesDeliveryRouteImport } from './routes/services.delivery'
+import { Route as ServicesCreateRouteImport } from './routes/services.create'
+import { Route as ServicesBrowseRouteImport } from './routes/services.browse'
+import { Route as ServicesAvailabilityRouteImport } from './routes/services.availability'
+import { Route as ServicesAnalyticsRouteImport } from './routes/services.analytics'
+import { Route as ProjectsTemplatesRouteImport } from './routes/projects.templates'
+import { Route as ProjectsMineRouteImport } from './routes/projects.mine'
+import { Route as ProjectsDashboardRouteImport } from './routes/projects.dashboard'
+import { Route as ProjectsCreateRouteImport } from './routes/projects.create'
+import { Route as ProjectsArchiveRouteImport } from './routes/projects.archive'
+import { Route as ProjectsProjectIdRouteImport } from './routes/projects.$projectId'
+import { Route as ProfileUsernameRouteImport } from './routes/profile.$username'
+import { Route as PodcastsSubscriptionsRouteImport } from './routes/podcasts.subscriptions'
+import { Route as PodcastsStudioRouteImport } from './routes/podcasts.studio'
+import { Route as PodcastsSeriesRouteImport } from './routes/podcasts.series'
+import { Route as PodcastsRecorderRouteImport } from './routes/podcasts.recorder'
+import { Route as PodcastsQueueRouteImport } from './routes/podcasts.queue'
+import { Route as PodcastsPurchasesRouteImport } from './routes/podcasts.purchases'
+import { Route as PodcastsPlayerRouteImport } from './routes/podcasts.player'
+import { Route as PodcastsLibraryRouteImport } from './routes/podcasts.library'
+import { Route as PodcastsLegacyRouteImport } from './routes/podcasts.legacy'
+import { Route as PodcastsDonationsRouteImport } from './routes/podcasts.donations'
+import { Route as PodcastsAnalyticsRouteImport } from './routes/podcasts.analytics'
+import { Route as NetworkingSuggestedRouteImport } from './routes/networking.suggested'
+import { Route as NetworkingSpeedRouteImport } from './routes/networking.speed'
+import { Route as NetworkingRoomsRouteImport } from './routes/networking.rooms'
+import { Route as NetworkingInvitationsRouteImport } from './routes/networking.invitations'
+import { Route as NetworkingHomeRouteImport } from './routes/networking.home'
+import { Route as NetworkingFollowingRouteImport } from './routes/networking.following'
+import { Route as NetworkingFollowersRouteImport } from './routes/networking.followers'
+import { Route as NetworkingFollowUpsRouteImport } from './routes/networking.follow-ups'
+import { Route as NetworkingConnectionsRouteImport } from './routes/networking.connections'
+import { Route as NetworkingCardsRouteImport } from './routes/networking.cards'
+import { Route as MentorshipPaymentsRouteImport } from './routes/mentorship.payments'
+import { Route as MentorshipFeedbackRouteImport } from './routes/mentorship.feedback'
+import { Route as MentorshipAnalyticsRouteImport } from './routes/mentorship.analytics'
+import { Route as MediaViewerRouteImport } from './routes/media.viewer'
+import { Route as MediaVideosRouteImport } from './routes/media.videos'
 import { Route as MediaReelsRouteImport } from './routes/media.reels'
-import { Route as MarketplaceOrdersRouteImport } from './routes/marketplace.orders'
-import { Route as MarketplaceNewRouteImport } from './routes/marketplace.new'
-import { Route as MarketplaceCheckoutReturnRouteImport } from './routes/marketplace.checkout-return'
-import { Route as JobsNewRouteImport } from './routes/jobs.new'
-import { Route as JobsSlugRouteImport } from './routes/jobs.$slug'
+import { Route as MediaLibraryRouteImport } from './routes/media.library'
+import { Route as MediaCreatorsRouteImport } from './routes/media.creators'
+import { Route as MediaAnalyticsRouteImport } from './routes/media.analytics'
+import { Route as LegalPaymentsEscrowRouteImport } from './routes/legal.payments-escrow'
+import { Route as LegalDisputesPolicyRouteImport } from './routes/legal.disputes-policy'
+import { Route as LegalCreatorMonetizationRouteImport } from './routes/legal.creator-monetization'
+import { Route as LegalCommunityGuidelinesRouteImport } from './routes/legal.community-guidelines'
+import { Route as LegalAppealsRouteImport } from './routes/legal.appeals'
+import { Route as LegalAdvertisingPolicyRouteImport } from './routes/legal.advertising-policy'
+import { Route as LaunchpadSettingsRouteImport } from './routes/launchpad.settings'
+import { Route as LaunchpadSessionsRouteImport } from './routes/launchpad.sessions'
+import { Route as LaunchpadSchoolLeaverRouteImport } from './routes/launchpad.school-leaver'
+import { Route as LaunchpadSavedRouteImport } from './routes/launchpad.saved'
+import { Route as LaunchpadProjectsRouteImport } from './routes/launchpad.projects'
+import { Route as LaunchpadProgressRouteImport } from './routes/launchpad.progress'
+import { Route as LaunchpadPortfolioRouteImport } from './routes/launchpad.portfolio'
+import { Route as LaunchpadPathwaysRouteImport } from './routes/launchpad.pathways'
+import { Route as LaunchpadOpportunitiesRouteImport } from './routes/launchpad.opportunities'
+import { Route as LaunchpadMentorsRouteImport } from './routes/launchpad.mentors'
+import { Route as LaunchpadLearningRouteImport } from './routes/launchpad.learning'
+import { Route as LaunchpadJobsRouteImport } from './routes/launchpad.jobs'
+import { Route as LaunchpadHostsRouteImport } from './routes/launchpad.hosts'
+import { Route as LaunchpadGraduateRouteImport } from './routes/launchpad.graduate'
+import { Route as LaunchpadEventsRouteImport } from './routes/launchpad.events'
+import { Route as LaunchpadEnterpriseRouteImport } from './routes/launchpad.enterprise'
+import { Route as LaunchpadEmployerRouteImport } from './routes/launchpad.employer'
+import { Route as LaunchpadEarlyCareerRouteImport } from './routes/launchpad.early-career'
+import { Route as LaunchpadDiscoverRouteImport } from './routes/launchpad.discover'
+import { Route as LaunchpadCommunityRouteImport } from './routes/launchpad.community'
+import { Route as LaunchpadChallengesRouteImport } from './routes/launchpad.challenges'
+import { Route as LaunchpadCareerChangerRouteImport } from './routes/launchpad.career-changer'
+import { Route as LaunchpadBadgesRouteImport } from './routes/launchpad.badges'
+import { Route as LaunchpadApplicationsRouteImport } from './routes/launchpad.applications'
+import { Route as LaunchpadAnalyticsRouteImport } from './routes/launchpad.analytics'
+import { Route as JobsWorkspaceRouteImport } from './routes/jobs.workspace'
+import { Route as JobsCreateRouteImport } from './routes/jobs.create'
+import { Route as JobsApplicationsRouteImport } from './routes/jobs.applications'
+import { Route as JobsApplicantsRouteImport } from './routes/jobs.applicants'
+import { Route as JobsJobIdRouteImport } from './routes/jobs.$jobId'
+import { Route as InboxThreadIdRouteImport } from './routes/inbox.$threadId'
+import { Route as HireTeamRouteImport } from './routes/hire.team'
+import { Route as HireTalentPoolsRouteImport } from './routes/hire.talent-pools'
+import { Route as HireSettingsRouteImport } from './routes/hire.settings'
+import { Route as HireScorecardsRouteImport } from './routes/hire.scorecards'
+import { Route as GroupsGroupIdRouteImport } from './routes/groups.$groupId'
+import { Route as GigsWorkspaceRouteImport } from './routes/gigs.workspace'
+import { Route as GigsRevisionsRouteImport } from './routes/gigs.revisions'
+import { Route as GigsRequirementsRouteImport } from './routes/gigs.requirements'
+import { Route as GigsPromotionsRouteImport } from './routes/gigs.promotions'
+import { Route as GigsPricingIntelRouteImport } from './routes/gigs.pricing-intel'
+import { Route as GigsPerformanceRouteImport } from './routes/gigs.performance'
+import { Route as GigsPackagesRouteImport } from './routes/gigs.packages'
+import { Route as GigsOrdersRouteImport } from './routes/gigs.orders'
+import { Route as GigsMediaRouteImport } from './routes/gigs.media'
+import { Route as GigsCustomOffersRouteImport } from './routes/gigs.custom-offers'
+import { Route as GigsCreateRouteImport } from './routes/gigs.create'
+import { Route as GigsAvailabilityRouteImport } from './routes/gigs.availability'
+import { Route as GigsArchiveRouteImport } from './routes/gigs.archive'
+import { Route as GigsAnalyticsRouteImport } from './routes/gigs.analytics'
+import { Route as GigsAddonsRouteImport } from './routes/gigs.addons'
+import { Route as GigsGigIdRouteImport } from './routes/gigs.$gigId'
+import { Route as FinanceWalletRouteImport } from './routes/finance.wallet'
+import { Route as FinancePricingRouteImport } from './routes/finance.pricing'
+import { Route as FinancePayoutsRouteImport } from './routes/finance.payouts'
+import { Route as FinancePatronageRouteImport } from './routes/finance.patronage'
+import { Route as FinanceInvoicesRouteImport } from './routes/finance.invoices'
+import { Route as FinanceEscrowRouteImport } from './routes/finance.escrow'
+import { Route as FinanceBillingRouteImport } from './routes/finance.billing'
+import { Route as ExploreWebinarsRouteImport } from './routes/explore.webinars'
+import { Route as ExploreServicesRouteImport } from './routes/explore.services'
+import { Route as ExploreSavedRouteImport } from './routes/explore.saved'
+import { Route as ExploreProjectsRouteImport } from './routes/explore.projects'
+import { Route as ExplorePodcastsRouteImport } from './routes/explore.podcasts'
+import { Route as ExplorePeopleRouteImport } from './routes/explore.people'
+import { Route as ExplorePagesRouteImport } from './routes/explore.pages'
+import { Route as ExploreMapRouteImport } from './routes/explore.map'
+import { Route as ExploreJobsRouteImport } from './routes/explore.jobs'
+import { Route as ExploreGroupsRouteImport } from './routes/explore.groups'
+import { Route as ExploreGigsRouteImport } from './routes/explore.gigs'
+import { Route as ExploreEventsRouteImport } from './routes/explore.events'
+import { Route as ExploreCompareRouteImport } from './routes/explore.compare'
+import { Route as EventsCreateRouteImport } from './routes/events.create'
+import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
+import { Route as EnterpriseStartupsRouteImport } from './routes/enterprise.startups'
+import { Route as EnterpriseSignalsRouteImport } from './routes/enterprise.signals'
+import { Route as EnterpriseSettingsRouteImport } from './routes/enterprise.settings'
+import { Route as EnterpriseSavedListsRouteImport } from './routes/enterprise.saved-lists'
+import { Route as EnterpriseRoomsRouteImport } from './routes/enterprise.rooms'
+import { Route as EnterpriseProfileRouteImport } from './routes/enterprise.profile'
+import { Route as EnterpriseProcurementRouteImport } from './routes/enterprise.procurement'
+import { Route as EnterprisePartnersRouteImport } from './routes/enterprise.partners'
+import { Route as EnterpriseMatchmakingRouteImport } from './routes/enterprise.matchmaking'
+import { Route as EnterpriseIntrosRouteImport } from './routes/enterprise.intros'
+import { Route as EnterpriseHiringRouteImport } from './routes/enterprise.hiring'
+import { Route as EnterpriseEventsRouteImport } from './routes/enterprise.events'
+import { Route as EnterpriseDirectoryRouteImport } from './routes/enterprise.directory'
+import { Route as EnterpriseDashboardRouteImport } from './routes/enterprise.dashboard'
+import { Route as EnterpriseAnalyticsRouteImport } from './routes/enterprise.analytics'
+import { Route as DashboardSupportRouteImport } from './routes/dashboard.support'
+import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
+import { Route as DashboardSavedRouteImport } from './routes/dashboard.saved'
+import { Route as DashboardResourcePlanningRouteImport } from './routes/dashboard.resource-planning'
+import { Route as DashboardRecruiterRouteImport } from './routes/dashboard.recruiter'
+import { Route as DashboardProjectsRouteImport } from './routes/dashboard.projects'
+import { Route as DashboardProfessionalRouteImport } from './routes/dashboard.professional'
+import { Route as DashboardOrdersRouteImport } from './routes/dashboard.orders'
+import { Route as DashboardMediaLibraryRouteImport } from './routes/dashboard.media-library'
+import { Route as DashboardClientRouteImport } from './routes/dashboard.client'
+import { Route as DashboardBookingsRouteImport } from './routes/dashboard.bookings'
+import { Route as DashboardBillingRouteImport } from './routes/dashboard.billing'
+import { Route as DashboardApplicationsRouteImport } from './routes/dashboard.applications'
+import { Route as DashboardActivityRouteImport } from './routes/dashboard.activity'
+import { Route as CreationStudioScheduledRouteImport } from './routes/creation-studio.scheduled'
+import { Route as CreationStudioReelsRouteImport } from './routes/creation-studio.reels'
+import { Route as CreationStudioPublishRouteImport } from './routes/creation-studio.publish'
+import { Route as CreationStudioAssetsRouteImport } from './routes/creation-studio.assets'
+import { Route as CreationStudioAnalyticsRouteImport } from './routes/creation-studio.analytics'
+import { Route as CreatePostRouteImport } from './routes/create.post'
+import { Route as CompanyCompanyIdRouteImport } from './routes/company.$companyId'
+import { Route as CommunityGroupsRouteImport } from './routes/community.groups'
+import { Route as AuthVerifyRouteImport } from './routes/auth.verify'
+import { Route as AuthSignUpRouteImport } from './routes/auth.sign-up'
+import { Route as AuthSignInRouteImport } from './routes/auth.sign-in'
+import { Route as AuthResetPasswordRouteImport } from './routes/auth.reset-password'
+import { Route as AuthOnboardingRouteImport } from './routes/auth.onboarding'
+import { Route as AuthForgotPasswordRouteImport } from './routes/auth.forgot-password'
+import { Route as AuthAccountLockedRouteImport } from './routes/auth.account-locked'
+import { Route as AiWriterRouteImport } from './routes/ai.writer'
+import { Route as AiVideoStudioRouteImport } from './routes/ai.video-studio'
+import { Route as AiSupportSummarizerRouteImport } from './routes/ai.support-summarizer'
+import { Route as AiSettingsRouteImport } from './routes/ai.settings'
+import { Route as AiRecruiterRouteImport } from './routes/ai.recruiter'
+import { Route as AiProposalHelperRouteImport } from './routes/ai.proposal-helper'
+import { Route as AiPromptsRouteImport } from './routes/ai.prompts'
+import { Route as AiOutreachRouteImport } from './routes/ai.outreach'
+import { Route as AiJdHelperRouteImport } from './routes/ai.jd-helper'
+import { Route as AiImageStudioRouteImport } from './routes/ai.image-studio'
+import { Route as AiHistoryRouteImport } from './routes/ai.history'
+import { Route as AiChatRouteImport } from './routes/ai.chat'
+import { Route as AiByokRouteImport } from './routes/ai.byok'
+import { Route as AiBriefHelperRouteImport } from './routes/ai.brief-helper'
+import { Route as AiBillingRouteImport } from './routes/ai.billing'
+import { Route as AiAnalyticsRouteImport } from './routes/ai.analytics'
+import { Route as AgencyAgencyIdRouteImport } from './routes/agency.$agencyId'
+import { Route as AdminWithdrawalsRouteImport } from './routes/admin.withdrawals'
+import { Route as AdminVerificationRouteImport } from './routes/admin.verification'
+import { Route as AdminTrustSafetyRouteImport } from './routes/admin.trust-safety'
+import { Route as AdminTicketsRouteImport } from './routes/admin.tickets'
+import { Route as AdminSuperRouteImport } from './routes/admin.super'
+import { Route as AdminSubscriptionsRouteImport } from './routes/admin.subscriptions'
+import { Route as AdminShellRouteImport } from './routes/admin.shell'
+import { Route as AdminSearchRouteImport } from './routes/admin.search'
+import { Route as AdminReportsRouteImport } from './routes/admin.reports'
+import { Route as AdminPortalRouteImport } from './routes/admin.portal'
+import { Route as AdminOpsRouteImport } from './routes/admin.ops'
+import { Route as AdminModeratorRouteImport } from './routes/admin.moderator'
+import { Route as AdminModerationRouteImport } from './routes/admin.moderation'
+import { Route as AdminLoginRouteImport } from './routes/admin.login'
+import { Route as AdminFinanceRouteImport } from './routes/admin.finance'
+import { Route as AdminDisputesRouteImport } from './routes/admin.disputes'
+import { Route as AdminComplianceRouteImport } from './routes/admin.compliance'
+import { Route as AdminAuditRouteImport } from './routes/admin.audit'
+import { Route as ProjectsProjectIdWorkspaceRouteImport } from './routes/projects.$projectId.workspace'
+import { Route as ProjectsProjectIdTasksRouteImport } from './routes/projects.$projectId.tasks'
+import { Route as ProjectsProjectIdProposalsRouteImport } from './routes/projects.$projectId.proposals'
+import { Route as ProjectsProjectIdMilestonesRouteImport } from './routes/projects.$projectId.milestones'
+import { Route as ProjectsProjectIdEscrowRouteImport } from './routes/projects.$projectId.escrow'
+import { Route as ProjectsProjectIdDeliverablesRouteImport } from './routes/projects.$projectId.deliverables'
+import { Route as MediaVideosUploadRouteImport } from './routes/media.videos.upload'
+import { Route as MediaVideosStudioRouteImport } from './routes/media.videos.studio'
+import { Route as MediaVideosVideoIdRouteImport } from './routes/media.videos.$videoId'
 import { Route as MediaReelsStudioRouteImport } from './routes/media.reels.studio'
-import { Route as MediaReelsReelIdRouteImport } from './routes/media.reels.$reelId'
-import { Route as MarketplaceGigSlugRouteImport } from './routes/marketplace.gig.$slug'
+import { Route as HireJobsCreateRouteImport } from './routes/hire.jobs.create'
+import { Route as EnterpriseStartupsStartupIdRouteImport } from './routes/enterprise.startups.$startupId'
+import { Route as ContractsContractIdMilestonesRouteImport } from './routes/contracts.$contractId.milestones'
+import { Route as ContractsContractIdEscrowRouteImport } from './routes/contracts.$contractId.escrow'
+import { Route as CheckoutServicesServiceIdRouteImport } from './routes/checkout.services.$serviceId'
+import { Route as CheckoutProjectsProjectIdRouteImport } from './routes/checkout.projects.$projectId'
+import { Route as CheckoutGigsGigIdRouteImport } from './routes/checkout.gigs.$gigId'
+import { Route as AdminTicketsTicketIdRouteImport } from './routes/admin.tickets.$ticketId'
+import { Route as ProjectsProjectIdProposalsSubmitRouteImport } from './routes/projects.$projectId.proposals.submit'
 
-const TrackersRoute = TrackersRouteImport.update({
-  id: '/trackers',
-  path: '/trackers',
+const WorkRoute = WorkRouteImport.update({
+  id: '/work',
+  path: '/work',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UserAgreementsRoute = UserAgreementsRouteImport.update({
+  id: '/user-agreements',
+  path: '/user-agreements',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrustSafetyRoute = TrustSafetyRouteImport.update({
+  id: '/trust-safety',
+  path: '/trust-safety',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatusRoute = StatusRouteImport.update({
+  id: '/status',
+  path: '/status',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsRoute = SolutionsRouteImport.update({
+  id: '/solutions',
+  path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductRoute = ProductRouteImport.update({
+  id: '/product',
+  path: '/product',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PodcastsRoute = PodcastsRouteImport.update({
+  id: '/podcasts',
+  path: '/podcasts',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NotificationsRoute = NotificationsRouteImport.update({
@@ -41,14 +372,59 @@ const NotificationsRoute = NotificationsRouteImport.update({
   path: '/notifications',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NetworkRoute = NetworkRouteImport.update({
+  id: '/network',
+  path: '/network',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorshipRoute = MentorshipRouteImport.update({
+  id: '/mentorship',
+  path: '/mentorship',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MediaRoute = MediaRouteImport.update({
+  id: '/media',
+  path: '/media',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnRoute = LearnRouteImport.update({
+  id: '/learn',
+  path: '/learn',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LaunchpadRoute = LaunchpadRouteImport.update({
+  id: '/launchpad',
+  path: '/launchpad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JobsRoute = JobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InboxRoute = InboxRouteImport.update({
   id: '/inbox',
   path: '/inbox',
   getParentRoute: () => rootRouteImport,
 } as any)
-const HiringRoute = HiringRouteImport.update({
-  id: '/hiring',
-  path: '/hiring',
+const HireRoute = HireRouteImport.update({
+  id: '/hire',
+  path: '/hire',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GroupsRoute = GroupsRouteImport.update({
+  id: '/groups',
+  path: '/groups',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GigsRoute = GigsRouteImport.update({
+  id: '/gigs',
+  path: '/gigs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinanceRoute = FinanceRouteImport.update({
+  id: '/finance',
+  path: '/finance',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FeedRoute = FeedRouteImport.update({
@@ -56,9 +432,44 @@ const FeedRoute = FeedRouteImport.update({
   path: '/feed',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ExploreRoute = ExploreRouteImport.update({
   id: '/explore',
   path: '/explore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsRoute = EventsRouteImport.update({
+  id: '/events',
+  path: '/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnterpriseRoute = EnterpriseRouteImport.update({
+  id: '/enterprise',
+  path: '/enterprise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreationStudioRoute = CreationStudioRouteImport.update({
+  id: '/creation-studio',
+  path: '/creation-studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CalendarRoute = CalendarRouteImport.update({
@@ -66,9 +477,19 @@ const CalendarRoute = CalendarRouteImport.update({
   path: '/calendar',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthRoute = AuthRouteImport.update({
-  id: '/auth',
-  path: '/auth',
+const AiRoute = AiRouteImport.update({
+  id: '/ai',
+  path: '/ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -76,239 +497,3127 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MarketplaceIndexRoute = MarketplaceIndexRouteImport.update({
-  id: '/marketplace/',
-  path: '/marketplace/',
+const SupportContactRoute = SupportContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => SupportRoute,
+} as any)
+const SolutionsRoleRoute = SolutionsRoleRouteImport.update({
+  id: '/$role',
+  path: '/$role',
+  getParentRoute: () => SolutionsRoute,
+} as any)
+const ShowcaseServicesRoute = ShowcaseServicesRouteImport.update({
+  id: '/showcase/services',
+  path: '/showcase/services',
   getParentRoute: () => rootRouteImport,
 } as any)
-const JobsIndexRoute = JobsIndexRouteImport.update({
-  id: '/jobs/',
-  path: '/jobs/',
+const ShowcaseRecruiterRoute = ShowcaseRecruiterRouteImport.update({
+  id: '/showcase/recruiter',
+  path: '/showcase/recruiter',
   getParentRoute: () => rootRouteImport,
 } as any)
-const UUsernameRoute = UUsernameRouteImport.update({
-  id: '/u/$username',
-  path: '/u/$username',
+const ShowcaseProjectsRoute = ShowcaseProjectsRouteImport.update({
+  id: '/showcase/projects',
+  path: '/showcase/projects',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ShowcasePodcastsRoute = ShowcasePodcastsRouteImport.update({
+  id: '/showcase/podcasts',
+  path: '/showcase/podcasts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShowcaseNetworkingRoute = ShowcaseNetworkingRouteImport.update({
+  id: '/showcase/networking',
+  path: '/showcase/networking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShowcaseNavigatorRoute = ShowcaseNavigatorRouteImport.update({
+  id: '/showcase/navigator',
+  path: '/showcase/navigator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShowcaseMentorshipRoute = ShowcaseMentorshipRouteImport.update({
+  id: '/showcase/mentorship',
+  path: '/showcase/mentorship',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShowcaseLaunchpadRoute = ShowcaseLaunchpadRouteImport.update({
+  id: '/showcase/launchpad',
+  path: '/showcase/launchpad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShowcaseJobsRoute = ShowcaseJobsRouteImport.update({
+  id: '/showcase/jobs',
+  path: '/showcase/jobs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShowcaseGigsRoute = ShowcaseGigsRouteImport.update({
+  id: '/showcase/gigs',
+  path: '/showcase/gigs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShowcaseEventsRoute = ShowcaseEventsRouteImport.update({
+  id: '/showcase/events',
+  path: '/showcase/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShowcaseEnterpriseRoute = ShowcaseEnterpriseRouteImport.update({
+  id: '/showcase/enterprise',
+  path: '/showcase/enterprise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShowcaseCreatorRoute = ShowcaseCreatorRouteImport.update({
+  id: '/showcase/creator',
+  path: '/showcase/creator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShowcaseAdsRoute = ShowcaseAdsRouteImport.update({
+  id: '/showcase/ads',
+  path: '/showcase/ads',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsWebsiteRoute = SettingsWebsiteRouteImport.update({
+  id: '/website',
+  path: '/website',
+  getParentRoute: () => SettingsRoute,
+} as any)
+const SettingsIntegrationsRoute = SettingsIntegrationsRouteImport.update({
+  id: '/integrations',
+  path: '/integrations',
+  getParentRoute: () => SettingsRoute,
+} as any)
+const ServicesPromotionsRoute = ServicesPromotionsRouteImport.update({
+  id: '/promotions',
+  path: '/promotions',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesPackagesRoute = ServicesPackagesRouteImport.update({
+  id: '/packages',
+  path: '/packages',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesOrdersRoute = ServicesOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesDeliveryRoute = ServicesDeliveryRouteImport.update({
+  id: '/delivery',
+  path: '/delivery',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesCreateRoute = ServicesCreateRouteImport.update({
+  id: '/create',
+  path: '/create',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesBrowseRoute = ServicesBrowseRouteImport.update({
+  id: '/browse',
+  path: '/browse',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesAvailabilityRoute = ServicesAvailabilityRouteImport.update({
+  id: '/availability',
+  path: '/availability',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesAnalyticsRoute = ServicesAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ProjectsTemplatesRoute = ProjectsTemplatesRouteImport.update({
+  id: '/templates',
+  path: '/templates',
+  getParentRoute: () => ProjectsRoute,
+} as any)
+const ProjectsMineRoute = ProjectsMineRouteImport.update({
+  id: '/mine',
+  path: '/mine',
+  getParentRoute: () => ProjectsRoute,
+} as any)
+const ProjectsDashboardRoute = ProjectsDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => ProjectsRoute,
+} as any)
+const ProjectsCreateRoute = ProjectsCreateRouteImport.update({
+  id: '/create',
+  path: '/create',
+  getParentRoute: () => ProjectsRoute,
+} as any)
+const ProjectsArchiveRoute = ProjectsArchiveRouteImport.update({
+  id: '/archive',
+  path: '/archive',
+  getParentRoute: () => ProjectsRoute,
+} as any)
+const ProjectsProjectIdRoute = ProjectsProjectIdRouteImport.update({
+  id: '/$projectId',
+  path: '/$projectId',
+  getParentRoute: () => ProjectsRoute,
+} as any)
+const ProfileUsernameRoute = ProfileUsernameRouteImport.update({
+  id: '/$username',
+  path: '/$username',
+  getParentRoute: () => ProfileRoute,
+} as any)
+const PodcastsSubscriptionsRoute = PodcastsSubscriptionsRouteImport.update({
+  id: '/subscriptions',
+  path: '/subscriptions',
+  getParentRoute: () => PodcastsRoute,
+} as any)
+const PodcastsStudioRoute = PodcastsStudioRouteImport.update({
+  id: '/studio',
+  path: '/studio',
+  getParentRoute: () => PodcastsRoute,
+} as any)
+const PodcastsSeriesRoute = PodcastsSeriesRouteImport.update({
+  id: '/series',
+  path: '/series',
+  getParentRoute: () => PodcastsRoute,
+} as any)
+const PodcastsRecorderRoute = PodcastsRecorderRouteImport.update({
+  id: '/recorder',
+  path: '/recorder',
+  getParentRoute: () => PodcastsRoute,
+} as any)
+const PodcastsQueueRoute = PodcastsQueueRouteImport.update({
+  id: '/queue',
+  path: '/queue',
+  getParentRoute: () => PodcastsRoute,
+} as any)
+const PodcastsPurchasesRoute = PodcastsPurchasesRouteImport.update({
+  id: '/purchases',
+  path: '/purchases',
+  getParentRoute: () => PodcastsRoute,
+} as any)
+const PodcastsPlayerRoute = PodcastsPlayerRouteImport.update({
+  id: '/player',
+  path: '/player',
+  getParentRoute: () => PodcastsRoute,
+} as any)
+const PodcastsLibraryRoute = PodcastsLibraryRouteImport.update({
+  id: '/library',
+  path: '/library',
+  getParentRoute: () => PodcastsRoute,
+} as any)
+const PodcastsLegacyRoute = PodcastsLegacyRouteImport.update({
+  id: '/legacy',
+  path: '/legacy',
+  getParentRoute: () => PodcastsRoute,
+} as any)
+const PodcastsDonationsRoute = PodcastsDonationsRouteImport.update({
+  id: '/donations',
+  path: '/donations',
+  getParentRoute: () => PodcastsRoute,
+} as any)
+const PodcastsAnalyticsRoute = PodcastsAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => PodcastsRoute,
+} as any)
+const NetworkingSuggestedRoute = NetworkingSuggestedRouteImport.update({
+  id: '/networking/suggested',
+  path: '/networking/suggested',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NetworkingSpeedRoute = NetworkingSpeedRouteImport.update({
+  id: '/networking/speed',
+  path: '/networking/speed',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NetworkingRoomsRoute = NetworkingRoomsRouteImport.update({
+  id: '/networking/rooms',
+  path: '/networking/rooms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NetworkingInvitationsRoute = NetworkingInvitationsRouteImport.update({
+  id: '/networking/invitations',
+  path: '/networking/invitations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NetworkingHomeRoute = NetworkingHomeRouteImport.update({
+  id: '/networking/home',
+  path: '/networking/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NetworkingFollowingRoute = NetworkingFollowingRouteImport.update({
+  id: '/networking/following',
+  path: '/networking/following',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NetworkingFollowersRoute = NetworkingFollowersRouteImport.update({
+  id: '/networking/followers',
+  path: '/networking/followers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NetworkingFollowUpsRoute = NetworkingFollowUpsRouteImport.update({
+  id: '/networking/follow-ups',
+  path: '/networking/follow-ups',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NetworkingConnectionsRoute = NetworkingConnectionsRouteImport.update({
+  id: '/networking/connections',
+  path: '/networking/connections',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NetworkingCardsRoute = NetworkingCardsRouteImport.update({
+  id: '/networking/cards',
+  path: '/networking/cards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorshipPaymentsRoute = MentorshipPaymentsRouteImport.update({
+  id: '/payments',
+  path: '/payments',
+  getParentRoute: () => MentorshipRoute,
+} as any)
+const MentorshipFeedbackRoute = MentorshipFeedbackRouteImport.update({
+  id: '/feedback',
+  path: '/feedback',
+  getParentRoute: () => MentorshipRoute,
+} as any)
+const MentorshipAnalyticsRoute = MentorshipAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => MentorshipRoute,
+} as any)
+const MediaViewerRoute = MediaViewerRouteImport.update({
+  id: '/viewer',
+  path: '/viewer',
+  getParentRoute: () => MediaRoute,
+} as any)
+const MediaVideosRoute = MediaVideosRouteImport.update({
+  id: '/videos',
+  path: '/videos',
+  getParentRoute: () => MediaRoute,
 } as any)
 const MediaReelsRoute = MediaReelsRouteImport.update({
-  id: '/media/reels',
-  path: '/media/reels',
+  id: '/reels',
+  path: '/reels',
+  getParentRoute: () => MediaRoute,
+} as any)
+const MediaLibraryRoute = MediaLibraryRouteImport.update({
+  id: '/library',
+  path: '/library',
+  getParentRoute: () => MediaRoute,
+} as any)
+const MediaCreatorsRoute = MediaCreatorsRouteImport.update({
+  id: '/creators',
+  path: '/creators',
+  getParentRoute: () => MediaRoute,
+} as any)
+const MediaAnalyticsRoute = MediaAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => MediaRoute,
+} as any)
+const LegalPaymentsEscrowRoute = LegalPaymentsEscrowRouteImport.update({
+  id: '/legal/payments-escrow',
+  path: '/legal/payments-escrow',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MarketplaceOrdersRoute = MarketplaceOrdersRouteImport.update({
-  id: '/marketplace/orders',
-  path: '/marketplace/orders',
+const LegalDisputesPolicyRoute = LegalDisputesPolicyRouteImport.update({
+  id: '/legal/disputes-policy',
+  path: '/legal/disputes-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MarketplaceNewRoute = MarketplaceNewRouteImport.update({
-  id: '/marketplace/new',
-  path: '/marketplace/new',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MarketplaceCheckoutReturnRoute =
-  MarketplaceCheckoutReturnRouteImport.update({
-    id: '/marketplace/checkout-return',
-    path: '/marketplace/checkout-return',
+const LegalCreatorMonetizationRoute =
+  LegalCreatorMonetizationRouteImport.update({
+    id: '/legal/creator-monetization',
+    path: '/legal/creator-monetization',
     getParentRoute: () => rootRouteImport,
   } as any)
-const JobsNewRoute = JobsNewRouteImport.update({
-  id: '/jobs/new',
-  path: '/jobs/new',
+const LegalCommunityGuidelinesRoute =
+  LegalCommunityGuidelinesRouteImport.update({
+    id: '/legal/community-guidelines',
+    path: '/legal/community-guidelines',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LegalAppealsRoute = LegalAppealsRouteImport.update({
+  id: '/legal/appeals',
+  path: '/legal/appeals',
   getParentRoute: () => rootRouteImport,
 } as any)
-const JobsSlugRoute = JobsSlugRouteImport.update({
-  id: '/jobs/$slug',
-  path: '/jobs/$slug',
+const LegalAdvertisingPolicyRoute = LegalAdvertisingPolicyRouteImport.update({
+  id: '/legal/advertising-policy',
+  path: '/legal/advertising-policy',
   getParentRoute: () => rootRouteImport,
+} as any)
+const LaunchpadSettingsRoute = LaunchpadSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadSessionsRoute = LaunchpadSessionsRouteImport.update({
+  id: '/sessions',
+  path: '/sessions',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadSchoolLeaverRoute = LaunchpadSchoolLeaverRouteImport.update({
+  id: '/school-leaver',
+  path: '/school-leaver',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadSavedRoute = LaunchpadSavedRouteImport.update({
+  id: '/saved',
+  path: '/saved',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadProjectsRoute = LaunchpadProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadProgressRoute = LaunchpadProgressRouteImport.update({
+  id: '/progress',
+  path: '/progress',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadPortfolioRoute = LaunchpadPortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadPathwaysRoute = LaunchpadPathwaysRouteImport.update({
+  id: '/pathways',
+  path: '/pathways',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadOpportunitiesRoute = LaunchpadOpportunitiesRouteImport.update({
+  id: '/opportunities',
+  path: '/opportunities',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadMentorsRoute = LaunchpadMentorsRouteImport.update({
+  id: '/mentors',
+  path: '/mentors',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadLearningRoute = LaunchpadLearningRouteImport.update({
+  id: '/learning',
+  path: '/learning',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadJobsRoute = LaunchpadJobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadHostsRoute = LaunchpadHostsRouteImport.update({
+  id: '/hosts',
+  path: '/hosts',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadGraduateRoute = LaunchpadGraduateRouteImport.update({
+  id: '/graduate',
+  path: '/graduate',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadEventsRoute = LaunchpadEventsRouteImport.update({
+  id: '/events',
+  path: '/events',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadEnterpriseRoute = LaunchpadEnterpriseRouteImport.update({
+  id: '/enterprise',
+  path: '/enterprise',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadEmployerRoute = LaunchpadEmployerRouteImport.update({
+  id: '/employer',
+  path: '/employer',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadEarlyCareerRoute = LaunchpadEarlyCareerRouteImport.update({
+  id: '/early-career',
+  path: '/early-career',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadDiscoverRoute = LaunchpadDiscoverRouteImport.update({
+  id: '/discover',
+  path: '/discover',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadCommunityRoute = LaunchpadCommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadChallengesRoute = LaunchpadChallengesRouteImport.update({
+  id: '/challenges',
+  path: '/challenges',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadCareerChangerRoute = LaunchpadCareerChangerRouteImport.update({
+  id: '/career-changer',
+  path: '/career-changer',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadBadgesRoute = LaunchpadBadgesRouteImport.update({
+  id: '/badges',
+  path: '/badges',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadApplicationsRoute = LaunchpadApplicationsRouteImport.update({
+  id: '/applications',
+  path: '/applications',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const LaunchpadAnalyticsRoute = LaunchpadAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => LaunchpadRoute,
+} as any)
+const JobsWorkspaceRoute = JobsWorkspaceRouteImport.update({
+  id: '/workspace',
+  path: '/workspace',
+  getParentRoute: () => JobsRoute,
+} as any)
+const JobsCreateRoute = JobsCreateRouteImport.update({
+  id: '/create',
+  path: '/create',
+  getParentRoute: () => JobsRoute,
+} as any)
+const JobsApplicationsRoute = JobsApplicationsRouteImport.update({
+  id: '/applications',
+  path: '/applications',
+  getParentRoute: () => JobsRoute,
+} as any)
+const JobsApplicantsRoute = JobsApplicantsRouteImport.update({
+  id: '/applicants',
+  path: '/applicants',
+  getParentRoute: () => JobsRoute,
+} as any)
+const JobsJobIdRoute = JobsJobIdRouteImport.update({
+  id: '/$jobId',
+  path: '/$jobId',
+  getParentRoute: () => JobsRoute,
+} as any)
+const InboxThreadIdRoute = InboxThreadIdRouteImport.update({
+  id: '/$threadId',
+  path: '/$threadId',
+  getParentRoute: () => InboxRoute,
+} as any)
+const HireTeamRoute = HireTeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => HireRoute,
+} as any)
+const HireTalentPoolsRoute = HireTalentPoolsRouteImport.update({
+  id: '/talent-pools',
+  path: '/talent-pools',
+  getParentRoute: () => HireRoute,
+} as any)
+const HireSettingsRoute = HireSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => HireRoute,
+} as any)
+const HireScorecardsRoute = HireScorecardsRouteImport.update({
+  id: '/scorecards',
+  path: '/scorecards',
+  getParentRoute: () => HireRoute,
+} as any)
+const GroupsGroupIdRoute = GroupsGroupIdRouteImport.update({
+  id: '/$groupId',
+  path: '/$groupId',
+  getParentRoute: () => GroupsRoute,
+} as any)
+const GigsWorkspaceRoute = GigsWorkspaceRouteImport.update({
+  id: '/workspace',
+  path: '/workspace',
+  getParentRoute: () => GigsRoute,
+} as any)
+const GigsRevisionsRoute = GigsRevisionsRouteImport.update({
+  id: '/revisions',
+  path: '/revisions',
+  getParentRoute: () => GigsRoute,
+} as any)
+const GigsRequirementsRoute = GigsRequirementsRouteImport.update({
+  id: '/requirements',
+  path: '/requirements',
+  getParentRoute: () => GigsRoute,
+} as any)
+const GigsPromotionsRoute = GigsPromotionsRouteImport.update({
+  id: '/promotions',
+  path: '/promotions',
+  getParentRoute: () => GigsRoute,
+} as any)
+const GigsPricingIntelRoute = GigsPricingIntelRouteImport.update({
+  id: '/pricing-intel',
+  path: '/pricing-intel',
+  getParentRoute: () => GigsRoute,
+} as any)
+const GigsPerformanceRoute = GigsPerformanceRouteImport.update({
+  id: '/performance',
+  path: '/performance',
+  getParentRoute: () => GigsRoute,
+} as any)
+const GigsPackagesRoute = GigsPackagesRouteImport.update({
+  id: '/packages',
+  path: '/packages',
+  getParentRoute: () => GigsRoute,
+} as any)
+const GigsOrdersRoute = GigsOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => GigsRoute,
+} as any)
+const GigsMediaRoute = GigsMediaRouteImport.update({
+  id: '/media',
+  path: '/media',
+  getParentRoute: () => GigsRoute,
+} as any)
+const GigsCustomOffersRoute = GigsCustomOffersRouteImport.update({
+  id: '/custom-offers',
+  path: '/custom-offers',
+  getParentRoute: () => GigsRoute,
+} as any)
+const GigsCreateRoute = GigsCreateRouteImport.update({
+  id: '/create',
+  path: '/create',
+  getParentRoute: () => GigsRoute,
+} as any)
+const GigsAvailabilityRoute = GigsAvailabilityRouteImport.update({
+  id: '/availability',
+  path: '/availability',
+  getParentRoute: () => GigsRoute,
+} as any)
+const GigsArchiveRoute = GigsArchiveRouteImport.update({
+  id: '/archive',
+  path: '/archive',
+  getParentRoute: () => GigsRoute,
+} as any)
+const GigsAnalyticsRoute = GigsAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => GigsRoute,
+} as any)
+const GigsAddonsRoute = GigsAddonsRouteImport.update({
+  id: '/addons',
+  path: '/addons',
+  getParentRoute: () => GigsRoute,
+} as any)
+const GigsGigIdRoute = GigsGigIdRouteImport.update({
+  id: '/$gigId',
+  path: '/$gigId',
+  getParentRoute: () => GigsRoute,
+} as any)
+const FinanceWalletRoute = FinanceWalletRouteImport.update({
+  id: '/wallet',
+  path: '/wallet',
+  getParentRoute: () => FinanceRoute,
+} as any)
+const FinancePricingRoute = FinancePricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => FinanceRoute,
+} as any)
+const FinancePayoutsRoute = FinancePayoutsRouteImport.update({
+  id: '/payouts',
+  path: '/payouts',
+  getParentRoute: () => FinanceRoute,
+} as any)
+const FinancePatronageRoute = FinancePatronageRouteImport.update({
+  id: '/patronage',
+  path: '/patronage',
+  getParentRoute: () => FinanceRoute,
+} as any)
+const FinanceInvoicesRoute = FinanceInvoicesRouteImport.update({
+  id: '/invoices',
+  path: '/invoices',
+  getParentRoute: () => FinanceRoute,
+} as any)
+const FinanceEscrowRoute = FinanceEscrowRouteImport.update({
+  id: '/escrow',
+  path: '/escrow',
+  getParentRoute: () => FinanceRoute,
+} as any)
+const FinanceBillingRoute = FinanceBillingRouteImport.update({
+  id: '/billing',
+  path: '/billing',
+  getParentRoute: () => FinanceRoute,
+} as any)
+const ExploreWebinarsRoute = ExploreWebinarsRouteImport.update({
+  id: '/webinars',
+  path: '/webinars',
+  getParentRoute: () => ExploreRoute,
+} as any)
+const ExploreServicesRoute = ExploreServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => ExploreRoute,
+} as any)
+const ExploreSavedRoute = ExploreSavedRouteImport.update({
+  id: '/saved',
+  path: '/saved',
+  getParentRoute: () => ExploreRoute,
+} as any)
+const ExploreProjectsRoute = ExploreProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => ExploreRoute,
+} as any)
+const ExplorePodcastsRoute = ExplorePodcastsRouteImport.update({
+  id: '/podcasts',
+  path: '/podcasts',
+  getParentRoute: () => ExploreRoute,
+} as any)
+const ExplorePeopleRoute = ExplorePeopleRouteImport.update({
+  id: '/people',
+  path: '/people',
+  getParentRoute: () => ExploreRoute,
+} as any)
+const ExplorePagesRoute = ExplorePagesRouteImport.update({
+  id: '/pages',
+  path: '/pages',
+  getParentRoute: () => ExploreRoute,
+} as any)
+const ExploreMapRoute = ExploreMapRouteImport.update({
+  id: '/map',
+  path: '/map',
+  getParentRoute: () => ExploreRoute,
+} as any)
+const ExploreJobsRoute = ExploreJobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => ExploreRoute,
+} as any)
+const ExploreGroupsRoute = ExploreGroupsRouteImport.update({
+  id: '/groups',
+  path: '/groups',
+  getParentRoute: () => ExploreRoute,
+} as any)
+const ExploreGigsRoute = ExploreGigsRouteImport.update({
+  id: '/gigs',
+  path: '/gigs',
+  getParentRoute: () => ExploreRoute,
+} as any)
+const ExploreEventsRoute = ExploreEventsRouteImport.update({
+  id: '/events',
+  path: '/events',
+  getParentRoute: () => ExploreRoute,
+} as any)
+const ExploreCompareRoute = ExploreCompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => ExploreRoute,
+} as any)
+const EventsCreateRoute = EventsCreateRouteImport.update({
+  id: '/create',
+  path: '/create',
+  getParentRoute: () => EventsRoute,
+} as any)
+const EventsEventIdRoute = EventsEventIdRouteImport.update({
+  id: '/$eventId',
+  path: '/$eventId',
+  getParentRoute: () => EventsRoute,
+} as any)
+const EnterpriseStartupsRoute = EnterpriseStartupsRouteImport.update({
+  id: '/startups',
+  path: '/startups',
+  getParentRoute: () => EnterpriseRoute,
+} as any)
+const EnterpriseSignalsRoute = EnterpriseSignalsRouteImport.update({
+  id: '/signals',
+  path: '/signals',
+  getParentRoute: () => EnterpriseRoute,
+} as any)
+const EnterpriseSettingsRoute = EnterpriseSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => EnterpriseRoute,
+} as any)
+const EnterpriseSavedListsRoute = EnterpriseSavedListsRouteImport.update({
+  id: '/saved-lists',
+  path: '/saved-lists',
+  getParentRoute: () => EnterpriseRoute,
+} as any)
+const EnterpriseRoomsRoute = EnterpriseRoomsRouteImport.update({
+  id: '/rooms',
+  path: '/rooms',
+  getParentRoute: () => EnterpriseRoute,
+} as any)
+const EnterpriseProfileRoute = EnterpriseProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => EnterpriseRoute,
+} as any)
+const EnterpriseProcurementRoute = EnterpriseProcurementRouteImport.update({
+  id: '/procurement',
+  path: '/procurement',
+  getParentRoute: () => EnterpriseRoute,
+} as any)
+const EnterprisePartnersRoute = EnterprisePartnersRouteImport.update({
+  id: '/partners',
+  path: '/partners',
+  getParentRoute: () => EnterpriseRoute,
+} as any)
+const EnterpriseMatchmakingRoute = EnterpriseMatchmakingRouteImport.update({
+  id: '/matchmaking',
+  path: '/matchmaking',
+  getParentRoute: () => EnterpriseRoute,
+} as any)
+const EnterpriseIntrosRoute = EnterpriseIntrosRouteImport.update({
+  id: '/intros',
+  path: '/intros',
+  getParentRoute: () => EnterpriseRoute,
+} as any)
+const EnterpriseHiringRoute = EnterpriseHiringRouteImport.update({
+  id: '/hiring',
+  path: '/hiring',
+  getParentRoute: () => EnterpriseRoute,
+} as any)
+const EnterpriseEventsRoute = EnterpriseEventsRouteImport.update({
+  id: '/events',
+  path: '/events',
+  getParentRoute: () => EnterpriseRoute,
+} as any)
+const EnterpriseDirectoryRoute = EnterpriseDirectoryRouteImport.update({
+  id: '/directory',
+  path: '/directory',
+  getParentRoute: () => EnterpriseRoute,
+} as any)
+const EnterpriseDashboardRoute = EnterpriseDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => EnterpriseRoute,
+} as any)
+const EnterpriseAnalyticsRoute = EnterpriseAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => EnterpriseRoute,
+} as any)
+const DashboardSupportRoute = DashboardSupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardSavedRoute = DashboardSavedRouteImport.update({
+  id: '/saved',
+  path: '/saved',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardResourcePlanningRoute =
+  DashboardResourcePlanningRouteImport.update({
+    id: '/resource-planning',
+    path: '/resource-planning',
+    getParentRoute: () => DashboardRoute,
+  } as any)
+const DashboardRecruiterRoute = DashboardRecruiterRouteImport.update({
+  id: '/recruiter',
+  path: '/recruiter',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardProjectsRoute = DashboardProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardProfessionalRoute = DashboardProfessionalRouteImport.update({
+  id: '/professional',
+  path: '/professional',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardOrdersRoute = DashboardOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardMediaLibraryRoute = DashboardMediaLibraryRouteImport.update({
+  id: '/media-library',
+  path: '/media-library',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardClientRoute = DashboardClientRouteImport.update({
+  id: '/client',
+  path: '/client',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardBookingsRoute = DashboardBookingsRouteImport.update({
+  id: '/bookings',
+  path: '/bookings',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardBillingRoute = DashboardBillingRouteImport.update({
+  id: '/billing',
+  path: '/billing',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardApplicationsRoute = DashboardApplicationsRouteImport.update({
+  id: '/applications',
+  path: '/applications',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardActivityRoute = DashboardActivityRouteImport.update({
+  id: '/activity',
+  path: '/activity',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const CreationStudioScheduledRoute = CreationStudioScheduledRouteImport.update({
+  id: '/scheduled',
+  path: '/scheduled',
+  getParentRoute: () => CreationStudioRoute,
+} as any)
+const CreationStudioReelsRoute = CreationStudioReelsRouteImport.update({
+  id: '/reels',
+  path: '/reels',
+  getParentRoute: () => CreationStudioRoute,
+} as any)
+const CreationStudioPublishRoute = CreationStudioPublishRouteImport.update({
+  id: '/publish',
+  path: '/publish',
+  getParentRoute: () => CreationStudioRoute,
+} as any)
+const CreationStudioAssetsRoute = CreationStudioAssetsRouteImport.update({
+  id: '/assets',
+  path: '/assets',
+  getParentRoute: () => CreationStudioRoute,
+} as any)
+const CreationStudioAnalyticsRoute = CreationStudioAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => CreationStudioRoute,
+} as any)
+const CreatePostRoute = CreatePostRouteImport.update({
+  id: '/create/post',
+  path: '/create/post',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompanyCompanyIdRoute = CompanyCompanyIdRouteImport.update({
+  id: '/company/$companyId',
+  path: '/company/$companyId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityGroupsRoute = CommunityGroupsRouteImport.update({
+  id: '/groups',
+  path: '/groups',
+  getParentRoute: () => CommunityRoute,
+} as any)
+const AuthVerifyRoute = AuthVerifyRouteImport.update({
+  id: '/auth/verify',
+  path: '/auth/verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthSignUpRoute = AuthSignUpRouteImport.update({
+  id: '/auth/sign-up',
+  path: '/auth/sign-up',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthSignInRoute = AuthSignInRouteImport.update({
+  id: '/auth/sign-in',
+  path: '/auth/sign-in',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthResetPasswordRoute = AuthResetPasswordRouteImport.update({
+  id: '/auth/reset-password',
+  path: '/auth/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthOnboardingRoute = AuthOnboardingRouteImport.update({
+  id: '/auth/onboarding',
+  path: '/auth/onboarding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthForgotPasswordRoute = AuthForgotPasswordRouteImport.update({
+  id: '/auth/forgot-password',
+  path: '/auth/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthAccountLockedRoute = AuthAccountLockedRouteImport.update({
+  id: '/auth/account-locked',
+  path: '/auth/account-locked',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiWriterRoute = AiWriterRouteImport.update({
+  id: '/writer',
+  path: '/writer',
+  getParentRoute: () => AiRoute,
+} as any)
+const AiVideoStudioRoute = AiVideoStudioRouteImport.update({
+  id: '/video-studio',
+  path: '/video-studio',
+  getParentRoute: () => AiRoute,
+} as any)
+const AiSupportSummarizerRoute = AiSupportSummarizerRouteImport.update({
+  id: '/support-summarizer',
+  path: '/support-summarizer',
+  getParentRoute: () => AiRoute,
+} as any)
+const AiSettingsRoute = AiSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AiRoute,
+} as any)
+const AiRecruiterRoute = AiRecruiterRouteImport.update({
+  id: '/recruiter',
+  path: '/recruiter',
+  getParentRoute: () => AiRoute,
+} as any)
+const AiProposalHelperRoute = AiProposalHelperRouteImport.update({
+  id: '/proposal-helper',
+  path: '/proposal-helper',
+  getParentRoute: () => AiRoute,
+} as any)
+const AiPromptsRoute = AiPromptsRouteImport.update({
+  id: '/prompts',
+  path: '/prompts',
+  getParentRoute: () => AiRoute,
+} as any)
+const AiOutreachRoute = AiOutreachRouteImport.update({
+  id: '/outreach',
+  path: '/outreach',
+  getParentRoute: () => AiRoute,
+} as any)
+const AiJdHelperRoute = AiJdHelperRouteImport.update({
+  id: '/jd-helper',
+  path: '/jd-helper',
+  getParentRoute: () => AiRoute,
+} as any)
+const AiImageStudioRoute = AiImageStudioRouteImport.update({
+  id: '/image-studio',
+  path: '/image-studio',
+  getParentRoute: () => AiRoute,
+} as any)
+const AiHistoryRoute = AiHistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => AiRoute,
+} as any)
+const AiChatRoute = AiChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => AiRoute,
+} as any)
+const AiByokRoute = AiByokRouteImport.update({
+  id: '/byok',
+  path: '/byok',
+  getParentRoute: () => AiRoute,
+} as any)
+const AiBriefHelperRoute = AiBriefHelperRouteImport.update({
+  id: '/brief-helper',
+  path: '/brief-helper',
+  getParentRoute: () => AiRoute,
+} as any)
+const AiBillingRoute = AiBillingRouteImport.update({
+  id: '/billing',
+  path: '/billing',
+  getParentRoute: () => AiRoute,
+} as any)
+const AiAnalyticsRoute = AiAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AiRoute,
+} as any)
+const AgencyAgencyIdRoute = AgencyAgencyIdRouteImport.update({
+  id: '/agency/$agencyId',
+  path: '/agency/$agencyId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminWithdrawalsRoute = AdminWithdrawalsRouteImport.update({
+  id: '/withdrawals',
+  path: '/withdrawals',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminVerificationRoute = AdminVerificationRouteImport.update({
+  id: '/verification',
+  path: '/verification',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminTrustSafetyRoute = AdminTrustSafetyRouteImport.update({
+  id: '/trust-safety',
+  path: '/trust-safety',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminTicketsRoute = AdminTicketsRouteImport.update({
+  id: '/tickets',
+  path: '/tickets',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSuperRoute = AdminSuperRouteImport.update({
+  id: '/super',
+  path: '/super',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSubscriptionsRoute = AdminSubscriptionsRouteImport.update({
+  id: '/subscriptions',
+  path: '/subscriptions',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminShellRoute = AdminShellRouteImport.update({
+  id: '/shell',
+  path: '/shell',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSearchRoute = AdminSearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminReportsRoute = AdminReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminPortalRoute = AdminPortalRouteImport.update({
+  id: '/portal',
+  path: '/portal',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminOpsRoute = AdminOpsRouteImport.update({
+  id: '/ops',
+  path: '/ops',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminModeratorRoute = AdminModeratorRouteImport.update({
+  id: '/moderator',
+  path: '/moderator',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminModerationRoute = AdminModerationRouteImport.update({
+  id: '/moderation',
+  path: '/moderation',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminFinanceRoute = AdminFinanceRouteImport.update({
+  id: '/finance',
+  path: '/finance',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminDisputesRoute = AdminDisputesRouteImport.update({
+  id: '/disputes',
+  path: '/disputes',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminComplianceRoute = AdminComplianceRouteImport.update({
+  id: '/compliance',
+  path: '/compliance',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAuditRoute = AdminAuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
+  getParentRoute: () => AdminRoute,
+} as any)
+const ProjectsProjectIdWorkspaceRoute =
+  ProjectsProjectIdWorkspaceRouteImport.update({
+    id: '/workspace',
+    path: '/workspace',
+    getParentRoute: () => ProjectsProjectIdRoute,
+  } as any)
+const ProjectsProjectIdTasksRoute = ProjectsProjectIdTasksRouteImport.update({
+  id: '/tasks',
+  path: '/tasks',
+  getParentRoute: () => ProjectsProjectIdRoute,
+} as any)
+const ProjectsProjectIdProposalsRoute =
+  ProjectsProjectIdProposalsRouteImport.update({
+    id: '/proposals',
+    path: '/proposals',
+    getParentRoute: () => ProjectsProjectIdRoute,
+  } as any)
+const ProjectsProjectIdMilestonesRoute =
+  ProjectsProjectIdMilestonesRouteImport.update({
+    id: '/milestones',
+    path: '/milestones',
+    getParentRoute: () => ProjectsProjectIdRoute,
+  } as any)
+const ProjectsProjectIdEscrowRoute = ProjectsProjectIdEscrowRouteImport.update({
+  id: '/escrow',
+  path: '/escrow',
+  getParentRoute: () => ProjectsProjectIdRoute,
+} as any)
+const ProjectsProjectIdDeliverablesRoute =
+  ProjectsProjectIdDeliverablesRouteImport.update({
+    id: '/deliverables',
+    path: '/deliverables',
+    getParentRoute: () => ProjectsProjectIdRoute,
+  } as any)
+const MediaVideosUploadRoute = MediaVideosUploadRouteImport.update({
+  id: '/upload',
+  path: '/upload',
+  getParentRoute: () => MediaVideosRoute,
+} as any)
+const MediaVideosStudioRoute = MediaVideosStudioRouteImport.update({
+  id: '/studio',
+  path: '/studio',
+  getParentRoute: () => MediaVideosRoute,
+} as any)
+const MediaVideosVideoIdRoute = MediaVideosVideoIdRouteImport.update({
+  id: '/$videoId',
+  path: '/$videoId',
+  getParentRoute: () => MediaVideosRoute,
 } as any)
 const MediaReelsStudioRoute = MediaReelsStudioRouteImport.update({
   id: '/studio',
   path: '/studio',
   getParentRoute: () => MediaReelsRoute,
 } as any)
-const MediaReelsReelIdRoute = MediaReelsReelIdRouteImport.update({
-  id: '/$reelId',
-  path: '/$reelId',
-  getParentRoute: () => MediaReelsRoute,
+const HireJobsCreateRoute = HireJobsCreateRouteImport.update({
+  id: '/jobs/create',
+  path: '/jobs/create',
+  getParentRoute: () => HireRoute,
 } as any)
-const MarketplaceGigSlugRoute = MarketplaceGigSlugRouteImport.update({
-  id: '/marketplace/gig/$slug',
-  path: '/marketplace/gig/$slug',
+const EnterpriseStartupsStartupIdRoute =
+  EnterpriseStartupsStartupIdRouteImport.update({
+    id: '/$startupId',
+    path: '/$startupId',
+    getParentRoute: () => EnterpriseStartupsRoute,
+  } as any)
+const ContractsContractIdMilestonesRoute =
+  ContractsContractIdMilestonesRouteImport.update({
+    id: '/contracts/$contractId/milestones',
+    path: '/contracts/$contractId/milestones',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ContractsContractIdEscrowRoute =
+  ContractsContractIdEscrowRouteImport.update({
+    id: '/contracts/$contractId/escrow',
+    path: '/contracts/$contractId/escrow',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CheckoutServicesServiceIdRoute =
+  CheckoutServicesServiceIdRouteImport.update({
+    id: '/checkout/services/$serviceId',
+    path: '/checkout/services/$serviceId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CheckoutProjectsProjectIdRoute =
+  CheckoutProjectsProjectIdRouteImport.update({
+    id: '/checkout/projects/$projectId',
+    path: '/checkout/projects/$projectId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CheckoutGigsGigIdRoute = CheckoutGigsGigIdRouteImport.update({
+  id: '/checkout/gigs/$gigId',
+  path: '/checkout/gigs/$gigId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminTicketsTicketIdRoute = AdminTicketsTicketIdRouteImport.update({
+  id: '/$ticketId',
+  path: '/$ticketId',
+  getParentRoute: () => AdminTicketsRoute,
+} as any)
+const ProjectsProjectIdProposalsSubmitRoute =
+  ProjectsProjectIdProposalsSubmitRouteImport.update({
+    id: '/submit',
+    path: '/submit',
+    getParentRoute: () => ProjectsProjectIdProposalsRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/ai': typeof AiRouteWithChildren
   '/calendar': typeof CalendarRoute
-  '/explore': typeof ExploreRoute
+  '/community': typeof CommunityRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/creation-studio': typeof CreationStudioRouteWithChildren
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/enterprise': typeof EnterpriseRouteWithChildren
+  '/events': typeof EventsRouteWithChildren
+  '/explore': typeof ExploreRouteWithChildren
+  '/faq': typeof FaqRoute
   '/feed': typeof FeedRoute
-  '/hiring': typeof HiringRoute
-  '/inbox': typeof InboxRoute
+  '/finance': typeof FinanceRouteWithChildren
+  '/gigs': typeof GigsRouteWithChildren
+  '/groups': typeof GroupsRouteWithChildren
+  '/hire': typeof HireRouteWithChildren
+  '/inbox': typeof InboxRouteWithChildren
+  '/jobs': typeof JobsRouteWithChildren
+  '/launchpad': typeof LaunchpadRouteWithChildren
+  '/learn': typeof LearnRoute
+  '/media': typeof MediaRouteWithChildren
+  '/mentorship': typeof MentorshipRouteWithChildren
+  '/network': typeof NetworkRoute
   '/notifications': typeof NotificationsRoute
-  '/trackers': typeof TrackersRoute
-  '/jobs/$slug': typeof JobsSlugRoute
-  '/jobs/new': typeof JobsNewRoute
-  '/marketplace/checkout-return': typeof MarketplaceCheckoutReturnRoute
-  '/marketplace/new': typeof MarketplaceNewRoute
-  '/marketplace/orders': typeof MarketplaceOrdersRoute
+  '/podcasts': typeof PodcastsRouteWithChildren
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/product': typeof ProductRoute
+  '/profile': typeof ProfileRouteWithChildren
+  '/projects': typeof ProjectsRouteWithChildren
+  '/services': typeof ServicesRouteWithChildren
+  '/settings': typeof SettingsRouteWithChildren
+  '/solutions': typeof SolutionsRouteWithChildren
+  '/status': typeof StatusRoute
+  '/support': typeof SupportRouteWithChildren
+  '/terms': typeof TermsRoute
+  '/trust-safety': typeof TrustSafetyRoute
+  '/user-agreements': typeof UserAgreementsRoute
+  '/work': typeof WorkRoute
+  '/admin/audit': typeof AdminAuditRoute
+  '/admin/compliance': typeof AdminComplianceRoute
+  '/admin/disputes': typeof AdminDisputesRoute
+  '/admin/finance': typeof AdminFinanceRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/moderation': typeof AdminModerationRoute
+  '/admin/moderator': typeof AdminModeratorRoute
+  '/admin/ops': typeof AdminOpsRoute
+  '/admin/portal': typeof AdminPortalRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/search': typeof AdminSearchRoute
+  '/admin/shell': typeof AdminShellRoute
+  '/admin/subscriptions': typeof AdminSubscriptionsRoute
+  '/admin/super': typeof AdminSuperRoute
+  '/admin/tickets': typeof AdminTicketsRouteWithChildren
+  '/admin/trust-safety': typeof AdminTrustSafetyRoute
+  '/admin/verification': typeof AdminVerificationRoute
+  '/admin/withdrawals': typeof AdminWithdrawalsRoute
+  '/agency/$agencyId': typeof AgencyAgencyIdRoute
+  '/ai/analytics': typeof AiAnalyticsRoute
+  '/ai/billing': typeof AiBillingRoute
+  '/ai/brief-helper': typeof AiBriefHelperRoute
+  '/ai/byok': typeof AiByokRoute
+  '/ai/chat': typeof AiChatRoute
+  '/ai/history': typeof AiHistoryRoute
+  '/ai/image-studio': typeof AiImageStudioRoute
+  '/ai/jd-helper': typeof AiJdHelperRoute
+  '/ai/outreach': typeof AiOutreachRoute
+  '/ai/prompts': typeof AiPromptsRoute
+  '/ai/proposal-helper': typeof AiProposalHelperRoute
+  '/ai/recruiter': typeof AiRecruiterRoute
+  '/ai/settings': typeof AiSettingsRoute
+  '/ai/support-summarizer': typeof AiSupportSummarizerRoute
+  '/ai/video-studio': typeof AiVideoStudioRoute
+  '/ai/writer': typeof AiWriterRoute
+  '/auth/account-locked': typeof AuthAccountLockedRoute
+  '/auth/forgot-password': typeof AuthForgotPasswordRoute
+  '/auth/onboarding': typeof AuthOnboardingRoute
+  '/auth/reset-password': typeof AuthResetPasswordRoute
+  '/auth/sign-in': typeof AuthSignInRoute
+  '/auth/sign-up': typeof AuthSignUpRoute
+  '/auth/verify': typeof AuthVerifyRoute
+  '/community/groups': typeof CommunityGroupsRoute
+  '/company/$companyId': typeof CompanyCompanyIdRoute
+  '/create/post': typeof CreatePostRoute
+  '/creation-studio/analytics': typeof CreationStudioAnalyticsRoute
+  '/creation-studio/assets': typeof CreationStudioAssetsRoute
+  '/creation-studio/publish': typeof CreationStudioPublishRoute
+  '/creation-studio/reels': typeof CreationStudioReelsRoute
+  '/creation-studio/scheduled': typeof CreationStudioScheduledRoute
+  '/dashboard/activity': typeof DashboardActivityRoute
+  '/dashboard/applications': typeof DashboardApplicationsRoute
+  '/dashboard/billing': typeof DashboardBillingRoute
+  '/dashboard/bookings': typeof DashboardBookingsRoute
+  '/dashboard/client': typeof DashboardClientRoute
+  '/dashboard/media-library': typeof DashboardMediaLibraryRoute
+  '/dashboard/orders': typeof DashboardOrdersRoute
+  '/dashboard/professional': typeof DashboardProfessionalRoute
+  '/dashboard/projects': typeof DashboardProjectsRoute
+  '/dashboard/recruiter': typeof DashboardRecruiterRoute
+  '/dashboard/resource-planning': typeof DashboardResourcePlanningRoute
+  '/dashboard/saved': typeof DashboardSavedRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
+  '/dashboard/support': typeof DashboardSupportRoute
+  '/enterprise/analytics': typeof EnterpriseAnalyticsRoute
+  '/enterprise/dashboard': typeof EnterpriseDashboardRoute
+  '/enterprise/directory': typeof EnterpriseDirectoryRoute
+  '/enterprise/events': typeof EnterpriseEventsRoute
+  '/enterprise/hiring': typeof EnterpriseHiringRoute
+  '/enterprise/intros': typeof EnterpriseIntrosRoute
+  '/enterprise/matchmaking': typeof EnterpriseMatchmakingRoute
+  '/enterprise/partners': typeof EnterprisePartnersRoute
+  '/enterprise/procurement': typeof EnterpriseProcurementRoute
+  '/enterprise/profile': typeof EnterpriseProfileRoute
+  '/enterprise/rooms': typeof EnterpriseRoomsRoute
+  '/enterprise/saved-lists': typeof EnterpriseSavedListsRoute
+  '/enterprise/settings': typeof EnterpriseSettingsRoute
+  '/enterprise/signals': typeof EnterpriseSignalsRoute
+  '/enterprise/startups': typeof EnterpriseStartupsRouteWithChildren
+  '/events/$eventId': typeof EventsEventIdRoute
+  '/events/create': typeof EventsCreateRoute
+  '/explore/compare': typeof ExploreCompareRoute
+  '/explore/events': typeof ExploreEventsRoute
+  '/explore/gigs': typeof ExploreGigsRoute
+  '/explore/groups': typeof ExploreGroupsRoute
+  '/explore/jobs': typeof ExploreJobsRoute
+  '/explore/map': typeof ExploreMapRoute
+  '/explore/pages': typeof ExplorePagesRoute
+  '/explore/people': typeof ExplorePeopleRoute
+  '/explore/podcasts': typeof ExplorePodcastsRoute
+  '/explore/projects': typeof ExploreProjectsRoute
+  '/explore/saved': typeof ExploreSavedRoute
+  '/explore/services': typeof ExploreServicesRoute
+  '/explore/webinars': typeof ExploreWebinarsRoute
+  '/finance/billing': typeof FinanceBillingRoute
+  '/finance/escrow': typeof FinanceEscrowRoute
+  '/finance/invoices': typeof FinanceInvoicesRoute
+  '/finance/patronage': typeof FinancePatronageRoute
+  '/finance/payouts': typeof FinancePayoutsRoute
+  '/finance/pricing': typeof FinancePricingRoute
+  '/finance/wallet': typeof FinanceWalletRoute
+  '/gigs/$gigId': typeof GigsGigIdRoute
+  '/gigs/addons': typeof GigsAddonsRoute
+  '/gigs/analytics': typeof GigsAnalyticsRoute
+  '/gigs/archive': typeof GigsArchiveRoute
+  '/gigs/availability': typeof GigsAvailabilityRoute
+  '/gigs/create': typeof GigsCreateRoute
+  '/gigs/custom-offers': typeof GigsCustomOffersRoute
+  '/gigs/media': typeof GigsMediaRoute
+  '/gigs/orders': typeof GigsOrdersRoute
+  '/gigs/packages': typeof GigsPackagesRoute
+  '/gigs/performance': typeof GigsPerformanceRoute
+  '/gigs/pricing-intel': typeof GigsPricingIntelRoute
+  '/gigs/promotions': typeof GigsPromotionsRoute
+  '/gigs/requirements': typeof GigsRequirementsRoute
+  '/gigs/revisions': typeof GigsRevisionsRoute
+  '/gigs/workspace': typeof GigsWorkspaceRoute
+  '/groups/$groupId': typeof GroupsGroupIdRoute
+  '/hire/scorecards': typeof HireScorecardsRoute
+  '/hire/settings': typeof HireSettingsRoute
+  '/hire/talent-pools': typeof HireTalentPoolsRoute
+  '/hire/team': typeof HireTeamRoute
+  '/inbox/$threadId': typeof InboxThreadIdRoute
+  '/jobs/$jobId': typeof JobsJobIdRoute
+  '/jobs/applicants': typeof JobsApplicantsRoute
+  '/jobs/applications': typeof JobsApplicationsRoute
+  '/jobs/create': typeof JobsCreateRoute
+  '/jobs/workspace': typeof JobsWorkspaceRoute
+  '/launchpad/analytics': typeof LaunchpadAnalyticsRoute
+  '/launchpad/applications': typeof LaunchpadApplicationsRoute
+  '/launchpad/badges': typeof LaunchpadBadgesRoute
+  '/launchpad/career-changer': typeof LaunchpadCareerChangerRoute
+  '/launchpad/challenges': typeof LaunchpadChallengesRoute
+  '/launchpad/community': typeof LaunchpadCommunityRoute
+  '/launchpad/discover': typeof LaunchpadDiscoverRoute
+  '/launchpad/early-career': typeof LaunchpadEarlyCareerRoute
+  '/launchpad/employer': typeof LaunchpadEmployerRoute
+  '/launchpad/enterprise': typeof LaunchpadEnterpriseRoute
+  '/launchpad/events': typeof LaunchpadEventsRoute
+  '/launchpad/graduate': typeof LaunchpadGraduateRoute
+  '/launchpad/hosts': typeof LaunchpadHostsRoute
+  '/launchpad/jobs': typeof LaunchpadJobsRoute
+  '/launchpad/learning': typeof LaunchpadLearningRoute
+  '/launchpad/mentors': typeof LaunchpadMentorsRoute
+  '/launchpad/opportunities': typeof LaunchpadOpportunitiesRoute
+  '/launchpad/pathways': typeof LaunchpadPathwaysRoute
+  '/launchpad/portfolio': typeof LaunchpadPortfolioRoute
+  '/launchpad/progress': typeof LaunchpadProgressRoute
+  '/launchpad/projects': typeof LaunchpadProjectsRoute
+  '/launchpad/saved': typeof LaunchpadSavedRoute
+  '/launchpad/school-leaver': typeof LaunchpadSchoolLeaverRoute
+  '/launchpad/sessions': typeof LaunchpadSessionsRoute
+  '/launchpad/settings': typeof LaunchpadSettingsRoute
+  '/legal/advertising-policy': typeof LegalAdvertisingPolicyRoute
+  '/legal/appeals': typeof LegalAppealsRoute
+  '/legal/community-guidelines': typeof LegalCommunityGuidelinesRoute
+  '/legal/creator-monetization': typeof LegalCreatorMonetizationRoute
+  '/legal/disputes-policy': typeof LegalDisputesPolicyRoute
+  '/legal/payments-escrow': typeof LegalPaymentsEscrowRoute
+  '/media/analytics': typeof MediaAnalyticsRoute
+  '/media/creators': typeof MediaCreatorsRoute
+  '/media/library': typeof MediaLibraryRoute
   '/media/reels': typeof MediaReelsRouteWithChildren
-  '/u/$username': typeof UUsernameRoute
-  '/jobs/': typeof JobsIndexRoute
-  '/marketplace/': typeof MarketplaceIndexRoute
-  '/marketplace/gig/$slug': typeof MarketplaceGigSlugRoute
-  '/media/reels/$reelId': typeof MediaReelsReelIdRoute
+  '/media/videos': typeof MediaVideosRouteWithChildren
+  '/media/viewer': typeof MediaViewerRoute
+  '/mentorship/analytics': typeof MentorshipAnalyticsRoute
+  '/mentorship/feedback': typeof MentorshipFeedbackRoute
+  '/mentorship/payments': typeof MentorshipPaymentsRoute
+  '/networking/cards': typeof NetworkingCardsRoute
+  '/networking/connections': typeof NetworkingConnectionsRoute
+  '/networking/follow-ups': typeof NetworkingFollowUpsRoute
+  '/networking/followers': typeof NetworkingFollowersRoute
+  '/networking/following': typeof NetworkingFollowingRoute
+  '/networking/home': typeof NetworkingHomeRoute
+  '/networking/invitations': typeof NetworkingInvitationsRoute
+  '/networking/rooms': typeof NetworkingRoomsRoute
+  '/networking/speed': typeof NetworkingSpeedRoute
+  '/networking/suggested': typeof NetworkingSuggestedRoute
+  '/podcasts/analytics': typeof PodcastsAnalyticsRoute
+  '/podcasts/donations': typeof PodcastsDonationsRoute
+  '/podcasts/legacy': typeof PodcastsLegacyRoute
+  '/podcasts/library': typeof PodcastsLibraryRoute
+  '/podcasts/player': typeof PodcastsPlayerRoute
+  '/podcasts/purchases': typeof PodcastsPurchasesRoute
+  '/podcasts/queue': typeof PodcastsQueueRoute
+  '/podcasts/recorder': typeof PodcastsRecorderRoute
+  '/podcasts/series': typeof PodcastsSeriesRoute
+  '/podcasts/studio': typeof PodcastsStudioRoute
+  '/podcasts/subscriptions': typeof PodcastsSubscriptionsRoute
+  '/profile/$username': typeof ProfileUsernameRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRouteWithChildren
+  '/projects/archive': typeof ProjectsArchiveRoute
+  '/projects/create': typeof ProjectsCreateRoute
+  '/projects/dashboard': typeof ProjectsDashboardRoute
+  '/projects/mine': typeof ProjectsMineRoute
+  '/projects/templates': typeof ProjectsTemplatesRoute
+  '/services/analytics': typeof ServicesAnalyticsRoute
+  '/services/availability': typeof ServicesAvailabilityRoute
+  '/services/browse': typeof ServicesBrowseRoute
+  '/services/create': typeof ServicesCreateRoute
+  '/services/delivery': typeof ServicesDeliveryRoute
+  '/services/orders': typeof ServicesOrdersRoute
+  '/services/packages': typeof ServicesPackagesRoute
+  '/services/promotions': typeof ServicesPromotionsRoute
+  '/settings/integrations': typeof SettingsIntegrationsRoute
+  '/settings/website': typeof SettingsWebsiteRoute
+  '/showcase/ads': typeof ShowcaseAdsRoute
+  '/showcase/creator': typeof ShowcaseCreatorRoute
+  '/showcase/enterprise': typeof ShowcaseEnterpriseRoute
+  '/showcase/events': typeof ShowcaseEventsRoute
+  '/showcase/gigs': typeof ShowcaseGigsRoute
+  '/showcase/jobs': typeof ShowcaseJobsRoute
+  '/showcase/launchpad': typeof ShowcaseLaunchpadRoute
+  '/showcase/mentorship': typeof ShowcaseMentorshipRoute
+  '/showcase/navigator': typeof ShowcaseNavigatorRoute
+  '/showcase/networking': typeof ShowcaseNetworkingRoute
+  '/showcase/podcasts': typeof ShowcasePodcastsRoute
+  '/showcase/projects': typeof ShowcaseProjectsRoute
+  '/showcase/recruiter': typeof ShowcaseRecruiterRoute
+  '/showcase/services': typeof ShowcaseServicesRoute
+  '/solutions/$role': typeof SolutionsRoleRoute
+  '/support/contact': typeof SupportContactRoute
+  '/admin/tickets/$ticketId': typeof AdminTicketsTicketIdRoute
+  '/checkout/gigs/$gigId': typeof CheckoutGigsGigIdRoute
+  '/checkout/projects/$projectId': typeof CheckoutProjectsProjectIdRoute
+  '/checkout/services/$serviceId': typeof CheckoutServicesServiceIdRoute
+  '/contracts/$contractId/escrow': typeof ContractsContractIdEscrowRoute
+  '/contracts/$contractId/milestones': typeof ContractsContractIdMilestonesRoute
+  '/enterprise/startups/$startupId': typeof EnterpriseStartupsStartupIdRoute
+  '/hire/jobs/create': typeof HireJobsCreateRoute
   '/media/reels/studio': typeof MediaReelsStudioRoute
+  '/media/videos/$videoId': typeof MediaVideosVideoIdRoute
+  '/media/videos/studio': typeof MediaVideosStudioRoute
+  '/media/videos/upload': typeof MediaVideosUploadRoute
+  '/projects/$projectId/deliverables': typeof ProjectsProjectIdDeliverablesRoute
+  '/projects/$projectId/escrow': typeof ProjectsProjectIdEscrowRoute
+  '/projects/$projectId/milestones': typeof ProjectsProjectIdMilestonesRoute
+  '/projects/$projectId/proposals': typeof ProjectsProjectIdProposalsRouteWithChildren
+  '/projects/$projectId/tasks': typeof ProjectsProjectIdTasksRoute
+  '/projects/$projectId/workspace': typeof ProjectsProjectIdWorkspaceRoute
+  '/projects/$projectId/proposals/submit': typeof ProjectsProjectIdProposalsSubmitRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/ai': typeof AiRouteWithChildren
   '/calendar': typeof CalendarRoute
-  '/explore': typeof ExploreRoute
+  '/community': typeof CommunityRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/creation-studio': typeof CreationStudioRouteWithChildren
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/enterprise': typeof EnterpriseRouteWithChildren
+  '/events': typeof EventsRouteWithChildren
+  '/explore': typeof ExploreRouteWithChildren
+  '/faq': typeof FaqRoute
   '/feed': typeof FeedRoute
-  '/hiring': typeof HiringRoute
-  '/inbox': typeof InboxRoute
+  '/finance': typeof FinanceRouteWithChildren
+  '/gigs': typeof GigsRouteWithChildren
+  '/groups': typeof GroupsRouteWithChildren
+  '/hire': typeof HireRouteWithChildren
+  '/inbox': typeof InboxRouteWithChildren
+  '/jobs': typeof JobsRouteWithChildren
+  '/launchpad': typeof LaunchpadRouteWithChildren
+  '/learn': typeof LearnRoute
+  '/media': typeof MediaRouteWithChildren
+  '/mentorship': typeof MentorshipRouteWithChildren
+  '/network': typeof NetworkRoute
   '/notifications': typeof NotificationsRoute
-  '/trackers': typeof TrackersRoute
-  '/jobs/$slug': typeof JobsSlugRoute
-  '/jobs/new': typeof JobsNewRoute
-  '/marketplace/checkout-return': typeof MarketplaceCheckoutReturnRoute
-  '/marketplace/new': typeof MarketplaceNewRoute
-  '/marketplace/orders': typeof MarketplaceOrdersRoute
+  '/podcasts': typeof PodcastsRouteWithChildren
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/product': typeof ProductRoute
+  '/profile': typeof ProfileRouteWithChildren
+  '/projects': typeof ProjectsRouteWithChildren
+  '/services': typeof ServicesRouteWithChildren
+  '/settings': typeof SettingsRouteWithChildren
+  '/solutions': typeof SolutionsRouteWithChildren
+  '/status': typeof StatusRoute
+  '/support': typeof SupportRouteWithChildren
+  '/terms': typeof TermsRoute
+  '/trust-safety': typeof TrustSafetyRoute
+  '/user-agreements': typeof UserAgreementsRoute
+  '/work': typeof WorkRoute
+  '/admin/audit': typeof AdminAuditRoute
+  '/admin/compliance': typeof AdminComplianceRoute
+  '/admin/disputes': typeof AdminDisputesRoute
+  '/admin/finance': typeof AdminFinanceRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/moderation': typeof AdminModerationRoute
+  '/admin/moderator': typeof AdminModeratorRoute
+  '/admin/ops': typeof AdminOpsRoute
+  '/admin/portal': typeof AdminPortalRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/search': typeof AdminSearchRoute
+  '/admin/shell': typeof AdminShellRoute
+  '/admin/subscriptions': typeof AdminSubscriptionsRoute
+  '/admin/super': typeof AdminSuperRoute
+  '/admin/tickets': typeof AdminTicketsRouteWithChildren
+  '/admin/trust-safety': typeof AdminTrustSafetyRoute
+  '/admin/verification': typeof AdminVerificationRoute
+  '/admin/withdrawals': typeof AdminWithdrawalsRoute
+  '/agency/$agencyId': typeof AgencyAgencyIdRoute
+  '/ai/analytics': typeof AiAnalyticsRoute
+  '/ai/billing': typeof AiBillingRoute
+  '/ai/brief-helper': typeof AiBriefHelperRoute
+  '/ai/byok': typeof AiByokRoute
+  '/ai/chat': typeof AiChatRoute
+  '/ai/history': typeof AiHistoryRoute
+  '/ai/image-studio': typeof AiImageStudioRoute
+  '/ai/jd-helper': typeof AiJdHelperRoute
+  '/ai/outreach': typeof AiOutreachRoute
+  '/ai/prompts': typeof AiPromptsRoute
+  '/ai/proposal-helper': typeof AiProposalHelperRoute
+  '/ai/recruiter': typeof AiRecruiterRoute
+  '/ai/settings': typeof AiSettingsRoute
+  '/ai/support-summarizer': typeof AiSupportSummarizerRoute
+  '/ai/video-studio': typeof AiVideoStudioRoute
+  '/ai/writer': typeof AiWriterRoute
+  '/auth/account-locked': typeof AuthAccountLockedRoute
+  '/auth/forgot-password': typeof AuthForgotPasswordRoute
+  '/auth/onboarding': typeof AuthOnboardingRoute
+  '/auth/reset-password': typeof AuthResetPasswordRoute
+  '/auth/sign-in': typeof AuthSignInRoute
+  '/auth/sign-up': typeof AuthSignUpRoute
+  '/auth/verify': typeof AuthVerifyRoute
+  '/community/groups': typeof CommunityGroupsRoute
+  '/company/$companyId': typeof CompanyCompanyIdRoute
+  '/create/post': typeof CreatePostRoute
+  '/creation-studio/analytics': typeof CreationStudioAnalyticsRoute
+  '/creation-studio/assets': typeof CreationStudioAssetsRoute
+  '/creation-studio/publish': typeof CreationStudioPublishRoute
+  '/creation-studio/reels': typeof CreationStudioReelsRoute
+  '/creation-studio/scheduled': typeof CreationStudioScheduledRoute
+  '/dashboard/activity': typeof DashboardActivityRoute
+  '/dashboard/applications': typeof DashboardApplicationsRoute
+  '/dashboard/billing': typeof DashboardBillingRoute
+  '/dashboard/bookings': typeof DashboardBookingsRoute
+  '/dashboard/client': typeof DashboardClientRoute
+  '/dashboard/media-library': typeof DashboardMediaLibraryRoute
+  '/dashboard/orders': typeof DashboardOrdersRoute
+  '/dashboard/professional': typeof DashboardProfessionalRoute
+  '/dashboard/projects': typeof DashboardProjectsRoute
+  '/dashboard/recruiter': typeof DashboardRecruiterRoute
+  '/dashboard/resource-planning': typeof DashboardResourcePlanningRoute
+  '/dashboard/saved': typeof DashboardSavedRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
+  '/dashboard/support': typeof DashboardSupportRoute
+  '/enterprise/analytics': typeof EnterpriseAnalyticsRoute
+  '/enterprise/dashboard': typeof EnterpriseDashboardRoute
+  '/enterprise/directory': typeof EnterpriseDirectoryRoute
+  '/enterprise/events': typeof EnterpriseEventsRoute
+  '/enterprise/hiring': typeof EnterpriseHiringRoute
+  '/enterprise/intros': typeof EnterpriseIntrosRoute
+  '/enterprise/matchmaking': typeof EnterpriseMatchmakingRoute
+  '/enterprise/partners': typeof EnterprisePartnersRoute
+  '/enterprise/procurement': typeof EnterpriseProcurementRoute
+  '/enterprise/profile': typeof EnterpriseProfileRoute
+  '/enterprise/rooms': typeof EnterpriseRoomsRoute
+  '/enterprise/saved-lists': typeof EnterpriseSavedListsRoute
+  '/enterprise/settings': typeof EnterpriseSettingsRoute
+  '/enterprise/signals': typeof EnterpriseSignalsRoute
+  '/enterprise/startups': typeof EnterpriseStartupsRouteWithChildren
+  '/events/$eventId': typeof EventsEventIdRoute
+  '/events/create': typeof EventsCreateRoute
+  '/explore/compare': typeof ExploreCompareRoute
+  '/explore/events': typeof ExploreEventsRoute
+  '/explore/gigs': typeof ExploreGigsRoute
+  '/explore/groups': typeof ExploreGroupsRoute
+  '/explore/jobs': typeof ExploreJobsRoute
+  '/explore/map': typeof ExploreMapRoute
+  '/explore/pages': typeof ExplorePagesRoute
+  '/explore/people': typeof ExplorePeopleRoute
+  '/explore/podcasts': typeof ExplorePodcastsRoute
+  '/explore/projects': typeof ExploreProjectsRoute
+  '/explore/saved': typeof ExploreSavedRoute
+  '/explore/services': typeof ExploreServicesRoute
+  '/explore/webinars': typeof ExploreWebinarsRoute
+  '/finance/billing': typeof FinanceBillingRoute
+  '/finance/escrow': typeof FinanceEscrowRoute
+  '/finance/invoices': typeof FinanceInvoicesRoute
+  '/finance/patronage': typeof FinancePatronageRoute
+  '/finance/payouts': typeof FinancePayoutsRoute
+  '/finance/pricing': typeof FinancePricingRoute
+  '/finance/wallet': typeof FinanceWalletRoute
+  '/gigs/$gigId': typeof GigsGigIdRoute
+  '/gigs/addons': typeof GigsAddonsRoute
+  '/gigs/analytics': typeof GigsAnalyticsRoute
+  '/gigs/archive': typeof GigsArchiveRoute
+  '/gigs/availability': typeof GigsAvailabilityRoute
+  '/gigs/create': typeof GigsCreateRoute
+  '/gigs/custom-offers': typeof GigsCustomOffersRoute
+  '/gigs/media': typeof GigsMediaRoute
+  '/gigs/orders': typeof GigsOrdersRoute
+  '/gigs/packages': typeof GigsPackagesRoute
+  '/gigs/performance': typeof GigsPerformanceRoute
+  '/gigs/pricing-intel': typeof GigsPricingIntelRoute
+  '/gigs/promotions': typeof GigsPromotionsRoute
+  '/gigs/requirements': typeof GigsRequirementsRoute
+  '/gigs/revisions': typeof GigsRevisionsRoute
+  '/gigs/workspace': typeof GigsWorkspaceRoute
+  '/groups/$groupId': typeof GroupsGroupIdRoute
+  '/hire/scorecards': typeof HireScorecardsRoute
+  '/hire/settings': typeof HireSettingsRoute
+  '/hire/talent-pools': typeof HireTalentPoolsRoute
+  '/hire/team': typeof HireTeamRoute
+  '/inbox/$threadId': typeof InboxThreadIdRoute
+  '/jobs/$jobId': typeof JobsJobIdRoute
+  '/jobs/applicants': typeof JobsApplicantsRoute
+  '/jobs/applications': typeof JobsApplicationsRoute
+  '/jobs/create': typeof JobsCreateRoute
+  '/jobs/workspace': typeof JobsWorkspaceRoute
+  '/launchpad/analytics': typeof LaunchpadAnalyticsRoute
+  '/launchpad/applications': typeof LaunchpadApplicationsRoute
+  '/launchpad/badges': typeof LaunchpadBadgesRoute
+  '/launchpad/career-changer': typeof LaunchpadCareerChangerRoute
+  '/launchpad/challenges': typeof LaunchpadChallengesRoute
+  '/launchpad/community': typeof LaunchpadCommunityRoute
+  '/launchpad/discover': typeof LaunchpadDiscoverRoute
+  '/launchpad/early-career': typeof LaunchpadEarlyCareerRoute
+  '/launchpad/employer': typeof LaunchpadEmployerRoute
+  '/launchpad/enterprise': typeof LaunchpadEnterpriseRoute
+  '/launchpad/events': typeof LaunchpadEventsRoute
+  '/launchpad/graduate': typeof LaunchpadGraduateRoute
+  '/launchpad/hosts': typeof LaunchpadHostsRoute
+  '/launchpad/jobs': typeof LaunchpadJobsRoute
+  '/launchpad/learning': typeof LaunchpadLearningRoute
+  '/launchpad/mentors': typeof LaunchpadMentorsRoute
+  '/launchpad/opportunities': typeof LaunchpadOpportunitiesRoute
+  '/launchpad/pathways': typeof LaunchpadPathwaysRoute
+  '/launchpad/portfolio': typeof LaunchpadPortfolioRoute
+  '/launchpad/progress': typeof LaunchpadProgressRoute
+  '/launchpad/projects': typeof LaunchpadProjectsRoute
+  '/launchpad/saved': typeof LaunchpadSavedRoute
+  '/launchpad/school-leaver': typeof LaunchpadSchoolLeaverRoute
+  '/launchpad/sessions': typeof LaunchpadSessionsRoute
+  '/launchpad/settings': typeof LaunchpadSettingsRoute
+  '/legal/advertising-policy': typeof LegalAdvertisingPolicyRoute
+  '/legal/appeals': typeof LegalAppealsRoute
+  '/legal/community-guidelines': typeof LegalCommunityGuidelinesRoute
+  '/legal/creator-monetization': typeof LegalCreatorMonetizationRoute
+  '/legal/disputes-policy': typeof LegalDisputesPolicyRoute
+  '/legal/payments-escrow': typeof LegalPaymentsEscrowRoute
+  '/media/analytics': typeof MediaAnalyticsRoute
+  '/media/creators': typeof MediaCreatorsRoute
+  '/media/library': typeof MediaLibraryRoute
   '/media/reels': typeof MediaReelsRouteWithChildren
-  '/u/$username': typeof UUsernameRoute
-  '/jobs': typeof JobsIndexRoute
-  '/marketplace': typeof MarketplaceIndexRoute
-  '/marketplace/gig/$slug': typeof MarketplaceGigSlugRoute
-  '/media/reels/$reelId': typeof MediaReelsReelIdRoute
+  '/media/videos': typeof MediaVideosRouteWithChildren
+  '/media/viewer': typeof MediaViewerRoute
+  '/mentorship/analytics': typeof MentorshipAnalyticsRoute
+  '/mentorship/feedback': typeof MentorshipFeedbackRoute
+  '/mentorship/payments': typeof MentorshipPaymentsRoute
+  '/networking/cards': typeof NetworkingCardsRoute
+  '/networking/connections': typeof NetworkingConnectionsRoute
+  '/networking/follow-ups': typeof NetworkingFollowUpsRoute
+  '/networking/followers': typeof NetworkingFollowersRoute
+  '/networking/following': typeof NetworkingFollowingRoute
+  '/networking/home': typeof NetworkingHomeRoute
+  '/networking/invitations': typeof NetworkingInvitationsRoute
+  '/networking/rooms': typeof NetworkingRoomsRoute
+  '/networking/speed': typeof NetworkingSpeedRoute
+  '/networking/suggested': typeof NetworkingSuggestedRoute
+  '/podcasts/analytics': typeof PodcastsAnalyticsRoute
+  '/podcasts/donations': typeof PodcastsDonationsRoute
+  '/podcasts/legacy': typeof PodcastsLegacyRoute
+  '/podcasts/library': typeof PodcastsLibraryRoute
+  '/podcasts/player': typeof PodcastsPlayerRoute
+  '/podcasts/purchases': typeof PodcastsPurchasesRoute
+  '/podcasts/queue': typeof PodcastsQueueRoute
+  '/podcasts/recorder': typeof PodcastsRecorderRoute
+  '/podcasts/series': typeof PodcastsSeriesRoute
+  '/podcasts/studio': typeof PodcastsStudioRoute
+  '/podcasts/subscriptions': typeof PodcastsSubscriptionsRoute
+  '/profile/$username': typeof ProfileUsernameRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRouteWithChildren
+  '/projects/archive': typeof ProjectsArchiveRoute
+  '/projects/create': typeof ProjectsCreateRoute
+  '/projects/dashboard': typeof ProjectsDashboardRoute
+  '/projects/mine': typeof ProjectsMineRoute
+  '/projects/templates': typeof ProjectsTemplatesRoute
+  '/services/analytics': typeof ServicesAnalyticsRoute
+  '/services/availability': typeof ServicesAvailabilityRoute
+  '/services/browse': typeof ServicesBrowseRoute
+  '/services/create': typeof ServicesCreateRoute
+  '/services/delivery': typeof ServicesDeliveryRoute
+  '/services/orders': typeof ServicesOrdersRoute
+  '/services/packages': typeof ServicesPackagesRoute
+  '/services/promotions': typeof ServicesPromotionsRoute
+  '/settings/integrations': typeof SettingsIntegrationsRoute
+  '/settings/website': typeof SettingsWebsiteRoute
+  '/showcase/ads': typeof ShowcaseAdsRoute
+  '/showcase/creator': typeof ShowcaseCreatorRoute
+  '/showcase/enterprise': typeof ShowcaseEnterpriseRoute
+  '/showcase/events': typeof ShowcaseEventsRoute
+  '/showcase/gigs': typeof ShowcaseGigsRoute
+  '/showcase/jobs': typeof ShowcaseJobsRoute
+  '/showcase/launchpad': typeof ShowcaseLaunchpadRoute
+  '/showcase/mentorship': typeof ShowcaseMentorshipRoute
+  '/showcase/navigator': typeof ShowcaseNavigatorRoute
+  '/showcase/networking': typeof ShowcaseNetworkingRoute
+  '/showcase/podcasts': typeof ShowcasePodcastsRoute
+  '/showcase/projects': typeof ShowcaseProjectsRoute
+  '/showcase/recruiter': typeof ShowcaseRecruiterRoute
+  '/showcase/services': typeof ShowcaseServicesRoute
+  '/solutions/$role': typeof SolutionsRoleRoute
+  '/support/contact': typeof SupportContactRoute
+  '/admin/tickets/$ticketId': typeof AdminTicketsTicketIdRoute
+  '/checkout/gigs/$gigId': typeof CheckoutGigsGigIdRoute
+  '/checkout/projects/$projectId': typeof CheckoutProjectsProjectIdRoute
+  '/checkout/services/$serviceId': typeof CheckoutServicesServiceIdRoute
+  '/contracts/$contractId/escrow': typeof ContractsContractIdEscrowRoute
+  '/contracts/$contractId/milestones': typeof ContractsContractIdMilestonesRoute
+  '/enterprise/startups/$startupId': typeof EnterpriseStartupsStartupIdRoute
+  '/hire/jobs/create': typeof HireJobsCreateRoute
   '/media/reels/studio': typeof MediaReelsStudioRoute
+  '/media/videos/$videoId': typeof MediaVideosVideoIdRoute
+  '/media/videos/studio': typeof MediaVideosStudioRoute
+  '/media/videos/upload': typeof MediaVideosUploadRoute
+  '/projects/$projectId/deliverables': typeof ProjectsProjectIdDeliverablesRoute
+  '/projects/$projectId/escrow': typeof ProjectsProjectIdEscrowRoute
+  '/projects/$projectId/milestones': typeof ProjectsProjectIdMilestonesRoute
+  '/projects/$projectId/proposals': typeof ProjectsProjectIdProposalsRouteWithChildren
+  '/projects/$projectId/tasks': typeof ProjectsProjectIdTasksRoute
+  '/projects/$projectId/workspace': typeof ProjectsProjectIdWorkspaceRoute
+  '/projects/$projectId/proposals/submit': typeof ProjectsProjectIdProposalsSubmitRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/ai': typeof AiRouteWithChildren
   '/calendar': typeof CalendarRoute
-  '/explore': typeof ExploreRoute
+  '/community': typeof CommunityRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/creation-studio': typeof CreationStudioRouteWithChildren
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/enterprise': typeof EnterpriseRouteWithChildren
+  '/events': typeof EventsRouteWithChildren
+  '/explore': typeof ExploreRouteWithChildren
+  '/faq': typeof FaqRoute
   '/feed': typeof FeedRoute
-  '/hiring': typeof HiringRoute
-  '/inbox': typeof InboxRoute
+  '/finance': typeof FinanceRouteWithChildren
+  '/gigs': typeof GigsRouteWithChildren
+  '/groups': typeof GroupsRouteWithChildren
+  '/hire': typeof HireRouteWithChildren
+  '/inbox': typeof InboxRouteWithChildren
+  '/jobs': typeof JobsRouteWithChildren
+  '/launchpad': typeof LaunchpadRouteWithChildren
+  '/learn': typeof LearnRoute
+  '/media': typeof MediaRouteWithChildren
+  '/mentorship': typeof MentorshipRouteWithChildren
+  '/network': typeof NetworkRoute
   '/notifications': typeof NotificationsRoute
-  '/trackers': typeof TrackersRoute
-  '/jobs/$slug': typeof JobsSlugRoute
-  '/jobs/new': typeof JobsNewRoute
-  '/marketplace/checkout-return': typeof MarketplaceCheckoutReturnRoute
-  '/marketplace/new': typeof MarketplaceNewRoute
-  '/marketplace/orders': typeof MarketplaceOrdersRoute
+  '/podcasts': typeof PodcastsRouteWithChildren
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/product': typeof ProductRoute
+  '/profile': typeof ProfileRouteWithChildren
+  '/projects': typeof ProjectsRouteWithChildren
+  '/services': typeof ServicesRouteWithChildren
+  '/settings': typeof SettingsRouteWithChildren
+  '/solutions': typeof SolutionsRouteWithChildren
+  '/status': typeof StatusRoute
+  '/support': typeof SupportRouteWithChildren
+  '/terms': typeof TermsRoute
+  '/trust-safety': typeof TrustSafetyRoute
+  '/user-agreements': typeof UserAgreementsRoute
+  '/work': typeof WorkRoute
+  '/admin/audit': typeof AdminAuditRoute
+  '/admin/compliance': typeof AdminComplianceRoute
+  '/admin/disputes': typeof AdminDisputesRoute
+  '/admin/finance': typeof AdminFinanceRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/moderation': typeof AdminModerationRoute
+  '/admin/moderator': typeof AdminModeratorRoute
+  '/admin/ops': typeof AdminOpsRoute
+  '/admin/portal': typeof AdminPortalRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/search': typeof AdminSearchRoute
+  '/admin/shell': typeof AdminShellRoute
+  '/admin/subscriptions': typeof AdminSubscriptionsRoute
+  '/admin/super': typeof AdminSuperRoute
+  '/admin/tickets': typeof AdminTicketsRouteWithChildren
+  '/admin/trust-safety': typeof AdminTrustSafetyRoute
+  '/admin/verification': typeof AdminVerificationRoute
+  '/admin/withdrawals': typeof AdminWithdrawalsRoute
+  '/agency/$agencyId': typeof AgencyAgencyIdRoute
+  '/ai/analytics': typeof AiAnalyticsRoute
+  '/ai/billing': typeof AiBillingRoute
+  '/ai/brief-helper': typeof AiBriefHelperRoute
+  '/ai/byok': typeof AiByokRoute
+  '/ai/chat': typeof AiChatRoute
+  '/ai/history': typeof AiHistoryRoute
+  '/ai/image-studio': typeof AiImageStudioRoute
+  '/ai/jd-helper': typeof AiJdHelperRoute
+  '/ai/outreach': typeof AiOutreachRoute
+  '/ai/prompts': typeof AiPromptsRoute
+  '/ai/proposal-helper': typeof AiProposalHelperRoute
+  '/ai/recruiter': typeof AiRecruiterRoute
+  '/ai/settings': typeof AiSettingsRoute
+  '/ai/support-summarizer': typeof AiSupportSummarizerRoute
+  '/ai/video-studio': typeof AiVideoStudioRoute
+  '/ai/writer': typeof AiWriterRoute
+  '/auth/account-locked': typeof AuthAccountLockedRoute
+  '/auth/forgot-password': typeof AuthForgotPasswordRoute
+  '/auth/onboarding': typeof AuthOnboardingRoute
+  '/auth/reset-password': typeof AuthResetPasswordRoute
+  '/auth/sign-in': typeof AuthSignInRoute
+  '/auth/sign-up': typeof AuthSignUpRoute
+  '/auth/verify': typeof AuthVerifyRoute
+  '/community/groups': typeof CommunityGroupsRoute
+  '/company/$companyId': typeof CompanyCompanyIdRoute
+  '/create/post': typeof CreatePostRoute
+  '/creation-studio/analytics': typeof CreationStudioAnalyticsRoute
+  '/creation-studio/assets': typeof CreationStudioAssetsRoute
+  '/creation-studio/publish': typeof CreationStudioPublishRoute
+  '/creation-studio/reels': typeof CreationStudioReelsRoute
+  '/creation-studio/scheduled': typeof CreationStudioScheduledRoute
+  '/dashboard/activity': typeof DashboardActivityRoute
+  '/dashboard/applications': typeof DashboardApplicationsRoute
+  '/dashboard/billing': typeof DashboardBillingRoute
+  '/dashboard/bookings': typeof DashboardBookingsRoute
+  '/dashboard/client': typeof DashboardClientRoute
+  '/dashboard/media-library': typeof DashboardMediaLibraryRoute
+  '/dashboard/orders': typeof DashboardOrdersRoute
+  '/dashboard/professional': typeof DashboardProfessionalRoute
+  '/dashboard/projects': typeof DashboardProjectsRoute
+  '/dashboard/recruiter': typeof DashboardRecruiterRoute
+  '/dashboard/resource-planning': typeof DashboardResourcePlanningRoute
+  '/dashboard/saved': typeof DashboardSavedRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
+  '/dashboard/support': typeof DashboardSupportRoute
+  '/enterprise/analytics': typeof EnterpriseAnalyticsRoute
+  '/enterprise/dashboard': typeof EnterpriseDashboardRoute
+  '/enterprise/directory': typeof EnterpriseDirectoryRoute
+  '/enterprise/events': typeof EnterpriseEventsRoute
+  '/enterprise/hiring': typeof EnterpriseHiringRoute
+  '/enterprise/intros': typeof EnterpriseIntrosRoute
+  '/enterprise/matchmaking': typeof EnterpriseMatchmakingRoute
+  '/enterprise/partners': typeof EnterprisePartnersRoute
+  '/enterprise/procurement': typeof EnterpriseProcurementRoute
+  '/enterprise/profile': typeof EnterpriseProfileRoute
+  '/enterprise/rooms': typeof EnterpriseRoomsRoute
+  '/enterprise/saved-lists': typeof EnterpriseSavedListsRoute
+  '/enterprise/settings': typeof EnterpriseSettingsRoute
+  '/enterprise/signals': typeof EnterpriseSignalsRoute
+  '/enterprise/startups': typeof EnterpriseStartupsRouteWithChildren
+  '/events/$eventId': typeof EventsEventIdRoute
+  '/events/create': typeof EventsCreateRoute
+  '/explore/compare': typeof ExploreCompareRoute
+  '/explore/events': typeof ExploreEventsRoute
+  '/explore/gigs': typeof ExploreGigsRoute
+  '/explore/groups': typeof ExploreGroupsRoute
+  '/explore/jobs': typeof ExploreJobsRoute
+  '/explore/map': typeof ExploreMapRoute
+  '/explore/pages': typeof ExplorePagesRoute
+  '/explore/people': typeof ExplorePeopleRoute
+  '/explore/podcasts': typeof ExplorePodcastsRoute
+  '/explore/projects': typeof ExploreProjectsRoute
+  '/explore/saved': typeof ExploreSavedRoute
+  '/explore/services': typeof ExploreServicesRoute
+  '/explore/webinars': typeof ExploreWebinarsRoute
+  '/finance/billing': typeof FinanceBillingRoute
+  '/finance/escrow': typeof FinanceEscrowRoute
+  '/finance/invoices': typeof FinanceInvoicesRoute
+  '/finance/patronage': typeof FinancePatronageRoute
+  '/finance/payouts': typeof FinancePayoutsRoute
+  '/finance/pricing': typeof FinancePricingRoute
+  '/finance/wallet': typeof FinanceWalletRoute
+  '/gigs/$gigId': typeof GigsGigIdRoute
+  '/gigs/addons': typeof GigsAddonsRoute
+  '/gigs/analytics': typeof GigsAnalyticsRoute
+  '/gigs/archive': typeof GigsArchiveRoute
+  '/gigs/availability': typeof GigsAvailabilityRoute
+  '/gigs/create': typeof GigsCreateRoute
+  '/gigs/custom-offers': typeof GigsCustomOffersRoute
+  '/gigs/media': typeof GigsMediaRoute
+  '/gigs/orders': typeof GigsOrdersRoute
+  '/gigs/packages': typeof GigsPackagesRoute
+  '/gigs/performance': typeof GigsPerformanceRoute
+  '/gigs/pricing-intel': typeof GigsPricingIntelRoute
+  '/gigs/promotions': typeof GigsPromotionsRoute
+  '/gigs/requirements': typeof GigsRequirementsRoute
+  '/gigs/revisions': typeof GigsRevisionsRoute
+  '/gigs/workspace': typeof GigsWorkspaceRoute
+  '/groups/$groupId': typeof GroupsGroupIdRoute
+  '/hire/scorecards': typeof HireScorecardsRoute
+  '/hire/settings': typeof HireSettingsRoute
+  '/hire/talent-pools': typeof HireTalentPoolsRoute
+  '/hire/team': typeof HireTeamRoute
+  '/inbox/$threadId': typeof InboxThreadIdRoute
+  '/jobs/$jobId': typeof JobsJobIdRoute
+  '/jobs/applicants': typeof JobsApplicantsRoute
+  '/jobs/applications': typeof JobsApplicationsRoute
+  '/jobs/create': typeof JobsCreateRoute
+  '/jobs/workspace': typeof JobsWorkspaceRoute
+  '/launchpad/analytics': typeof LaunchpadAnalyticsRoute
+  '/launchpad/applications': typeof LaunchpadApplicationsRoute
+  '/launchpad/badges': typeof LaunchpadBadgesRoute
+  '/launchpad/career-changer': typeof LaunchpadCareerChangerRoute
+  '/launchpad/challenges': typeof LaunchpadChallengesRoute
+  '/launchpad/community': typeof LaunchpadCommunityRoute
+  '/launchpad/discover': typeof LaunchpadDiscoverRoute
+  '/launchpad/early-career': typeof LaunchpadEarlyCareerRoute
+  '/launchpad/employer': typeof LaunchpadEmployerRoute
+  '/launchpad/enterprise': typeof LaunchpadEnterpriseRoute
+  '/launchpad/events': typeof LaunchpadEventsRoute
+  '/launchpad/graduate': typeof LaunchpadGraduateRoute
+  '/launchpad/hosts': typeof LaunchpadHostsRoute
+  '/launchpad/jobs': typeof LaunchpadJobsRoute
+  '/launchpad/learning': typeof LaunchpadLearningRoute
+  '/launchpad/mentors': typeof LaunchpadMentorsRoute
+  '/launchpad/opportunities': typeof LaunchpadOpportunitiesRoute
+  '/launchpad/pathways': typeof LaunchpadPathwaysRoute
+  '/launchpad/portfolio': typeof LaunchpadPortfolioRoute
+  '/launchpad/progress': typeof LaunchpadProgressRoute
+  '/launchpad/projects': typeof LaunchpadProjectsRoute
+  '/launchpad/saved': typeof LaunchpadSavedRoute
+  '/launchpad/school-leaver': typeof LaunchpadSchoolLeaverRoute
+  '/launchpad/sessions': typeof LaunchpadSessionsRoute
+  '/launchpad/settings': typeof LaunchpadSettingsRoute
+  '/legal/advertising-policy': typeof LegalAdvertisingPolicyRoute
+  '/legal/appeals': typeof LegalAppealsRoute
+  '/legal/community-guidelines': typeof LegalCommunityGuidelinesRoute
+  '/legal/creator-monetization': typeof LegalCreatorMonetizationRoute
+  '/legal/disputes-policy': typeof LegalDisputesPolicyRoute
+  '/legal/payments-escrow': typeof LegalPaymentsEscrowRoute
+  '/media/analytics': typeof MediaAnalyticsRoute
+  '/media/creators': typeof MediaCreatorsRoute
+  '/media/library': typeof MediaLibraryRoute
   '/media/reels': typeof MediaReelsRouteWithChildren
-  '/u/$username': typeof UUsernameRoute
-  '/jobs/': typeof JobsIndexRoute
-  '/marketplace/': typeof MarketplaceIndexRoute
-  '/marketplace/gig/$slug': typeof MarketplaceGigSlugRoute
-  '/media/reels/$reelId': typeof MediaReelsReelIdRoute
+  '/media/videos': typeof MediaVideosRouteWithChildren
+  '/media/viewer': typeof MediaViewerRoute
+  '/mentorship/analytics': typeof MentorshipAnalyticsRoute
+  '/mentorship/feedback': typeof MentorshipFeedbackRoute
+  '/mentorship/payments': typeof MentorshipPaymentsRoute
+  '/networking/cards': typeof NetworkingCardsRoute
+  '/networking/connections': typeof NetworkingConnectionsRoute
+  '/networking/follow-ups': typeof NetworkingFollowUpsRoute
+  '/networking/followers': typeof NetworkingFollowersRoute
+  '/networking/following': typeof NetworkingFollowingRoute
+  '/networking/home': typeof NetworkingHomeRoute
+  '/networking/invitations': typeof NetworkingInvitationsRoute
+  '/networking/rooms': typeof NetworkingRoomsRoute
+  '/networking/speed': typeof NetworkingSpeedRoute
+  '/networking/suggested': typeof NetworkingSuggestedRoute
+  '/podcasts/analytics': typeof PodcastsAnalyticsRoute
+  '/podcasts/donations': typeof PodcastsDonationsRoute
+  '/podcasts/legacy': typeof PodcastsLegacyRoute
+  '/podcasts/library': typeof PodcastsLibraryRoute
+  '/podcasts/player': typeof PodcastsPlayerRoute
+  '/podcasts/purchases': typeof PodcastsPurchasesRoute
+  '/podcasts/queue': typeof PodcastsQueueRoute
+  '/podcasts/recorder': typeof PodcastsRecorderRoute
+  '/podcasts/series': typeof PodcastsSeriesRoute
+  '/podcasts/studio': typeof PodcastsStudioRoute
+  '/podcasts/subscriptions': typeof PodcastsSubscriptionsRoute
+  '/profile/$username': typeof ProfileUsernameRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRouteWithChildren
+  '/projects/archive': typeof ProjectsArchiveRoute
+  '/projects/create': typeof ProjectsCreateRoute
+  '/projects/dashboard': typeof ProjectsDashboardRoute
+  '/projects/mine': typeof ProjectsMineRoute
+  '/projects/templates': typeof ProjectsTemplatesRoute
+  '/services/analytics': typeof ServicesAnalyticsRoute
+  '/services/availability': typeof ServicesAvailabilityRoute
+  '/services/browse': typeof ServicesBrowseRoute
+  '/services/create': typeof ServicesCreateRoute
+  '/services/delivery': typeof ServicesDeliveryRoute
+  '/services/orders': typeof ServicesOrdersRoute
+  '/services/packages': typeof ServicesPackagesRoute
+  '/services/promotions': typeof ServicesPromotionsRoute
+  '/settings/integrations': typeof SettingsIntegrationsRoute
+  '/settings/website': typeof SettingsWebsiteRoute
+  '/showcase/ads': typeof ShowcaseAdsRoute
+  '/showcase/creator': typeof ShowcaseCreatorRoute
+  '/showcase/enterprise': typeof ShowcaseEnterpriseRoute
+  '/showcase/events': typeof ShowcaseEventsRoute
+  '/showcase/gigs': typeof ShowcaseGigsRoute
+  '/showcase/jobs': typeof ShowcaseJobsRoute
+  '/showcase/launchpad': typeof ShowcaseLaunchpadRoute
+  '/showcase/mentorship': typeof ShowcaseMentorshipRoute
+  '/showcase/navigator': typeof ShowcaseNavigatorRoute
+  '/showcase/networking': typeof ShowcaseNetworkingRoute
+  '/showcase/podcasts': typeof ShowcasePodcastsRoute
+  '/showcase/projects': typeof ShowcaseProjectsRoute
+  '/showcase/recruiter': typeof ShowcaseRecruiterRoute
+  '/showcase/services': typeof ShowcaseServicesRoute
+  '/solutions/$role': typeof SolutionsRoleRoute
+  '/support/contact': typeof SupportContactRoute
+  '/admin/tickets/$ticketId': typeof AdminTicketsTicketIdRoute
+  '/checkout/gigs/$gigId': typeof CheckoutGigsGigIdRoute
+  '/checkout/projects/$projectId': typeof CheckoutProjectsProjectIdRoute
+  '/checkout/services/$serviceId': typeof CheckoutServicesServiceIdRoute
+  '/contracts/$contractId/escrow': typeof ContractsContractIdEscrowRoute
+  '/contracts/$contractId/milestones': typeof ContractsContractIdMilestonesRoute
+  '/enterprise/startups/$startupId': typeof EnterpriseStartupsStartupIdRoute
+  '/hire/jobs/create': typeof HireJobsCreateRoute
   '/media/reels/studio': typeof MediaReelsStudioRoute
+  '/media/videos/$videoId': typeof MediaVideosVideoIdRoute
+  '/media/videos/studio': typeof MediaVideosStudioRoute
+  '/media/videos/upload': typeof MediaVideosUploadRoute
+  '/projects/$projectId/deliverables': typeof ProjectsProjectIdDeliverablesRoute
+  '/projects/$projectId/escrow': typeof ProjectsProjectIdEscrowRoute
+  '/projects/$projectId/milestones': typeof ProjectsProjectIdMilestonesRoute
+  '/projects/$projectId/proposals': typeof ProjectsProjectIdProposalsRouteWithChildren
+  '/projects/$projectId/tasks': typeof ProjectsProjectIdTasksRoute
+  '/projects/$projectId/workspace': typeof ProjectsProjectIdWorkspaceRoute
+  '/projects/$projectId/proposals/submit': typeof ProjectsProjectIdProposalsSubmitRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/auth'
+    | '/about'
+    | '/admin'
+    | '/ai'
     | '/calendar'
+    | '/community'
+    | '/contact'
+    | '/creation-studio'
+    | '/dashboard'
+    | '/enterprise'
+    | '/events'
     | '/explore'
+    | '/faq'
     | '/feed'
-    | '/hiring'
+    | '/finance'
+    | '/gigs'
+    | '/groups'
+    | '/hire'
     | '/inbox'
+    | '/jobs'
+    | '/launchpad'
+    | '/learn'
+    | '/media'
+    | '/mentorship'
+    | '/network'
     | '/notifications'
-    | '/trackers'
-    | '/jobs/$slug'
-    | '/jobs/new'
-    | '/marketplace/checkout-return'
-    | '/marketplace/new'
-    | '/marketplace/orders'
+    | '/podcasts'
+    | '/pricing'
+    | '/privacy'
+    | '/product'
+    | '/profile'
+    | '/projects'
+    | '/services'
+    | '/settings'
+    | '/solutions'
+    | '/status'
+    | '/support'
+    | '/terms'
+    | '/trust-safety'
+    | '/user-agreements'
+    | '/work'
+    | '/admin/audit'
+    | '/admin/compliance'
+    | '/admin/disputes'
+    | '/admin/finance'
+    | '/admin/login'
+    | '/admin/moderation'
+    | '/admin/moderator'
+    | '/admin/ops'
+    | '/admin/portal'
+    | '/admin/reports'
+    | '/admin/search'
+    | '/admin/shell'
+    | '/admin/subscriptions'
+    | '/admin/super'
+    | '/admin/tickets'
+    | '/admin/trust-safety'
+    | '/admin/verification'
+    | '/admin/withdrawals'
+    | '/agency/$agencyId'
+    | '/ai/analytics'
+    | '/ai/billing'
+    | '/ai/brief-helper'
+    | '/ai/byok'
+    | '/ai/chat'
+    | '/ai/history'
+    | '/ai/image-studio'
+    | '/ai/jd-helper'
+    | '/ai/outreach'
+    | '/ai/prompts'
+    | '/ai/proposal-helper'
+    | '/ai/recruiter'
+    | '/ai/settings'
+    | '/ai/support-summarizer'
+    | '/ai/video-studio'
+    | '/ai/writer'
+    | '/auth/account-locked'
+    | '/auth/forgot-password'
+    | '/auth/onboarding'
+    | '/auth/reset-password'
+    | '/auth/sign-in'
+    | '/auth/sign-up'
+    | '/auth/verify'
+    | '/community/groups'
+    | '/company/$companyId'
+    | '/create/post'
+    | '/creation-studio/analytics'
+    | '/creation-studio/assets'
+    | '/creation-studio/publish'
+    | '/creation-studio/reels'
+    | '/creation-studio/scheduled'
+    | '/dashboard/activity'
+    | '/dashboard/applications'
+    | '/dashboard/billing'
+    | '/dashboard/bookings'
+    | '/dashboard/client'
+    | '/dashboard/media-library'
+    | '/dashboard/orders'
+    | '/dashboard/professional'
+    | '/dashboard/projects'
+    | '/dashboard/recruiter'
+    | '/dashboard/resource-planning'
+    | '/dashboard/saved'
+    | '/dashboard/settings'
+    | '/dashboard/support'
+    | '/enterprise/analytics'
+    | '/enterprise/dashboard'
+    | '/enterprise/directory'
+    | '/enterprise/events'
+    | '/enterprise/hiring'
+    | '/enterprise/intros'
+    | '/enterprise/matchmaking'
+    | '/enterprise/partners'
+    | '/enterprise/procurement'
+    | '/enterprise/profile'
+    | '/enterprise/rooms'
+    | '/enterprise/saved-lists'
+    | '/enterprise/settings'
+    | '/enterprise/signals'
+    | '/enterprise/startups'
+    | '/events/$eventId'
+    | '/events/create'
+    | '/explore/compare'
+    | '/explore/events'
+    | '/explore/gigs'
+    | '/explore/groups'
+    | '/explore/jobs'
+    | '/explore/map'
+    | '/explore/pages'
+    | '/explore/people'
+    | '/explore/podcasts'
+    | '/explore/projects'
+    | '/explore/saved'
+    | '/explore/services'
+    | '/explore/webinars'
+    | '/finance/billing'
+    | '/finance/escrow'
+    | '/finance/invoices'
+    | '/finance/patronage'
+    | '/finance/payouts'
+    | '/finance/pricing'
+    | '/finance/wallet'
+    | '/gigs/$gigId'
+    | '/gigs/addons'
+    | '/gigs/analytics'
+    | '/gigs/archive'
+    | '/gigs/availability'
+    | '/gigs/create'
+    | '/gigs/custom-offers'
+    | '/gigs/media'
+    | '/gigs/orders'
+    | '/gigs/packages'
+    | '/gigs/performance'
+    | '/gigs/pricing-intel'
+    | '/gigs/promotions'
+    | '/gigs/requirements'
+    | '/gigs/revisions'
+    | '/gigs/workspace'
+    | '/groups/$groupId'
+    | '/hire/scorecards'
+    | '/hire/settings'
+    | '/hire/talent-pools'
+    | '/hire/team'
+    | '/inbox/$threadId'
+    | '/jobs/$jobId'
+    | '/jobs/applicants'
+    | '/jobs/applications'
+    | '/jobs/create'
+    | '/jobs/workspace'
+    | '/launchpad/analytics'
+    | '/launchpad/applications'
+    | '/launchpad/badges'
+    | '/launchpad/career-changer'
+    | '/launchpad/challenges'
+    | '/launchpad/community'
+    | '/launchpad/discover'
+    | '/launchpad/early-career'
+    | '/launchpad/employer'
+    | '/launchpad/enterprise'
+    | '/launchpad/events'
+    | '/launchpad/graduate'
+    | '/launchpad/hosts'
+    | '/launchpad/jobs'
+    | '/launchpad/learning'
+    | '/launchpad/mentors'
+    | '/launchpad/opportunities'
+    | '/launchpad/pathways'
+    | '/launchpad/portfolio'
+    | '/launchpad/progress'
+    | '/launchpad/projects'
+    | '/launchpad/saved'
+    | '/launchpad/school-leaver'
+    | '/launchpad/sessions'
+    | '/launchpad/settings'
+    | '/legal/advertising-policy'
+    | '/legal/appeals'
+    | '/legal/community-guidelines'
+    | '/legal/creator-monetization'
+    | '/legal/disputes-policy'
+    | '/legal/payments-escrow'
+    | '/media/analytics'
+    | '/media/creators'
+    | '/media/library'
     | '/media/reels'
-    | '/u/$username'
-    | '/jobs/'
-    | '/marketplace/'
-    | '/marketplace/gig/$slug'
-    | '/media/reels/$reelId'
+    | '/media/videos'
+    | '/media/viewer'
+    | '/mentorship/analytics'
+    | '/mentorship/feedback'
+    | '/mentorship/payments'
+    | '/networking/cards'
+    | '/networking/connections'
+    | '/networking/follow-ups'
+    | '/networking/followers'
+    | '/networking/following'
+    | '/networking/home'
+    | '/networking/invitations'
+    | '/networking/rooms'
+    | '/networking/speed'
+    | '/networking/suggested'
+    | '/podcasts/analytics'
+    | '/podcasts/donations'
+    | '/podcasts/legacy'
+    | '/podcasts/library'
+    | '/podcasts/player'
+    | '/podcasts/purchases'
+    | '/podcasts/queue'
+    | '/podcasts/recorder'
+    | '/podcasts/series'
+    | '/podcasts/studio'
+    | '/podcasts/subscriptions'
+    | '/profile/$username'
+    | '/projects/$projectId'
+    | '/projects/archive'
+    | '/projects/create'
+    | '/projects/dashboard'
+    | '/projects/mine'
+    | '/projects/templates'
+    | '/services/analytics'
+    | '/services/availability'
+    | '/services/browse'
+    | '/services/create'
+    | '/services/delivery'
+    | '/services/orders'
+    | '/services/packages'
+    | '/services/promotions'
+    | '/settings/integrations'
+    | '/settings/website'
+    | '/showcase/ads'
+    | '/showcase/creator'
+    | '/showcase/enterprise'
+    | '/showcase/events'
+    | '/showcase/gigs'
+    | '/showcase/jobs'
+    | '/showcase/launchpad'
+    | '/showcase/mentorship'
+    | '/showcase/navigator'
+    | '/showcase/networking'
+    | '/showcase/podcasts'
+    | '/showcase/projects'
+    | '/showcase/recruiter'
+    | '/showcase/services'
+    | '/solutions/$role'
+    | '/support/contact'
+    | '/admin/tickets/$ticketId'
+    | '/checkout/gigs/$gigId'
+    | '/checkout/projects/$projectId'
+    | '/checkout/services/$serviceId'
+    | '/contracts/$contractId/escrow'
+    | '/contracts/$contractId/milestones'
+    | '/enterprise/startups/$startupId'
+    | '/hire/jobs/create'
     | '/media/reels/studio'
+    | '/media/videos/$videoId'
+    | '/media/videos/studio'
+    | '/media/videos/upload'
+    | '/projects/$projectId/deliverables'
+    | '/projects/$projectId/escrow'
+    | '/projects/$projectId/milestones'
+    | '/projects/$projectId/proposals'
+    | '/projects/$projectId/tasks'
+    | '/projects/$projectId/workspace'
+    | '/projects/$projectId/proposals/submit'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/auth'
+    | '/about'
+    | '/admin'
+    | '/ai'
     | '/calendar'
+    | '/community'
+    | '/contact'
+    | '/creation-studio'
+    | '/dashboard'
+    | '/enterprise'
+    | '/events'
     | '/explore'
+    | '/faq'
     | '/feed'
-    | '/hiring'
+    | '/finance'
+    | '/gigs'
+    | '/groups'
+    | '/hire'
     | '/inbox'
-    | '/notifications'
-    | '/trackers'
-    | '/jobs/$slug'
-    | '/jobs/new'
-    | '/marketplace/checkout-return'
-    | '/marketplace/new'
-    | '/marketplace/orders'
-    | '/media/reels'
-    | '/u/$username'
     | '/jobs'
-    | '/marketplace'
-    | '/marketplace/gig/$slug'
-    | '/media/reels/$reelId'
+    | '/launchpad'
+    | '/learn'
+    | '/media'
+    | '/mentorship'
+    | '/network'
+    | '/notifications'
+    | '/podcasts'
+    | '/pricing'
+    | '/privacy'
+    | '/product'
+    | '/profile'
+    | '/projects'
+    | '/services'
+    | '/settings'
+    | '/solutions'
+    | '/status'
+    | '/support'
+    | '/terms'
+    | '/trust-safety'
+    | '/user-agreements'
+    | '/work'
+    | '/admin/audit'
+    | '/admin/compliance'
+    | '/admin/disputes'
+    | '/admin/finance'
+    | '/admin/login'
+    | '/admin/moderation'
+    | '/admin/moderator'
+    | '/admin/ops'
+    | '/admin/portal'
+    | '/admin/reports'
+    | '/admin/search'
+    | '/admin/shell'
+    | '/admin/subscriptions'
+    | '/admin/super'
+    | '/admin/tickets'
+    | '/admin/trust-safety'
+    | '/admin/verification'
+    | '/admin/withdrawals'
+    | '/agency/$agencyId'
+    | '/ai/analytics'
+    | '/ai/billing'
+    | '/ai/brief-helper'
+    | '/ai/byok'
+    | '/ai/chat'
+    | '/ai/history'
+    | '/ai/image-studio'
+    | '/ai/jd-helper'
+    | '/ai/outreach'
+    | '/ai/prompts'
+    | '/ai/proposal-helper'
+    | '/ai/recruiter'
+    | '/ai/settings'
+    | '/ai/support-summarizer'
+    | '/ai/video-studio'
+    | '/ai/writer'
+    | '/auth/account-locked'
+    | '/auth/forgot-password'
+    | '/auth/onboarding'
+    | '/auth/reset-password'
+    | '/auth/sign-in'
+    | '/auth/sign-up'
+    | '/auth/verify'
+    | '/community/groups'
+    | '/company/$companyId'
+    | '/create/post'
+    | '/creation-studio/analytics'
+    | '/creation-studio/assets'
+    | '/creation-studio/publish'
+    | '/creation-studio/reels'
+    | '/creation-studio/scheduled'
+    | '/dashboard/activity'
+    | '/dashboard/applications'
+    | '/dashboard/billing'
+    | '/dashboard/bookings'
+    | '/dashboard/client'
+    | '/dashboard/media-library'
+    | '/dashboard/orders'
+    | '/dashboard/professional'
+    | '/dashboard/projects'
+    | '/dashboard/recruiter'
+    | '/dashboard/resource-planning'
+    | '/dashboard/saved'
+    | '/dashboard/settings'
+    | '/dashboard/support'
+    | '/enterprise/analytics'
+    | '/enterprise/dashboard'
+    | '/enterprise/directory'
+    | '/enterprise/events'
+    | '/enterprise/hiring'
+    | '/enterprise/intros'
+    | '/enterprise/matchmaking'
+    | '/enterprise/partners'
+    | '/enterprise/procurement'
+    | '/enterprise/profile'
+    | '/enterprise/rooms'
+    | '/enterprise/saved-lists'
+    | '/enterprise/settings'
+    | '/enterprise/signals'
+    | '/enterprise/startups'
+    | '/events/$eventId'
+    | '/events/create'
+    | '/explore/compare'
+    | '/explore/events'
+    | '/explore/gigs'
+    | '/explore/groups'
+    | '/explore/jobs'
+    | '/explore/map'
+    | '/explore/pages'
+    | '/explore/people'
+    | '/explore/podcasts'
+    | '/explore/projects'
+    | '/explore/saved'
+    | '/explore/services'
+    | '/explore/webinars'
+    | '/finance/billing'
+    | '/finance/escrow'
+    | '/finance/invoices'
+    | '/finance/patronage'
+    | '/finance/payouts'
+    | '/finance/pricing'
+    | '/finance/wallet'
+    | '/gigs/$gigId'
+    | '/gigs/addons'
+    | '/gigs/analytics'
+    | '/gigs/archive'
+    | '/gigs/availability'
+    | '/gigs/create'
+    | '/gigs/custom-offers'
+    | '/gigs/media'
+    | '/gigs/orders'
+    | '/gigs/packages'
+    | '/gigs/performance'
+    | '/gigs/pricing-intel'
+    | '/gigs/promotions'
+    | '/gigs/requirements'
+    | '/gigs/revisions'
+    | '/gigs/workspace'
+    | '/groups/$groupId'
+    | '/hire/scorecards'
+    | '/hire/settings'
+    | '/hire/talent-pools'
+    | '/hire/team'
+    | '/inbox/$threadId'
+    | '/jobs/$jobId'
+    | '/jobs/applicants'
+    | '/jobs/applications'
+    | '/jobs/create'
+    | '/jobs/workspace'
+    | '/launchpad/analytics'
+    | '/launchpad/applications'
+    | '/launchpad/badges'
+    | '/launchpad/career-changer'
+    | '/launchpad/challenges'
+    | '/launchpad/community'
+    | '/launchpad/discover'
+    | '/launchpad/early-career'
+    | '/launchpad/employer'
+    | '/launchpad/enterprise'
+    | '/launchpad/events'
+    | '/launchpad/graduate'
+    | '/launchpad/hosts'
+    | '/launchpad/jobs'
+    | '/launchpad/learning'
+    | '/launchpad/mentors'
+    | '/launchpad/opportunities'
+    | '/launchpad/pathways'
+    | '/launchpad/portfolio'
+    | '/launchpad/progress'
+    | '/launchpad/projects'
+    | '/launchpad/saved'
+    | '/launchpad/school-leaver'
+    | '/launchpad/sessions'
+    | '/launchpad/settings'
+    | '/legal/advertising-policy'
+    | '/legal/appeals'
+    | '/legal/community-guidelines'
+    | '/legal/creator-monetization'
+    | '/legal/disputes-policy'
+    | '/legal/payments-escrow'
+    | '/media/analytics'
+    | '/media/creators'
+    | '/media/library'
+    | '/media/reels'
+    | '/media/videos'
+    | '/media/viewer'
+    | '/mentorship/analytics'
+    | '/mentorship/feedback'
+    | '/mentorship/payments'
+    | '/networking/cards'
+    | '/networking/connections'
+    | '/networking/follow-ups'
+    | '/networking/followers'
+    | '/networking/following'
+    | '/networking/home'
+    | '/networking/invitations'
+    | '/networking/rooms'
+    | '/networking/speed'
+    | '/networking/suggested'
+    | '/podcasts/analytics'
+    | '/podcasts/donations'
+    | '/podcasts/legacy'
+    | '/podcasts/library'
+    | '/podcasts/player'
+    | '/podcasts/purchases'
+    | '/podcasts/queue'
+    | '/podcasts/recorder'
+    | '/podcasts/series'
+    | '/podcasts/studio'
+    | '/podcasts/subscriptions'
+    | '/profile/$username'
+    | '/projects/$projectId'
+    | '/projects/archive'
+    | '/projects/create'
+    | '/projects/dashboard'
+    | '/projects/mine'
+    | '/projects/templates'
+    | '/services/analytics'
+    | '/services/availability'
+    | '/services/browse'
+    | '/services/create'
+    | '/services/delivery'
+    | '/services/orders'
+    | '/services/packages'
+    | '/services/promotions'
+    | '/settings/integrations'
+    | '/settings/website'
+    | '/showcase/ads'
+    | '/showcase/creator'
+    | '/showcase/enterprise'
+    | '/showcase/events'
+    | '/showcase/gigs'
+    | '/showcase/jobs'
+    | '/showcase/launchpad'
+    | '/showcase/mentorship'
+    | '/showcase/navigator'
+    | '/showcase/networking'
+    | '/showcase/podcasts'
+    | '/showcase/projects'
+    | '/showcase/recruiter'
+    | '/showcase/services'
+    | '/solutions/$role'
+    | '/support/contact'
+    | '/admin/tickets/$ticketId'
+    | '/checkout/gigs/$gigId'
+    | '/checkout/projects/$projectId'
+    | '/checkout/services/$serviceId'
+    | '/contracts/$contractId/escrow'
+    | '/contracts/$contractId/milestones'
+    | '/enterprise/startups/$startupId'
+    | '/hire/jobs/create'
     | '/media/reels/studio'
+    | '/media/videos/$videoId'
+    | '/media/videos/studio'
+    | '/media/videos/upload'
+    | '/projects/$projectId/deliverables'
+    | '/projects/$projectId/escrow'
+    | '/projects/$projectId/milestones'
+    | '/projects/$projectId/proposals'
+    | '/projects/$projectId/tasks'
+    | '/projects/$projectId/workspace'
+    | '/projects/$projectId/proposals/submit'
   id:
     | '__root__'
     | '/'
-    | '/auth'
+    | '/about'
+    | '/admin'
+    | '/ai'
     | '/calendar'
+    | '/community'
+    | '/contact'
+    | '/creation-studio'
+    | '/dashboard'
+    | '/enterprise'
+    | '/events'
     | '/explore'
+    | '/faq'
     | '/feed'
-    | '/hiring'
+    | '/finance'
+    | '/gigs'
+    | '/groups'
+    | '/hire'
     | '/inbox'
+    | '/jobs'
+    | '/launchpad'
+    | '/learn'
+    | '/media'
+    | '/mentorship'
+    | '/network'
     | '/notifications'
-    | '/trackers'
-    | '/jobs/$slug'
-    | '/jobs/new'
-    | '/marketplace/checkout-return'
-    | '/marketplace/new'
-    | '/marketplace/orders'
+    | '/podcasts'
+    | '/pricing'
+    | '/privacy'
+    | '/product'
+    | '/profile'
+    | '/projects'
+    | '/services'
+    | '/settings'
+    | '/solutions'
+    | '/status'
+    | '/support'
+    | '/terms'
+    | '/trust-safety'
+    | '/user-agreements'
+    | '/work'
+    | '/admin/audit'
+    | '/admin/compliance'
+    | '/admin/disputes'
+    | '/admin/finance'
+    | '/admin/login'
+    | '/admin/moderation'
+    | '/admin/moderator'
+    | '/admin/ops'
+    | '/admin/portal'
+    | '/admin/reports'
+    | '/admin/search'
+    | '/admin/shell'
+    | '/admin/subscriptions'
+    | '/admin/super'
+    | '/admin/tickets'
+    | '/admin/trust-safety'
+    | '/admin/verification'
+    | '/admin/withdrawals'
+    | '/agency/$agencyId'
+    | '/ai/analytics'
+    | '/ai/billing'
+    | '/ai/brief-helper'
+    | '/ai/byok'
+    | '/ai/chat'
+    | '/ai/history'
+    | '/ai/image-studio'
+    | '/ai/jd-helper'
+    | '/ai/outreach'
+    | '/ai/prompts'
+    | '/ai/proposal-helper'
+    | '/ai/recruiter'
+    | '/ai/settings'
+    | '/ai/support-summarizer'
+    | '/ai/video-studio'
+    | '/ai/writer'
+    | '/auth/account-locked'
+    | '/auth/forgot-password'
+    | '/auth/onboarding'
+    | '/auth/reset-password'
+    | '/auth/sign-in'
+    | '/auth/sign-up'
+    | '/auth/verify'
+    | '/community/groups'
+    | '/company/$companyId'
+    | '/create/post'
+    | '/creation-studio/analytics'
+    | '/creation-studio/assets'
+    | '/creation-studio/publish'
+    | '/creation-studio/reels'
+    | '/creation-studio/scheduled'
+    | '/dashboard/activity'
+    | '/dashboard/applications'
+    | '/dashboard/billing'
+    | '/dashboard/bookings'
+    | '/dashboard/client'
+    | '/dashboard/media-library'
+    | '/dashboard/orders'
+    | '/dashboard/professional'
+    | '/dashboard/projects'
+    | '/dashboard/recruiter'
+    | '/dashboard/resource-planning'
+    | '/dashboard/saved'
+    | '/dashboard/settings'
+    | '/dashboard/support'
+    | '/enterprise/analytics'
+    | '/enterprise/dashboard'
+    | '/enterprise/directory'
+    | '/enterprise/events'
+    | '/enterprise/hiring'
+    | '/enterprise/intros'
+    | '/enterprise/matchmaking'
+    | '/enterprise/partners'
+    | '/enterprise/procurement'
+    | '/enterprise/profile'
+    | '/enterprise/rooms'
+    | '/enterprise/saved-lists'
+    | '/enterprise/settings'
+    | '/enterprise/signals'
+    | '/enterprise/startups'
+    | '/events/$eventId'
+    | '/events/create'
+    | '/explore/compare'
+    | '/explore/events'
+    | '/explore/gigs'
+    | '/explore/groups'
+    | '/explore/jobs'
+    | '/explore/map'
+    | '/explore/pages'
+    | '/explore/people'
+    | '/explore/podcasts'
+    | '/explore/projects'
+    | '/explore/saved'
+    | '/explore/services'
+    | '/explore/webinars'
+    | '/finance/billing'
+    | '/finance/escrow'
+    | '/finance/invoices'
+    | '/finance/patronage'
+    | '/finance/payouts'
+    | '/finance/pricing'
+    | '/finance/wallet'
+    | '/gigs/$gigId'
+    | '/gigs/addons'
+    | '/gigs/analytics'
+    | '/gigs/archive'
+    | '/gigs/availability'
+    | '/gigs/create'
+    | '/gigs/custom-offers'
+    | '/gigs/media'
+    | '/gigs/orders'
+    | '/gigs/packages'
+    | '/gigs/performance'
+    | '/gigs/pricing-intel'
+    | '/gigs/promotions'
+    | '/gigs/requirements'
+    | '/gigs/revisions'
+    | '/gigs/workspace'
+    | '/groups/$groupId'
+    | '/hire/scorecards'
+    | '/hire/settings'
+    | '/hire/talent-pools'
+    | '/hire/team'
+    | '/inbox/$threadId'
+    | '/jobs/$jobId'
+    | '/jobs/applicants'
+    | '/jobs/applications'
+    | '/jobs/create'
+    | '/jobs/workspace'
+    | '/launchpad/analytics'
+    | '/launchpad/applications'
+    | '/launchpad/badges'
+    | '/launchpad/career-changer'
+    | '/launchpad/challenges'
+    | '/launchpad/community'
+    | '/launchpad/discover'
+    | '/launchpad/early-career'
+    | '/launchpad/employer'
+    | '/launchpad/enterprise'
+    | '/launchpad/events'
+    | '/launchpad/graduate'
+    | '/launchpad/hosts'
+    | '/launchpad/jobs'
+    | '/launchpad/learning'
+    | '/launchpad/mentors'
+    | '/launchpad/opportunities'
+    | '/launchpad/pathways'
+    | '/launchpad/portfolio'
+    | '/launchpad/progress'
+    | '/launchpad/projects'
+    | '/launchpad/saved'
+    | '/launchpad/school-leaver'
+    | '/launchpad/sessions'
+    | '/launchpad/settings'
+    | '/legal/advertising-policy'
+    | '/legal/appeals'
+    | '/legal/community-guidelines'
+    | '/legal/creator-monetization'
+    | '/legal/disputes-policy'
+    | '/legal/payments-escrow'
+    | '/media/analytics'
+    | '/media/creators'
+    | '/media/library'
     | '/media/reels'
-    | '/u/$username'
-    | '/jobs/'
-    | '/marketplace/'
-    | '/marketplace/gig/$slug'
-    | '/media/reels/$reelId'
+    | '/media/videos'
+    | '/media/viewer'
+    | '/mentorship/analytics'
+    | '/mentorship/feedback'
+    | '/mentorship/payments'
+    | '/networking/cards'
+    | '/networking/connections'
+    | '/networking/follow-ups'
+    | '/networking/followers'
+    | '/networking/following'
+    | '/networking/home'
+    | '/networking/invitations'
+    | '/networking/rooms'
+    | '/networking/speed'
+    | '/networking/suggested'
+    | '/podcasts/analytics'
+    | '/podcasts/donations'
+    | '/podcasts/legacy'
+    | '/podcasts/library'
+    | '/podcasts/player'
+    | '/podcasts/purchases'
+    | '/podcasts/queue'
+    | '/podcasts/recorder'
+    | '/podcasts/series'
+    | '/podcasts/studio'
+    | '/podcasts/subscriptions'
+    | '/profile/$username'
+    | '/projects/$projectId'
+    | '/projects/archive'
+    | '/projects/create'
+    | '/projects/dashboard'
+    | '/projects/mine'
+    | '/projects/templates'
+    | '/services/analytics'
+    | '/services/availability'
+    | '/services/browse'
+    | '/services/create'
+    | '/services/delivery'
+    | '/services/orders'
+    | '/services/packages'
+    | '/services/promotions'
+    | '/settings/integrations'
+    | '/settings/website'
+    | '/showcase/ads'
+    | '/showcase/creator'
+    | '/showcase/enterprise'
+    | '/showcase/events'
+    | '/showcase/gigs'
+    | '/showcase/jobs'
+    | '/showcase/launchpad'
+    | '/showcase/mentorship'
+    | '/showcase/navigator'
+    | '/showcase/networking'
+    | '/showcase/podcasts'
+    | '/showcase/projects'
+    | '/showcase/recruiter'
+    | '/showcase/services'
+    | '/solutions/$role'
+    | '/support/contact'
+    | '/admin/tickets/$ticketId'
+    | '/checkout/gigs/$gigId'
+    | '/checkout/projects/$projectId'
+    | '/checkout/services/$serviceId'
+    | '/contracts/$contractId/escrow'
+    | '/contracts/$contractId/milestones'
+    | '/enterprise/startups/$startupId'
+    | '/hire/jobs/create'
     | '/media/reels/studio'
+    | '/media/videos/$videoId'
+    | '/media/videos/studio'
+    | '/media/videos/upload'
+    | '/projects/$projectId/deliverables'
+    | '/projects/$projectId/escrow'
+    | '/projects/$projectId/milestones'
+    | '/projects/$projectId/proposals'
+    | '/projects/$projectId/tasks'
+    | '/projects/$projectId/workspace'
+    | '/projects/$projectId/proposals/submit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AuthRoute: typeof AuthRoute
+  AboutRoute: typeof AboutRoute
+  AdminRoute: typeof AdminRouteWithChildren
+  AiRoute: typeof AiRouteWithChildren
   CalendarRoute: typeof CalendarRoute
-  ExploreRoute: typeof ExploreRoute
+  CommunityRoute: typeof CommunityRouteWithChildren
+  ContactRoute: typeof ContactRoute
+  CreationStudioRoute: typeof CreationStudioRouteWithChildren
+  DashboardRoute: typeof DashboardRouteWithChildren
+  EnterpriseRoute: typeof EnterpriseRouteWithChildren
+  EventsRoute: typeof EventsRouteWithChildren
+  ExploreRoute: typeof ExploreRouteWithChildren
+  FaqRoute: typeof FaqRoute
   FeedRoute: typeof FeedRoute
-  HiringRoute: typeof HiringRoute
-  InboxRoute: typeof InboxRoute
+  FinanceRoute: typeof FinanceRouteWithChildren
+  GigsRoute: typeof GigsRouteWithChildren
+  GroupsRoute: typeof GroupsRouteWithChildren
+  HireRoute: typeof HireRouteWithChildren
+  InboxRoute: typeof InboxRouteWithChildren
+  JobsRoute: typeof JobsRouteWithChildren
+  LaunchpadRoute: typeof LaunchpadRouteWithChildren
+  LearnRoute: typeof LearnRoute
+  MediaRoute: typeof MediaRouteWithChildren
+  MentorshipRoute: typeof MentorshipRouteWithChildren
+  NetworkRoute: typeof NetworkRoute
   NotificationsRoute: typeof NotificationsRoute
-  TrackersRoute: typeof TrackersRoute
-  JobsSlugRoute: typeof JobsSlugRoute
-  JobsNewRoute: typeof JobsNewRoute
-  MarketplaceCheckoutReturnRoute: typeof MarketplaceCheckoutReturnRoute
-  MarketplaceNewRoute: typeof MarketplaceNewRoute
-  MarketplaceOrdersRoute: typeof MarketplaceOrdersRoute
-  MediaReelsRoute: typeof MediaReelsRouteWithChildren
-  UUsernameRoute: typeof UUsernameRoute
-  JobsIndexRoute: typeof JobsIndexRoute
-  MarketplaceIndexRoute: typeof MarketplaceIndexRoute
-  MarketplaceGigSlugRoute: typeof MarketplaceGigSlugRoute
+  PodcastsRoute: typeof PodcastsRouteWithChildren
+  PricingRoute: typeof PricingRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ProductRoute: typeof ProductRoute
+  ProfileRoute: typeof ProfileRouteWithChildren
+  ProjectsRoute: typeof ProjectsRouteWithChildren
+  ServicesRoute: typeof ServicesRouteWithChildren
+  SettingsRoute: typeof SettingsRouteWithChildren
+  SolutionsRoute: typeof SolutionsRouteWithChildren
+  StatusRoute: typeof StatusRoute
+  SupportRoute: typeof SupportRouteWithChildren
+  TermsRoute: typeof TermsRoute
+  TrustSafetyRoute: typeof TrustSafetyRoute
+  UserAgreementsRoute: typeof UserAgreementsRoute
+  WorkRoute: typeof WorkRoute
+  AgencyAgencyIdRoute: typeof AgencyAgencyIdRoute
+  AuthAccountLockedRoute: typeof AuthAccountLockedRoute
+  AuthForgotPasswordRoute: typeof AuthForgotPasswordRoute
+  AuthOnboardingRoute: typeof AuthOnboardingRoute
+  AuthResetPasswordRoute: typeof AuthResetPasswordRoute
+  AuthSignInRoute: typeof AuthSignInRoute
+  AuthSignUpRoute: typeof AuthSignUpRoute
+  AuthVerifyRoute: typeof AuthVerifyRoute
+  CompanyCompanyIdRoute: typeof CompanyCompanyIdRoute
+  CreatePostRoute: typeof CreatePostRoute
+  LegalAdvertisingPolicyRoute: typeof LegalAdvertisingPolicyRoute
+  LegalAppealsRoute: typeof LegalAppealsRoute
+  LegalCommunityGuidelinesRoute: typeof LegalCommunityGuidelinesRoute
+  LegalCreatorMonetizationRoute: typeof LegalCreatorMonetizationRoute
+  LegalDisputesPolicyRoute: typeof LegalDisputesPolicyRoute
+  LegalPaymentsEscrowRoute: typeof LegalPaymentsEscrowRoute
+  NetworkingCardsRoute: typeof NetworkingCardsRoute
+  NetworkingConnectionsRoute: typeof NetworkingConnectionsRoute
+  NetworkingFollowUpsRoute: typeof NetworkingFollowUpsRoute
+  NetworkingFollowersRoute: typeof NetworkingFollowersRoute
+  NetworkingFollowingRoute: typeof NetworkingFollowingRoute
+  NetworkingHomeRoute: typeof NetworkingHomeRoute
+  NetworkingInvitationsRoute: typeof NetworkingInvitationsRoute
+  NetworkingRoomsRoute: typeof NetworkingRoomsRoute
+  NetworkingSpeedRoute: typeof NetworkingSpeedRoute
+  NetworkingSuggestedRoute: typeof NetworkingSuggestedRoute
+  ShowcaseAdsRoute: typeof ShowcaseAdsRoute
+  ShowcaseCreatorRoute: typeof ShowcaseCreatorRoute
+  ShowcaseEnterpriseRoute: typeof ShowcaseEnterpriseRoute
+  ShowcaseEventsRoute: typeof ShowcaseEventsRoute
+  ShowcaseGigsRoute: typeof ShowcaseGigsRoute
+  ShowcaseJobsRoute: typeof ShowcaseJobsRoute
+  ShowcaseLaunchpadRoute: typeof ShowcaseLaunchpadRoute
+  ShowcaseMentorshipRoute: typeof ShowcaseMentorshipRoute
+  ShowcaseNavigatorRoute: typeof ShowcaseNavigatorRoute
+  ShowcaseNetworkingRoute: typeof ShowcaseNetworkingRoute
+  ShowcasePodcastsRoute: typeof ShowcasePodcastsRoute
+  ShowcaseProjectsRoute: typeof ShowcaseProjectsRoute
+  ShowcaseRecruiterRoute: typeof ShowcaseRecruiterRoute
+  ShowcaseServicesRoute: typeof ShowcaseServicesRoute
+  CheckoutGigsGigIdRoute: typeof CheckoutGigsGigIdRoute
+  CheckoutProjectsProjectIdRoute: typeof CheckoutProjectsProjectIdRoute
+  CheckoutServicesServiceIdRoute: typeof CheckoutServicesServiceIdRoute
+  ContractsContractIdEscrowRoute: typeof ContractsContractIdEscrowRoute
+  ContractsContractIdMilestonesRoute: typeof ContractsContractIdMilestonesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/trackers': {
-      id: '/trackers'
-      path: '/trackers'
-      fullPath: '/trackers'
-      preLoaderRoute: typeof TrackersRouteImport
+    '/work': {
+      id: '/work'
+      path: '/work'
+      fullPath: '/work'
+      preLoaderRoute: typeof WorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/user-agreements': {
+      id: '/user-agreements'
+      path: '/user-agreements'
+      fullPath: '/user-agreements'
+      preLoaderRoute: typeof UserAgreementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trust-safety': {
+      id: '/trust-safety'
+      path: '/trust-safety'
+      fullPath: '/trust-safety'
+      preLoaderRoute: typeof TrustSafetyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/status': {
+      id: '/status'
+      path: '/status'
+      fullPath: '/status'
+      preLoaderRoute: typeof StatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions': {
+      id: '/solutions'
+      path: '/solutions'
+      fullPath: '/solutions'
+      preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product': {
+      id: '/product'
+      path: '/product'
+      fullPath: '/product'
+      preLoaderRoute: typeof ProductRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/podcasts': {
+      id: '/podcasts'
+      path: '/podcasts'
+      fullPath: '/podcasts'
+      preLoaderRoute: typeof PodcastsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notifications': {
@@ -318,6 +3627,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NotificationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/network': {
+      id: '/network'
+      path: '/network'
+      fullPath: '/network'
+      preLoaderRoute: typeof NetworkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentorship': {
+      id: '/mentorship'
+      path: '/mentorship'
+      fullPath: '/mentorship'
+      preLoaderRoute: typeof MentorshipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/media': {
+      id: '/media'
+      path: '/media'
+      fullPath: '/media'
+      preLoaderRoute: typeof MediaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn': {
+      id: '/learn'
+      path: '/learn'
+      fullPath: '/learn'
+      preLoaderRoute: typeof LearnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/launchpad': {
+      id: '/launchpad'
+      path: '/launchpad'
+      fullPath: '/launchpad'
+      preLoaderRoute: typeof LaunchpadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jobs': {
+      id: '/jobs'
+      path: '/jobs'
+      fullPath: '/jobs'
+      preLoaderRoute: typeof JobsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/inbox': {
       id: '/inbox'
       path: '/inbox'
@@ -325,11 +3676,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InboxRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/hiring': {
-      id: '/hiring'
-      path: '/hiring'
-      fullPath: '/hiring'
-      preLoaderRoute: typeof HiringRouteImport
+    '/hire': {
+      id: '/hire'
+      path: '/hire'
+      fullPath: '/hire'
+      preLoaderRoute: typeof HireRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/groups': {
+      id: '/groups'
+      path: '/groups'
+      fullPath: '/groups'
+      preLoaderRoute: typeof GroupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gigs': {
+      id: '/gigs'
+      path: '/gigs'
+      fullPath: '/gigs'
+      preLoaderRoute: typeof GigsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/finance': {
+      id: '/finance'
+      path: '/finance'
+      fullPath: '/finance'
+      preLoaderRoute: typeof FinanceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/feed': {
@@ -339,11 +3711,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FeedRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/explore': {
       id: '/explore'
       path: '/explore'
       fullPath: '/explore'
       preLoaderRoute: typeof ExploreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events': {
+      id: '/events'
+      path: '/events'
+      fullPath: '/events'
+      preLoaderRoute: typeof EventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/enterprise': {
+      id: '/enterprise'
+      path: '/enterprise'
+      fullPath: '/enterprise'
+      preLoaderRoute: typeof EnterpriseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/creation-studio': {
+      id: '/creation-studio'
+      path: '/creation-studio'
+      fullPath: '/creation-studio'
+      preLoaderRoute: typeof CreationStudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/calendar': {
@@ -353,11 +3774,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CalendarRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
+    '/ai': {
+      id: '/ai'
+      path: '/ai'
+      fullPath: '/ai'
+      preLoaderRoute: typeof AiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -367,68 +3802,1622 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/marketplace/': {
-      id: '/marketplace/'
-      path: '/marketplace'
-      fullPath: '/marketplace/'
-      preLoaderRoute: typeof MarketplaceIndexRouteImport
+    '/support/contact': {
+      id: '/support/contact'
+      path: '/contact'
+      fullPath: '/support/contact'
+      preLoaderRoute: typeof SupportContactRouteImport
+      parentRoute: typeof SupportRoute
+    }
+    '/solutions/$role': {
+      id: '/solutions/$role'
+      path: '/$role'
+      fullPath: '/solutions/$role'
+      preLoaderRoute: typeof SolutionsRoleRouteImport
+      parentRoute: typeof SolutionsRoute
+    }
+    '/showcase/services': {
+      id: '/showcase/services'
+      path: '/showcase/services'
+      fullPath: '/showcase/services'
+      preLoaderRoute: typeof ShowcaseServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/jobs/': {
-      id: '/jobs/'
-      path: '/jobs'
-      fullPath: '/jobs/'
-      preLoaderRoute: typeof JobsIndexRouteImport
+    '/showcase/recruiter': {
+      id: '/showcase/recruiter'
+      path: '/showcase/recruiter'
+      fullPath: '/showcase/recruiter'
+      preLoaderRoute: typeof ShowcaseRecruiterRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/u/$username': {
-      id: '/u/$username'
-      path: '/u/$username'
-      fullPath: '/u/$username'
-      preLoaderRoute: typeof UUsernameRouteImport
+    '/showcase/projects': {
+      id: '/showcase/projects'
+      path: '/showcase/projects'
+      fullPath: '/showcase/projects'
+      preLoaderRoute: typeof ShowcaseProjectsRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/showcase/podcasts': {
+      id: '/showcase/podcasts'
+      path: '/showcase/podcasts'
+      fullPath: '/showcase/podcasts'
+      preLoaderRoute: typeof ShowcasePodcastsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/showcase/networking': {
+      id: '/showcase/networking'
+      path: '/showcase/networking'
+      fullPath: '/showcase/networking'
+      preLoaderRoute: typeof ShowcaseNetworkingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/showcase/navigator': {
+      id: '/showcase/navigator'
+      path: '/showcase/navigator'
+      fullPath: '/showcase/navigator'
+      preLoaderRoute: typeof ShowcaseNavigatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/showcase/mentorship': {
+      id: '/showcase/mentorship'
+      path: '/showcase/mentorship'
+      fullPath: '/showcase/mentorship'
+      preLoaderRoute: typeof ShowcaseMentorshipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/showcase/launchpad': {
+      id: '/showcase/launchpad'
+      path: '/showcase/launchpad'
+      fullPath: '/showcase/launchpad'
+      preLoaderRoute: typeof ShowcaseLaunchpadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/showcase/jobs': {
+      id: '/showcase/jobs'
+      path: '/showcase/jobs'
+      fullPath: '/showcase/jobs'
+      preLoaderRoute: typeof ShowcaseJobsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/showcase/gigs': {
+      id: '/showcase/gigs'
+      path: '/showcase/gigs'
+      fullPath: '/showcase/gigs'
+      preLoaderRoute: typeof ShowcaseGigsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/showcase/events': {
+      id: '/showcase/events'
+      path: '/showcase/events'
+      fullPath: '/showcase/events'
+      preLoaderRoute: typeof ShowcaseEventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/showcase/enterprise': {
+      id: '/showcase/enterprise'
+      path: '/showcase/enterprise'
+      fullPath: '/showcase/enterprise'
+      preLoaderRoute: typeof ShowcaseEnterpriseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/showcase/creator': {
+      id: '/showcase/creator'
+      path: '/showcase/creator'
+      fullPath: '/showcase/creator'
+      preLoaderRoute: typeof ShowcaseCreatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/showcase/ads': {
+      id: '/showcase/ads'
+      path: '/showcase/ads'
+      fullPath: '/showcase/ads'
+      preLoaderRoute: typeof ShowcaseAdsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings/website': {
+      id: '/settings/website'
+      path: '/website'
+      fullPath: '/settings/website'
+      preLoaderRoute: typeof SettingsWebsiteRouteImport
+      parentRoute: typeof SettingsRoute
+    }
+    '/settings/integrations': {
+      id: '/settings/integrations'
+      path: '/integrations'
+      fullPath: '/settings/integrations'
+      preLoaderRoute: typeof SettingsIntegrationsRouteImport
+      parentRoute: typeof SettingsRoute
+    }
+    '/services/promotions': {
+      id: '/services/promotions'
+      path: '/promotions'
+      fullPath: '/services/promotions'
+      preLoaderRoute: typeof ServicesPromotionsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/packages': {
+      id: '/services/packages'
+      path: '/packages'
+      fullPath: '/services/packages'
+      preLoaderRoute: typeof ServicesPackagesRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/orders': {
+      id: '/services/orders'
+      path: '/orders'
+      fullPath: '/services/orders'
+      preLoaderRoute: typeof ServicesOrdersRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/delivery': {
+      id: '/services/delivery'
+      path: '/delivery'
+      fullPath: '/services/delivery'
+      preLoaderRoute: typeof ServicesDeliveryRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/create': {
+      id: '/services/create'
+      path: '/create'
+      fullPath: '/services/create'
+      preLoaderRoute: typeof ServicesCreateRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/browse': {
+      id: '/services/browse'
+      path: '/browse'
+      fullPath: '/services/browse'
+      preLoaderRoute: typeof ServicesBrowseRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/availability': {
+      id: '/services/availability'
+      path: '/availability'
+      fullPath: '/services/availability'
+      preLoaderRoute: typeof ServicesAvailabilityRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/analytics': {
+      id: '/services/analytics'
+      path: '/analytics'
+      fullPath: '/services/analytics'
+      preLoaderRoute: typeof ServicesAnalyticsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/projects/templates': {
+      id: '/projects/templates'
+      path: '/templates'
+      fullPath: '/projects/templates'
+      preLoaderRoute: typeof ProjectsTemplatesRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/projects/mine': {
+      id: '/projects/mine'
+      path: '/mine'
+      fullPath: '/projects/mine'
+      preLoaderRoute: typeof ProjectsMineRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/projects/dashboard': {
+      id: '/projects/dashboard'
+      path: '/dashboard'
+      fullPath: '/projects/dashboard'
+      preLoaderRoute: typeof ProjectsDashboardRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/projects/create': {
+      id: '/projects/create'
+      path: '/create'
+      fullPath: '/projects/create'
+      preLoaderRoute: typeof ProjectsCreateRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/projects/archive': {
+      id: '/projects/archive'
+      path: '/archive'
+      fullPath: '/projects/archive'
+      preLoaderRoute: typeof ProjectsArchiveRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/projects/$projectId': {
+      id: '/projects/$projectId'
+      path: '/$projectId'
+      fullPath: '/projects/$projectId'
+      preLoaderRoute: typeof ProjectsProjectIdRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/profile/$username': {
+      id: '/profile/$username'
+      path: '/$username'
+      fullPath: '/profile/$username'
+      preLoaderRoute: typeof ProfileUsernameRouteImport
+      parentRoute: typeof ProfileRoute
+    }
+    '/podcasts/subscriptions': {
+      id: '/podcasts/subscriptions'
+      path: '/subscriptions'
+      fullPath: '/podcasts/subscriptions'
+      preLoaderRoute: typeof PodcastsSubscriptionsRouteImport
+      parentRoute: typeof PodcastsRoute
+    }
+    '/podcasts/studio': {
+      id: '/podcasts/studio'
+      path: '/studio'
+      fullPath: '/podcasts/studio'
+      preLoaderRoute: typeof PodcastsStudioRouteImport
+      parentRoute: typeof PodcastsRoute
+    }
+    '/podcasts/series': {
+      id: '/podcasts/series'
+      path: '/series'
+      fullPath: '/podcasts/series'
+      preLoaderRoute: typeof PodcastsSeriesRouteImport
+      parentRoute: typeof PodcastsRoute
+    }
+    '/podcasts/recorder': {
+      id: '/podcasts/recorder'
+      path: '/recorder'
+      fullPath: '/podcasts/recorder'
+      preLoaderRoute: typeof PodcastsRecorderRouteImport
+      parentRoute: typeof PodcastsRoute
+    }
+    '/podcasts/queue': {
+      id: '/podcasts/queue'
+      path: '/queue'
+      fullPath: '/podcasts/queue'
+      preLoaderRoute: typeof PodcastsQueueRouteImport
+      parentRoute: typeof PodcastsRoute
+    }
+    '/podcasts/purchases': {
+      id: '/podcasts/purchases'
+      path: '/purchases'
+      fullPath: '/podcasts/purchases'
+      preLoaderRoute: typeof PodcastsPurchasesRouteImport
+      parentRoute: typeof PodcastsRoute
+    }
+    '/podcasts/player': {
+      id: '/podcasts/player'
+      path: '/player'
+      fullPath: '/podcasts/player'
+      preLoaderRoute: typeof PodcastsPlayerRouteImport
+      parentRoute: typeof PodcastsRoute
+    }
+    '/podcasts/library': {
+      id: '/podcasts/library'
+      path: '/library'
+      fullPath: '/podcasts/library'
+      preLoaderRoute: typeof PodcastsLibraryRouteImport
+      parentRoute: typeof PodcastsRoute
+    }
+    '/podcasts/legacy': {
+      id: '/podcasts/legacy'
+      path: '/legacy'
+      fullPath: '/podcasts/legacy'
+      preLoaderRoute: typeof PodcastsLegacyRouteImport
+      parentRoute: typeof PodcastsRoute
+    }
+    '/podcasts/donations': {
+      id: '/podcasts/donations'
+      path: '/donations'
+      fullPath: '/podcasts/donations'
+      preLoaderRoute: typeof PodcastsDonationsRouteImport
+      parentRoute: typeof PodcastsRoute
+    }
+    '/podcasts/analytics': {
+      id: '/podcasts/analytics'
+      path: '/analytics'
+      fullPath: '/podcasts/analytics'
+      preLoaderRoute: typeof PodcastsAnalyticsRouteImport
+      parentRoute: typeof PodcastsRoute
+    }
+    '/networking/suggested': {
+      id: '/networking/suggested'
+      path: '/networking/suggested'
+      fullPath: '/networking/suggested'
+      preLoaderRoute: typeof NetworkingSuggestedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/networking/speed': {
+      id: '/networking/speed'
+      path: '/networking/speed'
+      fullPath: '/networking/speed'
+      preLoaderRoute: typeof NetworkingSpeedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/networking/rooms': {
+      id: '/networking/rooms'
+      path: '/networking/rooms'
+      fullPath: '/networking/rooms'
+      preLoaderRoute: typeof NetworkingRoomsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/networking/invitations': {
+      id: '/networking/invitations'
+      path: '/networking/invitations'
+      fullPath: '/networking/invitations'
+      preLoaderRoute: typeof NetworkingInvitationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/networking/home': {
+      id: '/networking/home'
+      path: '/networking/home'
+      fullPath: '/networking/home'
+      preLoaderRoute: typeof NetworkingHomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/networking/following': {
+      id: '/networking/following'
+      path: '/networking/following'
+      fullPath: '/networking/following'
+      preLoaderRoute: typeof NetworkingFollowingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/networking/followers': {
+      id: '/networking/followers'
+      path: '/networking/followers'
+      fullPath: '/networking/followers'
+      preLoaderRoute: typeof NetworkingFollowersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/networking/follow-ups': {
+      id: '/networking/follow-ups'
+      path: '/networking/follow-ups'
+      fullPath: '/networking/follow-ups'
+      preLoaderRoute: typeof NetworkingFollowUpsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/networking/connections': {
+      id: '/networking/connections'
+      path: '/networking/connections'
+      fullPath: '/networking/connections'
+      preLoaderRoute: typeof NetworkingConnectionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/networking/cards': {
+      id: '/networking/cards'
+      path: '/networking/cards'
+      fullPath: '/networking/cards'
+      preLoaderRoute: typeof NetworkingCardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentorship/payments': {
+      id: '/mentorship/payments'
+      path: '/payments'
+      fullPath: '/mentorship/payments'
+      preLoaderRoute: typeof MentorshipPaymentsRouteImport
+      parentRoute: typeof MentorshipRoute
+    }
+    '/mentorship/feedback': {
+      id: '/mentorship/feedback'
+      path: '/feedback'
+      fullPath: '/mentorship/feedback'
+      preLoaderRoute: typeof MentorshipFeedbackRouteImport
+      parentRoute: typeof MentorshipRoute
+    }
+    '/mentorship/analytics': {
+      id: '/mentorship/analytics'
+      path: '/analytics'
+      fullPath: '/mentorship/analytics'
+      preLoaderRoute: typeof MentorshipAnalyticsRouteImport
+      parentRoute: typeof MentorshipRoute
+    }
+    '/media/viewer': {
+      id: '/media/viewer'
+      path: '/viewer'
+      fullPath: '/media/viewer'
+      preLoaderRoute: typeof MediaViewerRouteImport
+      parentRoute: typeof MediaRoute
+    }
+    '/media/videos': {
+      id: '/media/videos'
+      path: '/videos'
+      fullPath: '/media/videos'
+      preLoaderRoute: typeof MediaVideosRouteImport
+      parentRoute: typeof MediaRoute
     }
     '/media/reels': {
       id: '/media/reels'
-      path: '/media/reels'
+      path: '/reels'
       fullPath: '/media/reels'
       preLoaderRoute: typeof MediaReelsRouteImport
+      parentRoute: typeof MediaRoute
+    }
+    '/media/library': {
+      id: '/media/library'
+      path: '/library'
+      fullPath: '/media/library'
+      preLoaderRoute: typeof MediaLibraryRouteImport
+      parentRoute: typeof MediaRoute
+    }
+    '/media/creators': {
+      id: '/media/creators'
+      path: '/creators'
+      fullPath: '/media/creators'
+      preLoaderRoute: typeof MediaCreatorsRouteImport
+      parentRoute: typeof MediaRoute
+    }
+    '/media/analytics': {
+      id: '/media/analytics'
+      path: '/analytics'
+      fullPath: '/media/analytics'
+      preLoaderRoute: typeof MediaAnalyticsRouteImport
+      parentRoute: typeof MediaRoute
+    }
+    '/legal/payments-escrow': {
+      id: '/legal/payments-escrow'
+      path: '/legal/payments-escrow'
+      fullPath: '/legal/payments-escrow'
+      preLoaderRoute: typeof LegalPaymentsEscrowRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/marketplace/orders': {
-      id: '/marketplace/orders'
-      path: '/marketplace/orders'
-      fullPath: '/marketplace/orders'
-      preLoaderRoute: typeof MarketplaceOrdersRouteImport
+    '/legal/disputes-policy': {
+      id: '/legal/disputes-policy'
+      path: '/legal/disputes-policy'
+      fullPath: '/legal/disputes-policy'
+      preLoaderRoute: typeof LegalDisputesPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/marketplace/new': {
-      id: '/marketplace/new'
-      path: '/marketplace/new'
-      fullPath: '/marketplace/new'
-      preLoaderRoute: typeof MarketplaceNewRouteImport
+    '/legal/creator-monetization': {
+      id: '/legal/creator-monetization'
+      path: '/legal/creator-monetization'
+      fullPath: '/legal/creator-monetization'
+      preLoaderRoute: typeof LegalCreatorMonetizationRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/marketplace/checkout-return': {
-      id: '/marketplace/checkout-return'
-      path: '/marketplace/checkout-return'
-      fullPath: '/marketplace/checkout-return'
-      preLoaderRoute: typeof MarketplaceCheckoutReturnRouteImport
+    '/legal/community-guidelines': {
+      id: '/legal/community-guidelines'
+      path: '/legal/community-guidelines'
+      fullPath: '/legal/community-guidelines'
+      preLoaderRoute: typeof LegalCommunityGuidelinesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/jobs/new': {
-      id: '/jobs/new'
-      path: '/jobs/new'
-      fullPath: '/jobs/new'
-      preLoaderRoute: typeof JobsNewRouteImport
+    '/legal/appeals': {
+      id: '/legal/appeals'
+      path: '/legal/appeals'
+      fullPath: '/legal/appeals'
+      preLoaderRoute: typeof LegalAppealsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/jobs/$slug': {
-      id: '/jobs/$slug'
-      path: '/jobs/$slug'
-      fullPath: '/jobs/$slug'
-      preLoaderRoute: typeof JobsSlugRouteImport
+    '/legal/advertising-policy': {
+      id: '/legal/advertising-policy'
+      path: '/legal/advertising-policy'
+      fullPath: '/legal/advertising-policy'
+      preLoaderRoute: typeof LegalAdvertisingPolicyRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/launchpad/settings': {
+      id: '/launchpad/settings'
+      path: '/settings'
+      fullPath: '/launchpad/settings'
+      preLoaderRoute: typeof LaunchpadSettingsRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/sessions': {
+      id: '/launchpad/sessions'
+      path: '/sessions'
+      fullPath: '/launchpad/sessions'
+      preLoaderRoute: typeof LaunchpadSessionsRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/school-leaver': {
+      id: '/launchpad/school-leaver'
+      path: '/school-leaver'
+      fullPath: '/launchpad/school-leaver'
+      preLoaderRoute: typeof LaunchpadSchoolLeaverRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/saved': {
+      id: '/launchpad/saved'
+      path: '/saved'
+      fullPath: '/launchpad/saved'
+      preLoaderRoute: typeof LaunchpadSavedRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/projects': {
+      id: '/launchpad/projects'
+      path: '/projects'
+      fullPath: '/launchpad/projects'
+      preLoaderRoute: typeof LaunchpadProjectsRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/progress': {
+      id: '/launchpad/progress'
+      path: '/progress'
+      fullPath: '/launchpad/progress'
+      preLoaderRoute: typeof LaunchpadProgressRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/portfolio': {
+      id: '/launchpad/portfolio'
+      path: '/portfolio'
+      fullPath: '/launchpad/portfolio'
+      preLoaderRoute: typeof LaunchpadPortfolioRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/pathways': {
+      id: '/launchpad/pathways'
+      path: '/pathways'
+      fullPath: '/launchpad/pathways'
+      preLoaderRoute: typeof LaunchpadPathwaysRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/opportunities': {
+      id: '/launchpad/opportunities'
+      path: '/opportunities'
+      fullPath: '/launchpad/opportunities'
+      preLoaderRoute: typeof LaunchpadOpportunitiesRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/mentors': {
+      id: '/launchpad/mentors'
+      path: '/mentors'
+      fullPath: '/launchpad/mentors'
+      preLoaderRoute: typeof LaunchpadMentorsRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/learning': {
+      id: '/launchpad/learning'
+      path: '/learning'
+      fullPath: '/launchpad/learning'
+      preLoaderRoute: typeof LaunchpadLearningRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/jobs': {
+      id: '/launchpad/jobs'
+      path: '/jobs'
+      fullPath: '/launchpad/jobs'
+      preLoaderRoute: typeof LaunchpadJobsRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/hosts': {
+      id: '/launchpad/hosts'
+      path: '/hosts'
+      fullPath: '/launchpad/hosts'
+      preLoaderRoute: typeof LaunchpadHostsRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/graduate': {
+      id: '/launchpad/graduate'
+      path: '/graduate'
+      fullPath: '/launchpad/graduate'
+      preLoaderRoute: typeof LaunchpadGraduateRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/events': {
+      id: '/launchpad/events'
+      path: '/events'
+      fullPath: '/launchpad/events'
+      preLoaderRoute: typeof LaunchpadEventsRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/enterprise': {
+      id: '/launchpad/enterprise'
+      path: '/enterprise'
+      fullPath: '/launchpad/enterprise'
+      preLoaderRoute: typeof LaunchpadEnterpriseRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/employer': {
+      id: '/launchpad/employer'
+      path: '/employer'
+      fullPath: '/launchpad/employer'
+      preLoaderRoute: typeof LaunchpadEmployerRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/early-career': {
+      id: '/launchpad/early-career'
+      path: '/early-career'
+      fullPath: '/launchpad/early-career'
+      preLoaderRoute: typeof LaunchpadEarlyCareerRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/discover': {
+      id: '/launchpad/discover'
+      path: '/discover'
+      fullPath: '/launchpad/discover'
+      preLoaderRoute: typeof LaunchpadDiscoverRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/community': {
+      id: '/launchpad/community'
+      path: '/community'
+      fullPath: '/launchpad/community'
+      preLoaderRoute: typeof LaunchpadCommunityRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/challenges': {
+      id: '/launchpad/challenges'
+      path: '/challenges'
+      fullPath: '/launchpad/challenges'
+      preLoaderRoute: typeof LaunchpadChallengesRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/career-changer': {
+      id: '/launchpad/career-changer'
+      path: '/career-changer'
+      fullPath: '/launchpad/career-changer'
+      preLoaderRoute: typeof LaunchpadCareerChangerRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/badges': {
+      id: '/launchpad/badges'
+      path: '/badges'
+      fullPath: '/launchpad/badges'
+      preLoaderRoute: typeof LaunchpadBadgesRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/applications': {
+      id: '/launchpad/applications'
+      path: '/applications'
+      fullPath: '/launchpad/applications'
+      preLoaderRoute: typeof LaunchpadApplicationsRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/launchpad/analytics': {
+      id: '/launchpad/analytics'
+      path: '/analytics'
+      fullPath: '/launchpad/analytics'
+      preLoaderRoute: typeof LaunchpadAnalyticsRouteImport
+      parentRoute: typeof LaunchpadRoute
+    }
+    '/jobs/workspace': {
+      id: '/jobs/workspace'
+      path: '/workspace'
+      fullPath: '/jobs/workspace'
+      preLoaderRoute: typeof JobsWorkspaceRouteImport
+      parentRoute: typeof JobsRoute
+    }
+    '/jobs/create': {
+      id: '/jobs/create'
+      path: '/create'
+      fullPath: '/jobs/create'
+      preLoaderRoute: typeof JobsCreateRouteImport
+      parentRoute: typeof JobsRoute
+    }
+    '/jobs/applications': {
+      id: '/jobs/applications'
+      path: '/applications'
+      fullPath: '/jobs/applications'
+      preLoaderRoute: typeof JobsApplicationsRouteImport
+      parentRoute: typeof JobsRoute
+    }
+    '/jobs/applicants': {
+      id: '/jobs/applicants'
+      path: '/applicants'
+      fullPath: '/jobs/applicants'
+      preLoaderRoute: typeof JobsApplicantsRouteImport
+      parentRoute: typeof JobsRoute
+    }
+    '/jobs/$jobId': {
+      id: '/jobs/$jobId'
+      path: '/$jobId'
+      fullPath: '/jobs/$jobId'
+      preLoaderRoute: typeof JobsJobIdRouteImport
+      parentRoute: typeof JobsRoute
+    }
+    '/inbox/$threadId': {
+      id: '/inbox/$threadId'
+      path: '/$threadId'
+      fullPath: '/inbox/$threadId'
+      preLoaderRoute: typeof InboxThreadIdRouteImport
+      parentRoute: typeof InboxRoute
+    }
+    '/hire/team': {
+      id: '/hire/team'
+      path: '/team'
+      fullPath: '/hire/team'
+      preLoaderRoute: typeof HireTeamRouteImport
+      parentRoute: typeof HireRoute
+    }
+    '/hire/talent-pools': {
+      id: '/hire/talent-pools'
+      path: '/talent-pools'
+      fullPath: '/hire/talent-pools'
+      preLoaderRoute: typeof HireTalentPoolsRouteImport
+      parentRoute: typeof HireRoute
+    }
+    '/hire/settings': {
+      id: '/hire/settings'
+      path: '/settings'
+      fullPath: '/hire/settings'
+      preLoaderRoute: typeof HireSettingsRouteImport
+      parentRoute: typeof HireRoute
+    }
+    '/hire/scorecards': {
+      id: '/hire/scorecards'
+      path: '/scorecards'
+      fullPath: '/hire/scorecards'
+      preLoaderRoute: typeof HireScorecardsRouteImport
+      parentRoute: typeof HireRoute
+    }
+    '/groups/$groupId': {
+      id: '/groups/$groupId'
+      path: '/$groupId'
+      fullPath: '/groups/$groupId'
+      preLoaderRoute: typeof GroupsGroupIdRouteImport
+      parentRoute: typeof GroupsRoute
+    }
+    '/gigs/workspace': {
+      id: '/gigs/workspace'
+      path: '/workspace'
+      fullPath: '/gigs/workspace'
+      preLoaderRoute: typeof GigsWorkspaceRouteImport
+      parentRoute: typeof GigsRoute
+    }
+    '/gigs/revisions': {
+      id: '/gigs/revisions'
+      path: '/revisions'
+      fullPath: '/gigs/revisions'
+      preLoaderRoute: typeof GigsRevisionsRouteImport
+      parentRoute: typeof GigsRoute
+    }
+    '/gigs/requirements': {
+      id: '/gigs/requirements'
+      path: '/requirements'
+      fullPath: '/gigs/requirements'
+      preLoaderRoute: typeof GigsRequirementsRouteImport
+      parentRoute: typeof GigsRoute
+    }
+    '/gigs/promotions': {
+      id: '/gigs/promotions'
+      path: '/promotions'
+      fullPath: '/gigs/promotions'
+      preLoaderRoute: typeof GigsPromotionsRouteImport
+      parentRoute: typeof GigsRoute
+    }
+    '/gigs/pricing-intel': {
+      id: '/gigs/pricing-intel'
+      path: '/pricing-intel'
+      fullPath: '/gigs/pricing-intel'
+      preLoaderRoute: typeof GigsPricingIntelRouteImport
+      parentRoute: typeof GigsRoute
+    }
+    '/gigs/performance': {
+      id: '/gigs/performance'
+      path: '/performance'
+      fullPath: '/gigs/performance'
+      preLoaderRoute: typeof GigsPerformanceRouteImport
+      parentRoute: typeof GigsRoute
+    }
+    '/gigs/packages': {
+      id: '/gigs/packages'
+      path: '/packages'
+      fullPath: '/gigs/packages'
+      preLoaderRoute: typeof GigsPackagesRouteImport
+      parentRoute: typeof GigsRoute
+    }
+    '/gigs/orders': {
+      id: '/gigs/orders'
+      path: '/orders'
+      fullPath: '/gigs/orders'
+      preLoaderRoute: typeof GigsOrdersRouteImport
+      parentRoute: typeof GigsRoute
+    }
+    '/gigs/media': {
+      id: '/gigs/media'
+      path: '/media'
+      fullPath: '/gigs/media'
+      preLoaderRoute: typeof GigsMediaRouteImport
+      parentRoute: typeof GigsRoute
+    }
+    '/gigs/custom-offers': {
+      id: '/gigs/custom-offers'
+      path: '/custom-offers'
+      fullPath: '/gigs/custom-offers'
+      preLoaderRoute: typeof GigsCustomOffersRouteImport
+      parentRoute: typeof GigsRoute
+    }
+    '/gigs/create': {
+      id: '/gigs/create'
+      path: '/create'
+      fullPath: '/gigs/create'
+      preLoaderRoute: typeof GigsCreateRouteImport
+      parentRoute: typeof GigsRoute
+    }
+    '/gigs/availability': {
+      id: '/gigs/availability'
+      path: '/availability'
+      fullPath: '/gigs/availability'
+      preLoaderRoute: typeof GigsAvailabilityRouteImport
+      parentRoute: typeof GigsRoute
+    }
+    '/gigs/archive': {
+      id: '/gigs/archive'
+      path: '/archive'
+      fullPath: '/gigs/archive'
+      preLoaderRoute: typeof GigsArchiveRouteImport
+      parentRoute: typeof GigsRoute
+    }
+    '/gigs/analytics': {
+      id: '/gigs/analytics'
+      path: '/analytics'
+      fullPath: '/gigs/analytics'
+      preLoaderRoute: typeof GigsAnalyticsRouteImport
+      parentRoute: typeof GigsRoute
+    }
+    '/gigs/addons': {
+      id: '/gigs/addons'
+      path: '/addons'
+      fullPath: '/gigs/addons'
+      preLoaderRoute: typeof GigsAddonsRouteImport
+      parentRoute: typeof GigsRoute
+    }
+    '/gigs/$gigId': {
+      id: '/gigs/$gigId'
+      path: '/$gigId'
+      fullPath: '/gigs/$gigId'
+      preLoaderRoute: typeof GigsGigIdRouteImport
+      parentRoute: typeof GigsRoute
+    }
+    '/finance/wallet': {
+      id: '/finance/wallet'
+      path: '/wallet'
+      fullPath: '/finance/wallet'
+      preLoaderRoute: typeof FinanceWalletRouteImport
+      parentRoute: typeof FinanceRoute
+    }
+    '/finance/pricing': {
+      id: '/finance/pricing'
+      path: '/pricing'
+      fullPath: '/finance/pricing'
+      preLoaderRoute: typeof FinancePricingRouteImport
+      parentRoute: typeof FinanceRoute
+    }
+    '/finance/payouts': {
+      id: '/finance/payouts'
+      path: '/payouts'
+      fullPath: '/finance/payouts'
+      preLoaderRoute: typeof FinancePayoutsRouteImport
+      parentRoute: typeof FinanceRoute
+    }
+    '/finance/patronage': {
+      id: '/finance/patronage'
+      path: '/patronage'
+      fullPath: '/finance/patronage'
+      preLoaderRoute: typeof FinancePatronageRouteImport
+      parentRoute: typeof FinanceRoute
+    }
+    '/finance/invoices': {
+      id: '/finance/invoices'
+      path: '/invoices'
+      fullPath: '/finance/invoices'
+      preLoaderRoute: typeof FinanceInvoicesRouteImport
+      parentRoute: typeof FinanceRoute
+    }
+    '/finance/escrow': {
+      id: '/finance/escrow'
+      path: '/escrow'
+      fullPath: '/finance/escrow'
+      preLoaderRoute: typeof FinanceEscrowRouteImport
+      parentRoute: typeof FinanceRoute
+    }
+    '/finance/billing': {
+      id: '/finance/billing'
+      path: '/billing'
+      fullPath: '/finance/billing'
+      preLoaderRoute: typeof FinanceBillingRouteImport
+      parentRoute: typeof FinanceRoute
+    }
+    '/explore/webinars': {
+      id: '/explore/webinars'
+      path: '/webinars'
+      fullPath: '/explore/webinars'
+      preLoaderRoute: typeof ExploreWebinarsRouteImport
+      parentRoute: typeof ExploreRoute
+    }
+    '/explore/services': {
+      id: '/explore/services'
+      path: '/services'
+      fullPath: '/explore/services'
+      preLoaderRoute: typeof ExploreServicesRouteImport
+      parentRoute: typeof ExploreRoute
+    }
+    '/explore/saved': {
+      id: '/explore/saved'
+      path: '/saved'
+      fullPath: '/explore/saved'
+      preLoaderRoute: typeof ExploreSavedRouteImport
+      parentRoute: typeof ExploreRoute
+    }
+    '/explore/projects': {
+      id: '/explore/projects'
+      path: '/projects'
+      fullPath: '/explore/projects'
+      preLoaderRoute: typeof ExploreProjectsRouteImport
+      parentRoute: typeof ExploreRoute
+    }
+    '/explore/podcasts': {
+      id: '/explore/podcasts'
+      path: '/podcasts'
+      fullPath: '/explore/podcasts'
+      preLoaderRoute: typeof ExplorePodcastsRouteImport
+      parentRoute: typeof ExploreRoute
+    }
+    '/explore/people': {
+      id: '/explore/people'
+      path: '/people'
+      fullPath: '/explore/people'
+      preLoaderRoute: typeof ExplorePeopleRouteImport
+      parentRoute: typeof ExploreRoute
+    }
+    '/explore/pages': {
+      id: '/explore/pages'
+      path: '/pages'
+      fullPath: '/explore/pages'
+      preLoaderRoute: typeof ExplorePagesRouteImport
+      parentRoute: typeof ExploreRoute
+    }
+    '/explore/map': {
+      id: '/explore/map'
+      path: '/map'
+      fullPath: '/explore/map'
+      preLoaderRoute: typeof ExploreMapRouteImport
+      parentRoute: typeof ExploreRoute
+    }
+    '/explore/jobs': {
+      id: '/explore/jobs'
+      path: '/jobs'
+      fullPath: '/explore/jobs'
+      preLoaderRoute: typeof ExploreJobsRouteImport
+      parentRoute: typeof ExploreRoute
+    }
+    '/explore/groups': {
+      id: '/explore/groups'
+      path: '/groups'
+      fullPath: '/explore/groups'
+      preLoaderRoute: typeof ExploreGroupsRouteImport
+      parentRoute: typeof ExploreRoute
+    }
+    '/explore/gigs': {
+      id: '/explore/gigs'
+      path: '/gigs'
+      fullPath: '/explore/gigs'
+      preLoaderRoute: typeof ExploreGigsRouteImport
+      parentRoute: typeof ExploreRoute
+    }
+    '/explore/events': {
+      id: '/explore/events'
+      path: '/events'
+      fullPath: '/explore/events'
+      preLoaderRoute: typeof ExploreEventsRouteImport
+      parentRoute: typeof ExploreRoute
+    }
+    '/explore/compare': {
+      id: '/explore/compare'
+      path: '/compare'
+      fullPath: '/explore/compare'
+      preLoaderRoute: typeof ExploreCompareRouteImport
+      parentRoute: typeof ExploreRoute
+    }
+    '/events/create': {
+      id: '/events/create'
+      path: '/create'
+      fullPath: '/events/create'
+      preLoaderRoute: typeof EventsCreateRouteImport
+      parentRoute: typeof EventsRoute
+    }
+    '/events/$eventId': {
+      id: '/events/$eventId'
+      path: '/$eventId'
+      fullPath: '/events/$eventId'
+      preLoaderRoute: typeof EventsEventIdRouteImport
+      parentRoute: typeof EventsRoute
+    }
+    '/enterprise/startups': {
+      id: '/enterprise/startups'
+      path: '/startups'
+      fullPath: '/enterprise/startups'
+      preLoaderRoute: typeof EnterpriseStartupsRouteImport
+      parentRoute: typeof EnterpriseRoute
+    }
+    '/enterprise/signals': {
+      id: '/enterprise/signals'
+      path: '/signals'
+      fullPath: '/enterprise/signals'
+      preLoaderRoute: typeof EnterpriseSignalsRouteImport
+      parentRoute: typeof EnterpriseRoute
+    }
+    '/enterprise/settings': {
+      id: '/enterprise/settings'
+      path: '/settings'
+      fullPath: '/enterprise/settings'
+      preLoaderRoute: typeof EnterpriseSettingsRouteImport
+      parentRoute: typeof EnterpriseRoute
+    }
+    '/enterprise/saved-lists': {
+      id: '/enterprise/saved-lists'
+      path: '/saved-lists'
+      fullPath: '/enterprise/saved-lists'
+      preLoaderRoute: typeof EnterpriseSavedListsRouteImport
+      parentRoute: typeof EnterpriseRoute
+    }
+    '/enterprise/rooms': {
+      id: '/enterprise/rooms'
+      path: '/rooms'
+      fullPath: '/enterprise/rooms'
+      preLoaderRoute: typeof EnterpriseRoomsRouteImport
+      parentRoute: typeof EnterpriseRoute
+    }
+    '/enterprise/profile': {
+      id: '/enterprise/profile'
+      path: '/profile'
+      fullPath: '/enterprise/profile'
+      preLoaderRoute: typeof EnterpriseProfileRouteImport
+      parentRoute: typeof EnterpriseRoute
+    }
+    '/enterprise/procurement': {
+      id: '/enterprise/procurement'
+      path: '/procurement'
+      fullPath: '/enterprise/procurement'
+      preLoaderRoute: typeof EnterpriseProcurementRouteImport
+      parentRoute: typeof EnterpriseRoute
+    }
+    '/enterprise/partners': {
+      id: '/enterprise/partners'
+      path: '/partners'
+      fullPath: '/enterprise/partners'
+      preLoaderRoute: typeof EnterprisePartnersRouteImport
+      parentRoute: typeof EnterpriseRoute
+    }
+    '/enterprise/matchmaking': {
+      id: '/enterprise/matchmaking'
+      path: '/matchmaking'
+      fullPath: '/enterprise/matchmaking'
+      preLoaderRoute: typeof EnterpriseMatchmakingRouteImport
+      parentRoute: typeof EnterpriseRoute
+    }
+    '/enterprise/intros': {
+      id: '/enterprise/intros'
+      path: '/intros'
+      fullPath: '/enterprise/intros'
+      preLoaderRoute: typeof EnterpriseIntrosRouteImport
+      parentRoute: typeof EnterpriseRoute
+    }
+    '/enterprise/hiring': {
+      id: '/enterprise/hiring'
+      path: '/hiring'
+      fullPath: '/enterprise/hiring'
+      preLoaderRoute: typeof EnterpriseHiringRouteImport
+      parentRoute: typeof EnterpriseRoute
+    }
+    '/enterprise/events': {
+      id: '/enterprise/events'
+      path: '/events'
+      fullPath: '/enterprise/events'
+      preLoaderRoute: typeof EnterpriseEventsRouteImport
+      parentRoute: typeof EnterpriseRoute
+    }
+    '/enterprise/directory': {
+      id: '/enterprise/directory'
+      path: '/directory'
+      fullPath: '/enterprise/directory'
+      preLoaderRoute: typeof EnterpriseDirectoryRouteImport
+      parentRoute: typeof EnterpriseRoute
+    }
+    '/enterprise/dashboard': {
+      id: '/enterprise/dashboard'
+      path: '/dashboard'
+      fullPath: '/enterprise/dashboard'
+      preLoaderRoute: typeof EnterpriseDashboardRouteImport
+      parentRoute: typeof EnterpriseRoute
+    }
+    '/enterprise/analytics': {
+      id: '/enterprise/analytics'
+      path: '/analytics'
+      fullPath: '/enterprise/analytics'
+      preLoaderRoute: typeof EnterpriseAnalyticsRouteImport
+      parentRoute: typeof EnterpriseRoute
+    }
+    '/dashboard/support': {
+      id: '/dashboard/support'
+      path: '/support'
+      fullPath: '/dashboard/support'
+      preLoaderRoute: typeof DashboardSupportRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/settings': {
+      id: '/dashboard/settings'
+      path: '/settings'
+      fullPath: '/dashboard/settings'
+      preLoaderRoute: typeof DashboardSettingsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/saved': {
+      id: '/dashboard/saved'
+      path: '/saved'
+      fullPath: '/dashboard/saved'
+      preLoaderRoute: typeof DashboardSavedRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/resource-planning': {
+      id: '/dashboard/resource-planning'
+      path: '/resource-planning'
+      fullPath: '/dashboard/resource-planning'
+      preLoaderRoute: typeof DashboardResourcePlanningRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/recruiter': {
+      id: '/dashboard/recruiter'
+      path: '/recruiter'
+      fullPath: '/dashboard/recruiter'
+      preLoaderRoute: typeof DashboardRecruiterRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/projects': {
+      id: '/dashboard/projects'
+      path: '/projects'
+      fullPath: '/dashboard/projects'
+      preLoaderRoute: typeof DashboardProjectsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/professional': {
+      id: '/dashboard/professional'
+      path: '/professional'
+      fullPath: '/dashboard/professional'
+      preLoaderRoute: typeof DashboardProfessionalRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/orders': {
+      id: '/dashboard/orders'
+      path: '/orders'
+      fullPath: '/dashboard/orders'
+      preLoaderRoute: typeof DashboardOrdersRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/media-library': {
+      id: '/dashboard/media-library'
+      path: '/media-library'
+      fullPath: '/dashboard/media-library'
+      preLoaderRoute: typeof DashboardMediaLibraryRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/client': {
+      id: '/dashboard/client'
+      path: '/client'
+      fullPath: '/dashboard/client'
+      preLoaderRoute: typeof DashboardClientRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/bookings': {
+      id: '/dashboard/bookings'
+      path: '/bookings'
+      fullPath: '/dashboard/bookings'
+      preLoaderRoute: typeof DashboardBookingsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/billing': {
+      id: '/dashboard/billing'
+      path: '/billing'
+      fullPath: '/dashboard/billing'
+      preLoaderRoute: typeof DashboardBillingRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/applications': {
+      id: '/dashboard/applications'
+      path: '/applications'
+      fullPath: '/dashboard/applications'
+      preLoaderRoute: typeof DashboardApplicationsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/activity': {
+      id: '/dashboard/activity'
+      path: '/activity'
+      fullPath: '/dashboard/activity'
+      preLoaderRoute: typeof DashboardActivityRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/creation-studio/scheduled': {
+      id: '/creation-studio/scheduled'
+      path: '/scheduled'
+      fullPath: '/creation-studio/scheduled'
+      preLoaderRoute: typeof CreationStudioScheduledRouteImport
+      parentRoute: typeof CreationStudioRoute
+    }
+    '/creation-studio/reels': {
+      id: '/creation-studio/reels'
+      path: '/reels'
+      fullPath: '/creation-studio/reels'
+      preLoaderRoute: typeof CreationStudioReelsRouteImport
+      parentRoute: typeof CreationStudioRoute
+    }
+    '/creation-studio/publish': {
+      id: '/creation-studio/publish'
+      path: '/publish'
+      fullPath: '/creation-studio/publish'
+      preLoaderRoute: typeof CreationStudioPublishRouteImport
+      parentRoute: typeof CreationStudioRoute
+    }
+    '/creation-studio/assets': {
+      id: '/creation-studio/assets'
+      path: '/assets'
+      fullPath: '/creation-studio/assets'
+      preLoaderRoute: typeof CreationStudioAssetsRouteImport
+      parentRoute: typeof CreationStudioRoute
+    }
+    '/creation-studio/analytics': {
+      id: '/creation-studio/analytics'
+      path: '/analytics'
+      fullPath: '/creation-studio/analytics'
+      preLoaderRoute: typeof CreationStudioAnalyticsRouteImport
+      parentRoute: typeof CreationStudioRoute
+    }
+    '/create/post': {
+      id: '/create/post'
+      path: '/create/post'
+      fullPath: '/create/post'
+      preLoaderRoute: typeof CreatePostRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/company/$companyId': {
+      id: '/company/$companyId'
+      path: '/company/$companyId'
+      fullPath: '/company/$companyId'
+      preLoaderRoute: typeof CompanyCompanyIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community/groups': {
+      id: '/community/groups'
+      path: '/groups'
+      fullPath: '/community/groups'
+      preLoaderRoute: typeof CommunityGroupsRouteImport
+      parentRoute: typeof CommunityRoute
+    }
+    '/auth/verify': {
+      id: '/auth/verify'
+      path: '/auth/verify'
+      fullPath: '/auth/verify'
+      preLoaderRoute: typeof AuthVerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/sign-up': {
+      id: '/auth/sign-up'
+      path: '/auth/sign-up'
+      fullPath: '/auth/sign-up'
+      preLoaderRoute: typeof AuthSignUpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/sign-in': {
+      id: '/auth/sign-in'
+      path: '/auth/sign-in'
+      fullPath: '/auth/sign-in'
+      preLoaderRoute: typeof AuthSignInRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/reset-password': {
+      id: '/auth/reset-password'
+      path: '/auth/reset-password'
+      fullPath: '/auth/reset-password'
+      preLoaderRoute: typeof AuthResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/onboarding': {
+      id: '/auth/onboarding'
+      path: '/auth/onboarding'
+      fullPath: '/auth/onboarding'
+      preLoaderRoute: typeof AuthOnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/forgot-password': {
+      id: '/auth/forgot-password'
+      path: '/auth/forgot-password'
+      fullPath: '/auth/forgot-password'
+      preLoaderRoute: typeof AuthForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/account-locked': {
+      id: '/auth/account-locked'
+      path: '/auth/account-locked'
+      fullPath: '/auth/account-locked'
+      preLoaderRoute: typeof AuthAccountLockedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai/writer': {
+      id: '/ai/writer'
+      path: '/writer'
+      fullPath: '/ai/writer'
+      preLoaderRoute: typeof AiWriterRouteImport
+      parentRoute: typeof AiRoute
+    }
+    '/ai/video-studio': {
+      id: '/ai/video-studio'
+      path: '/video-studio'
+      fullPath: '/ai/video-studio'
+      preLoaderRoute: typeof AiVideoStudioRouteImport
+      parentRoute: typeof AiRoute
+    }
+    '/ai/support-summarizer': {
+      id: '/ai/support-summarizer'
+      path: '/support-summarizer'
+      fullPath: '/ai/support-summarizer'
+      preLoaderRoute: typeof AiSupportSummarizerRouteImport
+      parentRoute: typeof AiRoute
+    }
+    '/ai/settings': {
+      id: '/ai/settings'
+      path: '/settings'
+      fullPath: '/ai/settings'
+      preLoaderRoute: typeof AiSettingsRouteImport
+      parentRoute: typeof AiRoute
+    }
+    '/ai/recruiter': {
+      id: '/ai/recruiter'
+      path: '/recruiter'
+      fullPath: '/ai/recruiter'
+      preLoaderRoute: typeof AiRecruiterRouteImport
+      parentRoute: typeof AiRoute
+    }
+    '/ai/proposal-helper': {
+      id: '/ai/proposal-helper'
+      path: '/proposal-helper'
+      fullPath: '/ai/proposal-helper'
+      preLoaderRoute: typeof AiProposalHelperRouteImport
+      parentRoute: typeof AiRoute
+    }
+    '/ai/prompts': {
+      id: '/ai/prompts'
+      path: '/prompts'
+      fullPath: '/ai/prompts'
+      preLoaderRoute: typeof AiPromptsRouteImport
+      parentRoute: typeof AiRoute
+    }
+    '/ai/outreach': {
+      id: '/ai/outreach'
+      path: '/outreach'
+      fullPath: '/ai/outreach'
+      preLoaderRoute: typeof AiOutreachRouteImport
+      parentRoute: typeof AiRoute
+    }
+    '/ai/jd-helper': {
+      id: '/ai/jd-helper'
+      path: '/jd-helper'
+      fullPath: '/ai/jd-helper'
+      preLoaderRoute: typeof AiJdHelperRouteImport
+      parentRoute: typeof AiRoute
+    }
+    '/ai/image-studio': {
+      id: '/ai/image-studio'
+      path: '/image-studio'
+      fullPath: '/ai/image-studio'
+      preLoaderRoute: typeof AiImageStudioRouteImport
+      parentRoute: typeof AiRoute
+    }
+    '/ai/history': {
+      id: '/ai/history'
+      path: '/history'
+      fullPath: '/ai/history'
+      preLoaderRoute: typeof AiHistoryRouteImport
+      parentRoute: typeof AiRoute
+    }
+    '/ai/chat': {
+      id: '/ai/chat'
+      path: '/chat'
+      fullPath: '/ai/chat'
+      preLoaderRoute: typeof AiChatRouteImport
+      parentRoute: typeof AiRoute
+    }
+    '/ai/byok': {
+      id: '/ai/byok'
+      path: '/byok'
+      fullPath: '/ai/byok'
+      preLoaderRoute: typeof AiByokRouteImport
+      parentRoute: typeof AiRoute
+    }
+    '/ai/brief-helper': {
+      id: '/ai/brief-helper'
+      path: '/brief-helper'
+      fullPath: '/ai/brief-helper'
+      preLoaderRoute: typeof AiBriefHelperRouteImport
+      parentRoute: typeof AiRoute
+    }
+    '/ai/billing': {
+      id: '/ai/billing'
+      path: '/billing'
+      fullPath: '/ai/billing'
+      preLoaderRoute: typeof AiBillingRouteImport
+      parentRoute: typeof AiRoute
+    }
+    '/ai/analytics': {
+      id: '/ai/analytics'
+      path: '/analytics'
+      fullPath: '/ai/analytics'
+      preLoaderRoute: typeof AiAnalyticsRouteImport
+      parentRoute: typeof AiRoute
+    }
+    '/agency/$agencyId': {
+      id: '/agency/$agencyId'
+      path: '/agency/$agencyId'
+      fullPath: '/agency/$agencyId'
+      preLoaderRoute: typeof AgencyAgencyIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/withdrawals': {
+      id: '/admin/withdrawals'
+      path: '/withdrawals'
+      fullPath: '/admin/withdrawals'
+      preLoaderRoute: typeof AdminWithdrawalsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/verification': {
+      id: '/admin/verification'
+      path: '/verification'
+      fullPath: '/admin/verification'
+      preLoaderRoute: typeof AdminVerificationRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/trust-safety': {
+      id: '/admin/trust-safety'
+      path: '/trust-safety'
+      fullPath: '/admin/trust-safety'
+      preLoaderRoute: typeof AdminTrustSafetyRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/tickets': {
+      id: '/admin/tickets'
+      path: '/tickets'
+      fullPath: '/admin/tickets'
+      preLoaderRoute: typeof AdminTicketsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/super': {
+      id: '/admin/super'
+      path: '/super'
+      fullPath: '/admin/super'
+      preLoaderRoute: typeof AdminSuperRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/subscriptions': {
+      id: '/admin/subscriptions'
+      path: '/subscriptions'
+      fullPath: '/admin/subscriptions'
+      preLoaderRoute: typeof AdminSubscriptionsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/shell': {
+      id: '/admin/shell'
+      path: '/shell'
+      fullPath: '/admin/shell'
+      preLoaderRoute: typeof AdminShellRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/search': {
+      id: '/admin/search'
+      path: '/search'
+      fullPath: '/admin/search'
+      preLoaderRoute: typeof AdminSearchRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/reports': {
+      id: '/admin/reports'
+      path: '/reports'
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AdminReportsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/portal': {
+      id: '/admin/portal'
+      path: '/portal'
+      fullPath: '/admin/portal'
+      preLoaderRoute: typeof AdminPortalRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/ops': {
+      id: '/admin/ops'
+      path: '/ops'
+      fullPath: '/admin/ops'
+      preLoaderRoute: typeof AdminOpsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/moderator': {
+      id: '/admin/moderator'
+      path: '/moderator'
+      fullPath: '/admin/moderator'
+      preLoaderRoute: typeof AdminModeratorRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/moderation': {
+      id: '/admin/moderation'
+      path: '/moderation'
+      fullPath: '/admin/moderation'
+      preLoaderRoute: typeof AdminModerationRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/finance': {
+      id: '/admin/finance'
+      path: '/finance'
+      fullPath: '/admin/finance'
+      preLoaderRoute: typeof AdminFinanceRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/disputes': {
+      id: '/admin/disputes'
+      path: '/disputes'
+      fullPath: '/admin/disputes'
+      preLoaderRoute: typeof AdminDisputesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/compliance': {
+      id: '/admin/compliance'
+      path: '/compliance'
+      fullPath: '/admin/compliance'
+      preLoaderRoute: typeof AdminComplianceRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/audit': {
+      id: '/admin/audit'
+      path: '/audit'
+      fullPath: '/admin/audit'
+      preLoaderRoute: typeof AdminAuditRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/projects/$projectId/workspace': {
+      id: '/projects/$projectId/workspace'
+      path: '/workspace'
+      fullPath: '/projects/$projectId/workspace'
+      preLoaderRoute: typeof ProjectsProjectIdWorkspaceRouteImport
+      parentRoute: typeof ProjectsProjectIdRoute
+    }
+    '/projects/$projectId/tasks': {
+      id: '/projects/$projectId/tasks'
+      path: '/tasks'
+      fullPath: '/projects/$projectId/tasks'
+      preLoaderRoute: typeof ProjectsProjectIdTasksRouteImport
+      parentRoute: typeof ProjectsProjectIdRoute
+    }
+    '/projects/$projectId/proposals': {
+      id: '/projects/$projectId/proposals'
+      path: '/proposals'
+      fullPath: '/projects/$projectId/proposals'
+      preLoaderRoute: typeof ProjectsProjectIdProposalsRouteImport
+      parentRoute: typeof ProjectsProjectIdRoute
+    }
+    '/projects/$projectId/milestones': {
+      id: '/projects/$projectId/milestones'
+      path: '/milestones'
+      fullPath: '/projects/$projectId/milestones'
+      preLoaderRoute: typeof ProjectsProjectIdMilestonesRouteImport
+      parentRoute: typeof ProjectsProjectIdRoute
+    }
+    '/projects/$projectId/escrow': {
+      id: '/projects/$projectId/escrow'
+      path: '/escrow'
+      fullPath: '/projects/$projectId/escrow'
+      preLoaderRoute: typeof ProjectsProjectIdEscrowRouteImport
+      parentRoute: typeof ProjectsProjectIdRoute
+    }
+    '/projects/$projectId/deliverables': {
+      id: '/projects/$projectId/deliverables'
+      path: '/deliverables'
+      fullPath: '/projects/$projectId/deliverables'
+      preLoaderRoute: typeof ProjectsProjectIdDeliverablesRouteImport
+      parentRoute: typeof ProjectsProjectIdRoute
+    }
+    '/media/videos/upload': {
+      id: '/media/videos/upload'
+      path: '/upload'
+      fullPath: '/media/videos/upload'
+      preLoaderRoute: typeof MediaVideosUploadRouteImport
+      parentRoute: typeof MediaVideosRoute
+    }
+    '/media/videos/studio': {
+      id: '/media/videos/studio'
+      path: '/studio'
+      fullPath: '/media/videos/studio'
+      preLoaderRoute: typeof MediaVideosStudioRouteImport
+      parentRoute: typeof MediaVideosRoute
+    }
+    '/media/videos/$videoId': {
+      id: '/media/videos/$videoId'
+      path: '/$videoId'
+      fullPath: '/media/videos/$videoId'
+      preLoaderRoute: typeof MediaVideosVideoIdRouteImport
+      parentRoute: typeof MediaVideosRoute
     }
     '/media/reels/studio': {
       id: '/media/reels/studio'
@@ -437,30 +5426,522 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MediaReelsStudioRouteImport
       parentRoute: typeof MediaReelsRoute
     }
-    '/media/reels/$reelId': {
-      id: '/media/reels/$reelId'
-      path: '/$reelId'
-      fullPath: '/media/reels/$reelId'
-      preLoaderRoute: typeof MediaReelsReelIdRouteImport
-      parentRoute: typeof MediaReelsRoute
+    '/hire/jobs/create': {
+      id: '/hire/jobs/create'
+      path: '/jobs/create'
+      fullPath: '/hire/jobs/create'
+      preLoaderRoute: typeof HireJobsCreateRouteImport
+      parentRoute: typeof HireRoute
     }
-    '/marketplace/gig/$slug': {
-      id: '/marketplace/gig/$slug'
-      path: '/marketplace/gig/$slug'
-      fullPath: '/marketplace/gig/$slug'
-      preLoaderRoute: typeof MarketplaceGigSlugRouteImport
+    '/enterprise/startups/$startupId': {
+      id: '/enterprise/startups/$startupId'
+      path: '/$startupId'
+      fullPath: '/enterprise/startups/$startupId'
+      preLoaderRoute: typeof EnterpriseStartupsStartupIdRouteImport
+      parentRoute: typeof EnterpriseStartupsRoute
+    }
+    '/contracts/$contractId/milestones': {
+      id: '/contracts/$contractId/milestones'
+      path: '/contracts/$contractId/milestones'
+      fullPath: '/contracts/$contractId/milestones'
+      preLoaderRoute: typeof ContractsContractIdMilestonesRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/contracts/$contractId/escrow': {
+      id: '/contracts/$contractId/escrow'
+      path: '/contracts/$contractId/escrow'
+      fullPath: '/contracts/$contractId/escrow'
+      preLoaderRoute: typeof ContractsContractIdEscrowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout/services/$serviceId': {
+      id: '/checkout/services/$serviceId'
+      path: '/checkout/services/$serviceId'
+      fullPath: '/checkout/services/$serviceId'
+      preLoaderRoute: typeof CheckoutServicesServiceIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout/projects/$projectId': {
+      id: '/checkout/projects/$projectId'
+      path: '/checkout/projects/$projectId'
+      fullPath: '/checkout/projects/$projectId'
+      preLoaderRoute: typeof CheckoutProjectsProjectIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout/gigs/$gigId': {
+      id: '/checkout/gigs/$gigId'
+      path: '/checkout/gigs/$gigId'
+      fullPath: '/checkout/gigs/$gigId'
+      preLoaderRoute: typeof CheckoutGigsGigIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/tickets/$ticketId': {
+      id: '/admin/tickets/$ticketId'
+      path: '/$ticketId'
+      fullPath: '/admin/tickets/$ticketId'
+      preLoaderRoute: typeof AdminTicketsTicketIdRouteImport
+      parentRoute: typeof AdminTicketsRoute
+    }
+    '/projects/$projectId/proposals/submit': {
+      id: '/projects/$projectId/proposals/submit'
+      path: '/submit'
+      fullPath: '/projects/$projectId/proposals/submit'
+      preLoaderRoute: typeof ProjectsProjectIdProposalsSubmitRouteImport
+      parentRoute: typeof ProjectsProjectIdProposalsRoute
     }
   }
 }
 
+interface AdminTicketsRouteChildren {
+  AdminTicketsTicketIdRoute: typeof AdminTicketsTicketIdRoute
+}
+
+const AdminTicketsRouteChildren: AdminTicketsRouteChildren = {
+  AdminTicketsTicketIdRoute: AdminTicketsTicketIdRoute,
+}
+
+const AdminTicketsRouteWithChildren = AdminTicketsRoute._addFileChildren(
+  AdminTicketsRouteChildren,
+)
+
+interface AdminRouteChildren {
+  AdminAuditRoute: typeof AdminAuditRoute
+  AdminComplianceRoute: typeof AdminComplianceRoute
+  AdminDisputesRoute: typeof AdminDisputesRoute
+  AdminFinanceRoute: typeof AdminFinanceRoute
+  AdminLoginRoute: typeof AdminLoginRoute
+  AdminModerationRoute: typeof AdminModerationRoute
+  AdminModeratorRoute: typeof AdminModeratorRoute
+  AdminOpsRoute: typeof AdminOpsRoute
+  AdminPortalRoute: typeof AdminPortalRoute
+  AdminReportsRoute: typeof AdminReportsRoute
+  AdminSearchRoute: typeof AdminSearchRoute
+  AdminShellRoute: typeof AdminShellRoute
+  AdminSubscriptionsRoute: typeof AdminSubscriptionsRoute
+  AdminSuperRoute: typeof AdminSuperRoute
+  AdminTicketsRoute: typeof AdminTicketsRouteWithChildren
+  AdminTrustSafetyRoute: typeof AdminTrustSafetyRoute
+  AdminVerificationRoute: typeof AdminVerificationRoute
+  AdminWithdrawalsRoute: typeof AdminWithdrawalsRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminAuditRoute: AdminAuditRoute,
+  AdminComplianceRoute: AdminComplianceRoute,
+  AdminDisputesRoute: AdminDisputesRoute,
+  AdminFinanceRoute: AdminFinanceRoute,
+  AdminLoginRoute: AdminLoginRoute,
+  AdminModerationRoute: AdminModerationRoute,
+  AdminModeratorRoute: AdminModeratorRoute,
+  AdminOpsRoute: AdminOpsRoute,
+  AdminPortalRoute: AdminPortalRoute,
+  AdminReportsRoute: AdminReportsRoute,
+  AdminSearchRoute: AdminSearchRoute,
+  AdminShellRoute: AdminShellRoute,
+  AdminSubscriptionsRoute: AdminSubscriptionsRoute,
+  AdminSuperRoute: AdminSuperRoute,
+  AdminTicketsRoute: AdminTicketsRouteWithChildren,
+  AdminTrustSafetyRoute: AdminTrustSafetyRoute,
+  AdminVerificationRoute: AdminVerificationRoute,
+  AdminWithdrawalsRoute: AdminWithdrawalsRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
+interface AiRouteChildren {
+  AiAnalyticsRoute: typeof AiAnalyticsRoute
+  AiBillingRoute: typeof AiBillingRoute
+  AiBriefHelperRoute: typeof AiBriefHelperRoute
+  AiByokRoute: typeof AiByokRoute
+  AiChatRoute: typeof AiChatRoute
+  AiHistoryRoute: typeof AiHistoryRoute
+  AiImageStudioRoute: typeof AiImageStudioRoute
+  AiJdHelperRoute: typeof AiJdHelperRoute
+  AiOutreachRoute: typeof AiOutreachRoute
+  AiPromptsRoute: typeof AiPromptsRoute
+  AiProposalHelperRoute: typeof AiProposalHelperRoute
+  AiRecruiterRoute: typeof AiRecruiterRoute
+  AiSettingsRoute: typeof AiSettingsRoute
+  AiSupportSummarizerRoute: typeof AiSupportSummarizerRoute
+  AiVideoStudioRoute: typeof AiVideoStudioRoute
+  AiWriterRoute: typeof AiWriterRoute
+}
+
+const AiRouteChildren: AiRouteChildren = {
+  AiAnalyticsRoute: AiAnalyticsRoute,
+  AiBillingRoute: AiBillingRoute,
+  AiBriefHelperRoute: AiBriefHelperRoute,
+  AiByokRoute: AiByokRoute,
+  AiChatRoute: AiChatRoute,
+  AiHistoryRoute: AiHistoryRoute,
+  AiImageStudioRoute: AiImageStudioRoute,
+  AiJdHelperRoute: AiJdHelperRoute,
+  AiOutreachRoute: AiOutreachRoute,
+  AiPromptsRoute: AiPromptsRoute,
+  AiProposalHelperRoute: AiProposalHelperRoute,
+  AiRecruiterRoute: AiRecruiterRoute,
+  AiSettingsRoute: AiSettingsRoute,
+  AiSupportSummarizerRoute: AiSupportSummarizerRoute,
+  AiVideoStudioRoute: AiVideoStudioRoute,
+  AiWriterRoute: AiWriterRoute,
+}
+
+const AiRouteWithChildren = AiRoute._addFileChildren(AiRouteChildren)
+
+interface CommunityRouteChildren {
+  CommunityGroupsRoute: typeof CommunityGroupsRoute
+}
+
+const CommunityRouteChildren: CommunityRouteChildren = {
+  CommunityGroupsRoute: CommunityGroupsRoute,
+}
+
+const CommunityRouteWithChildren = CommunityRoute._addFileChildren(
+  CommunityRouteChildren,
+)
+
+interface CreationStudioRouteChildren {
+  CreationStudioAnalyticsRoute: typeof CreationStudioAnalyticsRoute
+  CreationStudioAssetsRoute: typeof CreationStudioAssetsRoute
+  CreationStudioPublishRoute: typeof CreationStudioPublishRoute
+  CreationStudioReelsRoute: typeof CreationStudioReelsRoute
+  CreationStudioScheduledRoute: typeof CreationStudioScheduledRoute
+}
+
+const CreationStudioRouteChildren: CreationStudioRouteChildren = {
+  CreationStudioAnalyticsRoute: CreationStudioAnalyticsRoute,
+  CreationStudioAssetsRoute: CreationStudioAssetsRoute,
+  CreationStudioPublishRoute: CreationStudioPublishRoute,
+  CreationStudioReelsRoute: CreationStudioReelsRoute,
+  CreationStudioScheduledRoute: CreationStudioScheduledRoute,
+}
+
+const CreationStudioRouteWithChildren = CreationStudioRoute._addFileChildren(
+  CreationStudioRouteChildren,
+)
+
+interface DashboardRouteChildren {
+  DashboardActivityRoute: typeof DashboardActivityRoute
+  DashboardApplicationsRoute: typeof DashboardApplicationsRoute
+  DashboardBillingRoute: typeof DashboardBillingRoute
+  DashboardBookingsRoute: typeof DashboardBookingsRoute
+  DashboardClientRoute: typeof DashboardClientRoute
+  DashboardMediaLibraryRoute: typeof DashboardMediaLibraryRoute
+  DashboardOrdersRoute: typeof DashboardOrdersRoute
+  DashboardProfessionalRoute: typeof DashboardProfessionalRoute
+  DashboardProjectsRoute: typeof DashboardProjectsRoute
+  DashboardRecruiterRoute: typeof DashboardRecruiterRoute
+  DashboardResourcePlanningRoute: typeof DashboardResourcePlanningRoute
+  DashboardSavedRoute: typeof DashboardSavedRoute
+  DashboardSettingsRoute: typeof DashboardSettingsRoute
+  DashboardSupportRoute: typeof DashboardSupportRoute
+}
+
+const DashboardRouteChildren: DashboardRouteChildren = {
+  DashboardActivityRoute: DashboardActivityRoute,
+  DashboardApplicationsRoute: DashboardApplicationsRoute,
+  DashboardBillingRoute: DashboardBillingRoute,
+  DashboardBookingsRoute: DashboardBookingsRoute,
+  DashboardClientRoute: DashboardClientRoute,
+  DashboardMediaLibraryRoute: DashboardMediaLibraryRoute,
+  DashboardOrdersRoute: DashboardOrdersRoute,
+  DashboardProfessionalRoute: DashboardProfessionalRoute,
+  DashboardProjectsRoute: DashboardProjectsRoute,
+  DashboardRecruiterRoute: DashboardRecruiterRoute,
+  DashboardResourcePlanningRoute: DashboardResourcePlanningRoute,
+  DashboardSavedRoute: DashboardSavedRoute,
+  DashboardSettingsRoute: DashboardSettingsRoute,
+  DashboardSupportRoute: DashboardSupportRoute,
+}
+
+const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
+  DashboardRouteChildren,
+)
+
+interface EnterpriseStartupsRouteChildren {
+  EnterpriseStartupsStartupIdRoute: typeof EnterpriseStartupsStartupIdRoute
+}
+
+const EnterpriseStartupsRouteChildren: EnterpriseStartupsRouteChildren = {
+  EnterpriseStartupsStartupIdRoute: EnterpriseStartupsStartupIdRoute,
+}
+
+const EnterpriseStartupsRouteWithChildren =
+  EnterpriseStartupsRoute._addFileChildren(EnterpriseStartupsRouteChildren)
+
+interface EnterpriseRouteChildren {
+  EnterpriseAnalyticsRoute: typeof EnterpriseAnalyticsRoute
+  EnterpriseDashboardRoute: typeof EnterpriseDashboardRoute
+  EnterpriseDirectoryRoute: typeof EnterpriseDirectoryRoute
+  EnterpriseEventsRoute: typeof EnterpriseEventsRoute
+  EnterpriseHiringRoute: typeof EnterpriseHiringRoute
+  EnterpriseIntrosRoute: typeof EnterpriseIntrosRoute
+  EnterpriseMatchmakingRoute: typeof EnterpriseMatchmakingRoute
+  EnterprisePartnersRoute: typeof EnterprisePartnersRoute
+  EnterpriseProcurementRoute: typeof EnterpriseProcurementRoute
+  EnterpriseProfileRoute: typeof EnterpriseProfileRoute
+  EnterpriseRoomsRoute: typeof EnterpriseRoomsRoute
+  EnterpriseSavedListsRoute: typeof EnterpriseSavedListsRoute
+  EnterpriseSettingsRoute: typeof EnterpriseSettingsRoute
+  EnterpriseSignalsRoute: typeof EnterpriseSignalsRoute
+  EnterpriseStartupsRoute: typeof EnterpriseStartupsRouteWithChildren
+}
+
+const EnterpriseRouteChildren: EnterpriseRouteChildren = {
+  EnterpriseAnalyticsRoute: EnterpriseAnalyticsRoute,
+  EnterpriseDashboardRoute: EnterpriseDashboardRoute,
+  EnterpriseDirectoryRoute: EnterpriseDirectoryRoute,
+  EnterpriseEventsRoute: EnterpriseEventsRoute,
+  EnterpriseHiringRoute: EnterpriseHiringRoute,
+  EnterpriseIntrosRoute: EnterpriseIntrosRoute,
+  EnterpriseMatchmakingRoute: EnterpriseMatchmakingRoute,
+  EnterprisePartnersRoute: EnterprisePartnersRoute,
+  EnterpriseProcurementRoute: EnterpriseProcurementRoute,
+  EnterpriseProfileRoute: EnterpriseProfileRoute,
+  EnterpriseRoomsRoute: EnterpriseRoomsRoute,
+  EnterpriseSavedListsRoute: EnterpriseSavedListsRoute,
+  EnterpriseSettingsRoute: EnterpriseSettingsRoute,
+  EnterpriseSignalsRoute: EnterpriseSignalsRoute,
+  EnterpriseStartupsRoute: EnterpriseStartupsRouteWithChildren,
+}
+
+const EnterpriseRouteWithChildren = EnterpriseRoute._addFileChildren(
+  EnterpriseRouteChildren,
+)
+
+interface EventsRouteChildren {
+  EventsEventIdRoute: typeof EventsEventIdRoute
+  EventsCreateRoute: typeof EventsCreateRoute
+}
+
+const EventsRouteChildren: EventsRouteChildren = {
+  EventsEventIdRoute: EventsEventIdRoute,
+  EventsCreateRoute: EventsCreateRoute,
+}
+
+const EventsRouteWithChildren =
+  EventsRoute._addFileChildren(EventsRouteChildren)
+
+interface ExploreRouteChildren {
+  ExploreCompareRoute: typeof ExploreCompareRoute
+  ExploreEventsRoute: typeof ExploreEventsRoute
+  ExploreGigsRoute: typeof ExploreGigsRoute
+  ExploreGroupsRoute: typeof ExploreGroupsRoute
+  ExploreJobsRoute: typeof ExploreJobsRoute
+  ExploreMapRoute: typeof ExploreMapRoute
+  ExplorePagesRoute: typeof ExplorePagesRoute
+  ExplorePeopleRoute: typeof ExplorePeopleRoute
+  ExplorePodcastsRoute: typeof ExplorePodcastsRoute
+  ExploreProjectsRoute: typeof ExploreProjectsRoute
+  ExploreSavedRoute: typeof ExploreSavedRoute
+  ExploreServicesRoute: typeof ExploreServicesRoute
+  ExploreWebinarsRoute: typeof ExploreWebinarsRoute
+}
+
+const ExploreRouteChildren: ExploreRouteChildren = {
+  ExploreCompareRoute: ExploreCompareRoute,
+  ExploreEventsRoute: ExploreEventsRoute,
+  ExploreGigsRoute: ExploreGigsRoute,
+  ExploreGroupsRoute: ExploreGroupsRoute,
+  ExploreJobsRoute: ExploreJobsRoute,
+  ExploreMapRoute: ExploreMapRoute,
+  ExplorePagesRoute: ExplorePagesRoute,
+  ExplorePeopleRoute: ExplorePeopleRoute,
+  ExplorePodcastsRoute: ExplorePodcastsRoute,
+  ExploreProjectsRoute: ExploreProjectsRoute,
+  ExploreSavedRoute: ExploreSavedRoute,
+  ExploreServicesRoute: ExploreServicesRoute,
+  ExploreWebinarsRoute: ExploreWebinarsRoute,
+}
+
+const ExploreRouteWithChildren =
+  ExploreRoute._addFileChildren(ExploreRouteChildren)
+
+interface FinanceRouteChildren {
+  FinanceBillingRoute: typeof FinanceBillingRoute
+  FinanceEscrowRoute: typeof FinanceEscrowRoute
+  FinanceInvoicesRoute: typeof FinanceInvoicesRoute
+  FinancePatronageRoute: typeof FinancePatronageRoute
+  FinancePayoutsRoute: typeof FinancePayoutsRoute
+  FinancePricingRoute: typeof FinancePricingRoute
+  FinanceWalletRoute: typeof FinanceWalletRoute
+}
+
+const FinanceRouteChildren: FinanceRouteChildren = {
+  FinanceBillingRoute: FinanceBillingRoute,
+  FinanceEscrowRoute: FinanceEscrowRoute,
+  FinanceInvoicesRoute: FinanceInvoicesRoute,
+  FinancePatronageRoute: FinancePatronageRoute,
+  FinancePayoutsRoute: FinancePayoutsRoute,
+  FinancePricingRoute: FinancePricingRoute,
+  FinanceWalletRoute: FinanceWalletRoute,
+}
+
+const FinanceRouteWithChildren =
+  FinanceRoute._addFileChildren(FinanceRouteChildren)
+
+interface GigsRouteChildren {
+  GigsGigIdRoute: typeof GigsGigIdRoute
+  GigsAddonsRoute: typeof GigsAddonsRoute
+  GigsAnalyticsRoute: typeof GigsAnalyticsRoute
+  GigsArchiveRoute: typeof GigsArchiveRoute
+  GigsAvailabilityRoute: typeof GigsAvailabilityRoute
+  GigsCreateRoute: typeof GigsCreateRoute
+  GigsCustomOffersRoute: typeof GigsCustomOffersRoute
+  GigsMediaRoute: typeof GigsMediaRoute
+  GigsOrdersRoute: typeof GigsOrdersRoute
+  GigsPackagesRoute: typeof GigsPackagesRoute
+  GigsPerformanceRoute: typeof GigsPerformanceRoute
+  GigsPricingIntelRoute: typeof GigsPricingIntelRoute
+  GigsPromotionsRoute: typeof GigsPromotionsRoute
+  GigsRequirementsRoute: typeof GigsRequirementsRoute
+  GigsRevisionsRoute: typeof GigsRevisionsRoute
+  GigsWorkspaceRoute: typeof GigsWorkspaceRoute
+}
+
+const GigsRouteChildren: GigsRouteChildren = {
+  GigsGigIdRoute: GigsGigIdRoute,
+  GigsAddonsRoute: GigsAddonsRoute,
+  GigsAnalyticsRoute: GigsAnalyticsRoute,
+  GigsArchiveRoute: GigsArchiveRoute,
+  GigsAvailabilityRoute: GigsAvailabilityRoute,
+  GigsCreateRoute: GigsCreateRoute,
+  GigsCustomOffersRoute: GigsCustomOffersRoute,
+  GigsMediaRoute: GigsMediaRoute,
+  GigsOrdersRoute: GigsOrdersRoute,
+  GigsPackagesRoute: GigsPackagesRoute,
+  GigsPerformanceRoute: GigsPerformanceRoute,
+  GigsPricingIntelRoute: GigsPricingIntelRoute,
+  GigsPromotionsRoute: GigsPromotionsRoute,
+  GigsRequirementsRoute: GigsRequirementsRoute,
+  GigsRevisionsRoute: GigsRevisionsRoute,
+  GigsWorkspaceRoute: GigsWorkspaceRoute,
+}
+
+const GigsRouteWithChildren = GigsRoute._addFileChildren(GigsRouteChildren)
+
+interface GroupsRouteChildren {
+  GroupsGroupIdRoute: typeof GroupsGroupIdRoute
+}
+
+const GroupsRouteChildren: GroupsRouteChildren = {
+  GroupsGroupIdRoute: GroupsGroupIdRoute,
+}
+
+const GroupsRouteWithChildren =
+  GroupsRoute._addFileChildren(GroupsRouteChildren)
+
+interface HireRouteChildren {
+  HireScorecardsRoute: typeof HireScorecardsRoute
+  HireSettingsRoute: typeof HireSettingsRoute
+  HireTalentPoolsRoute: typeof HireTalentPoolsRoute
+  HireTeamRoute: typeof HireTeamRoute
+  HireJobsCreateRoute: typeof HireJobsCreateRoute
+}
+
+const HireRouteChildren: HireRouteChildren = {
+  HireScorecardsRoute: HireScorecardsRoute,
+  HireSettingsRoute: HireSettingsRoute,
+  HireTalentPoolsRoute: HireTalentPoolsRoute,
+  HireTeamRoute: HireTeamRoute,
+  HireJobsCreateRoute: HireJobsCreateRoute,
+}
+
+const HireRouteWithChildren = HireRoute._addFileChildren(HireRouteChildren)
+
+interface InboxRouteChildren {
+  InboxThreadIdRoute: typeof InboxThreadIdRoute
+}
+
+const InboxRouteChildren: InboxRouteChildren = {
+  InboxThreadIdRoute: InboxThreadIdRoute,
+}
+
+const InboxRouteWithChildren = InboxRoute._addFileChildren(InboxRouteChildren)
+
+interface JobsRouteChildren {
+  JobsJobIdRoute: typeof JobsJobIdRoute
+  JobsApplicantsRoute: typeof JobsApplicantsRoute
+  JobsApplicationsRoute: typeof JobsApplicationsRoute
+  JobsCreateRoute: typeof JobsCreateRoute
+  JobsWorkspaceRoute: typeof JobsWorkspaceRoute
+}
+
+const JobsRouteChildren: JobsRouteChildren = {
+  JobsJobIdRoute: JobsJobIdRoute,
+  JobsApplicantsRoute: JobsApplicantsRoute,
+  JobsApplicationsRoute: JobsApplicationsRoute,
+  JobsCreateRoute: JobsCreateRoute,
+  JobsWorkspaceRoute: JobsWorkspaceRoute,
+}
+
+const JobsRouteWithChildren = JobsRoute._addFileChildren(JobsRouteChildren)
+
+interface LaunchpadRouteChildren {
+  LaunchpadAnalyticsRoute: typeof LaunchpadAnalyticsRoute
+  LaunchpadApplicationsRoute: typeof LaunchpadApplicationsRoute
+  LaunchpadBadgesRoute: typeof LaunchpadBadgesRoute
+  LaunchpadCareerChangerRoute: typeof LaunchpadCareerChangerRoute
+  LaunchpadChallengesRoute: typeof LaunchpadChallengesRoute
+  LaunchpadCommunityRoute: typeof LaunchpadCommunityRoute
+  LaunchpadDiscoverRoute: typeof LaunchpadDiscoverRoute
+  LaunchpadEarlyCareerRoute: typeof LaunchpadEarlyCareerRoute
+  LaunchpadEmployerRoute: typeof LaunchpadEmployerRoute
+  LaunchpadEnterpriseRoute: typeof LaunchpadEnterpriseRoute
+  LaunchpadEventsRoute: typeof LaunchpadEventsRoute
+  LaunchpadGraduateRoute: typeof LaunchpadGraduateRoute
+  LaunchpadHostsRoute: typeof LaunchpadHostsRoute
+  LaunchpadJobsRoute: typeof LaunchpadJobsRoute
+  LaunchpadLearningRoute: typeof LaunchpadLearningRoute
+  LaunchpadMentorsRoute: typeof LaunchpadMentorsRoute
+  LaunchpadOpportunitiesRoute: typeof LaunchpadOpportunitiesRoute
+  LaunchpadPathwaysRoute: typeof LaunchpadPathwaysRoute
+  LaunchpadPortfolioRoute: typeof LaunchpadPortfolioRoute
+  LaunchpadProgressRoute: typeof LaunchpadProgressRoute
+  LaunchpadProjectsRoute: typeof LaunchpadProjectsRoute
+  LaunchpadSavedRoute: typeof LaunchpadSavedRoute
+  LaunchpadSchoolLeaverRoute: typeof LaunchpadSchoolLeaverRoute
+  LaunchpadSessionsRoute: typeof LaunchpadSessionsRoute
+  LaunchpadSettingsRoute: typeof LaunchpadSettingsRoute
+}
+
+const LaunchpadRouteChildren: LaunchpadRouteChildren = {
+  LaunchpadAnalyticsRoute: LaunchpadAnalyticsRoute,
+  LaunchpadApplicationsRoute: LaunchpadApplicationsRoute,
+  LaunchpadBadgesRoute: LaunchpadBadgesRoute,
+  LaunchpadCareerChangerRoute: LaunchpadCareerChangerRoute,
+  LaunchpadChallengesRoute: LaunchpadChallengesRoute,
+  LaunchpadCommunityRoute: LaunchpadCommunityRoute,
+  LaunchpadDiscoverRoute: LaunchpadDiscoverRoute,
+  LaunchpadEarlyCareerRoute: LaunchpadEarlyCareerRoute,
+  LaunchpadEmployerRoute: LaunchpadEmployerRoute,
+  LaunchpadEnterpriseRoute: LaunchpadEnterpriseRoute,
+  LaunchpadEventsRoute: LaunchpadEventsRoute,
+  LaunchpadGraduateRoute: LaunchpadGraduateRoute,
+  LaunchpadHostsRoute: LaunchpadHostsRoute,
+  LaunchpadJobsRoute: LaunchpadJobsRoute,
+  LaunchpadLearningRoute: LaunchpadLearningRoute,
+  LaunchpadMentorsRoute: LaunchpadMentorsRoute,
+  LaunchpadOpportunitiesRoute: LaunchpadOpportunitiesRoute,
+  LaunchpadPathwaysRoute: LaunchpadPathwaysRoute,
+  LaunchpadPortfolioRoute: LaunchpadPortfolioRoute,
+  LaunchpadProgressRoute: LaunchpadProgressRoute,
+  LaunchpadProjectsRoute: LaunchpadProjectsRoute,
+  LaunchpadSavedRoute: LaunchpadSavedRoute,
+  LaunchpadSchoolLeaverRoute: LaunchpadSchoolLeaverRoute,
+  LaunchpadSessionsRoute: LaunchpadSessionsRoute,
+  LaunchpadSettingsRoute: LaunchpadSettingsRoute,
+}
+
+const LaunchpadRouteWithChildren = LaunchpadRoute._addFileChildren(
+  LaunchpadRouteChildren,
+)
+
 interface MediaReelsRouteChildren {
-  MediaReelsReelIdRoute: typeof MediaReelsReelIdRoute
   MediaReelsStudioRoute: typeof MediaReelsStudioRoute
 }
 
 const MediaReelsRouteChildren: MediaReelsRouteChildren = {
-  MediaReelsReelIdRoute: MediaReelsReelIdRoute,
   MediaReelsStudioRoute: MediaReelsStudioRoute,
 }
 
@@ -468,26 +5949,309 @@ const MediaReelsRouteWithChildren = MediaReelsRoute._addFileChildren(
   MediaReelsRouteChildren,
 )
 
+interface MediaVideosRouteChildren {
+  MediaVideosVideoIdRoute: typeof MediaVideosVideoIdRoute
+  MediaVideosStudioRoute: typeof MediaVideosStudioRoute
+  MediaVideosUploadRoute: typeof MediaVideosUploadRoute
+}
+
+const MediaVideosRouteChildren: MediaVideosRouteChildren = {
+  MediaVideosVideoIdRoute: MediaVideosVideoIdRoute,
+  MediaVideosStudioRoute: MediaVideosStudioRoute,
+  MediaVideosUploadRoute: MediaVideosUploadRoute,
+}
+
+const MediaVideosRouteWithChildren = MediaVideosRoute._addFileChildren(
+  MediaVideosRouteChildren,
+)
+
+interface MediaRouteChildren {
+  MediaAnalyticsRoute: typeof MediaAnalyticsRoute
+  MediaCreatorsRoute: typeof MediaCreatorsRoute
+  MediaLibraryRoute: typeof MediaLibraryRoute
+  MediaReelsRoute: typeof MediaReelsRouteWithChildren
+  MediaVideosRoute: typeof MediaVideosRouteWithChildren
+  MediaViewerRoute: typeof MediaViewerRoute
+}
+
+const MediaRouteChildren: MediaRouteChildren = {
+  MediaAnalyticsRoute: MediaAnalyticsRoute,
+  MediaCreatorsRoute: MediaCreatorsRoute,
+  MediaLibraryRoute: MediaLibraryRoute,
+  MediaReelsRoute: MediaReelsRouteWithChildren,
+  MediaVideosRoute: MediaVideosRouteWithChildren,
+  MediaViewerRoute: MediaViewerRoute,
+}
+
+const MediaRouteWithChildren = MediaRoute._addFileChildren(MediaRouteChildren)
+
+interface MentorshipRouteChildren {
+  MentorshipAnalyticsRoute: typeof MentorshipAnalyticsRoute
+  MentorshipFeedbackRoute: typeof MentorshipFeedbackRoute
+  MentorshipPaymentsRoute: typeof MentorshipPaymentsRoute
+}
+
+const MentorshipRouteChildren: MentorshipRouteChildren = {
+  MentorshipAnalyticsRoute: MentorshipAnalyticsRoute,
+  MentorshipFeedbackRoute: MentorshipFeedbackRoute,
+  MentorshipPaymentsRoute: MentorshipPaymentsRoute,
+}
+
+const MentorshipRouteWithChildren = MentorshipRoute._addFileChildren(
+  MentorshipRouteChildren,
+)
+
+interface PodcastsRouteChildren {
+  PodcastsAnalyticsRoute: typeof PodcastsAnalyticsRoute
+  PodcastsDonationsRoute: typeof PodcastsDonationsRoute
+  PodcastsLegacyRoute: typeof PodcastsLegacyRoute
+  PodcastsLibraryRoute: typeof PodcastsLibraryRoute
+  PodcastsPlayerRoute: typeof PodcastsPlayerRoute
+  PodcastsPurchasesRoute: typeof PodcastsPurchasesRoute
+  PodcastsQueueRoute: typeof PodcastsQueueRoute
+  PodcastsRecorderRoute: typeof PodcastsRecorderRoute
+  PodcastsSeriesRoute: typeof PodcastsSeriesRoute
+  PodcastsStudioRoute: typeof PodcastsStudioRoute
+  PodcastsSubscriptionsRoute: typeof PodcastsSubscriptionsRoute
+}
+
+const PodcastsRouteChildren: PodcastsRouteChildren = {
+  PodcastsAnalyticsRoute: PodcastsAnalyticsRoute,
+  PodcastsDonationsRoute: PodcastsDonationsRoute,
+  PodcastsLegacyRoute: PodcastsLegacyRoute,
+  PodcastsLibraryRoute: PodcastsLibraryRoute,
+  PodcastsPlayerRoute: PodcastsPlayerRoute,
+  PodcastsPurchasesRoute: PodcastsPurchasesRoute,
+  PodcastsQueueRoute: PodcastsQueueRoute,
+  PodcastsRecorderRoute: PodcastsRecorderRoute,
+  PodcastsSeriesRoute: PodcastsSeriesRoute,
+  PodcastsStudioRoute: PodcastsStudioRoute,
+  PodcastsSubscriptionsRoute: PodcastsSubscriptionsRoute,
+}
+
+const PodcastsRouteWithChildren = PodcastsRoute._addFileChildren(
+  PodcastsRouteChildren,
+)
+
+interface ProfileRouteChildren {
+  ProfileUsernameRoute: typeof ProfileUsernameRoute
+}
+
+const ProfileRouteChildren: ProfileRouteChildren = {
+  ProfileUsernameRoute: ProfileUsernameRoute,
+}
+
+const ProfileRouteWithChildren =
+  ProfileRoute._addFileChildren(ProfileRouteChildren)
+
+interface ProjectsProjectIdProposalsRouteChildren {
+  ProjectsProjectIdProposalsSubmitRoute: typeof ProjectsProjectIdProposalsSubmitRoute
+}
+
+const ProjectsProjectIdProposalsRouteChildren: ProjectsProjectIdProposalsRouteChildren =
+  {
+    ProjectsProjectIdProposalsSubmitRoute:
+      ProjectsProjectIdProposalsSubmitRoute,
+  }
+
+const ProjectsProjectIdProposalsRouteWithChildren =
+  ProjectsProjectIdProposalsRoute._addFileChildren(
+    ProjectsProjectIdProposalsRouteChildren,
+  )
+
+interface ProjectsProjectIdRouteChildren {
+  ProjectsProjectIdDeliverablesRoute: typeof ProjectsProjectIdDeliverablesRoute
+  ProjectsProjectIdEscrowRoute: typeof ProjectsProjectIdEscrowRoute
+  ProjectsProjectIdMilestonesRoute: typeof ProjectsProjectIdMilestonesRoute
+  ProjectsProjectIdProposalsRoute: typeof ProjectsProjectIdProposalsRouteWithChildren
+  ProjectsProjectIdTasksRoute: typeof ProjectsProjectIdTasksRoute
+  ProjectsProjectIdWorkspaceRoute: typeof ProjectsProjectIdWorkspaceRoute
+}
+
+const ProjectsProjectIdRouteChildren: ProjectsProjectIdRouteChildren = {
+  ProjectsProjectIdDeliverablesRoute: ProjectsProjectIdDeliverablesRoute,
+  ProjectsProjectIdEscrowRoute: ProjectsProjectIdEscrowRoute,
+  ProjectsProjectIdMilestonesRoute: ProjectsProjectIdMilestonesRoute,
+  ProjectsProjectIdProposalsRoute: ProjectsProjectIdProposalsRouteWithChildren,
+  ProjectsProjectIdTasksRoute: ProjectsProjectIdTasksRoute,
+  ProjectsProjectIdWorkspaceRoute: ProjectsProjectIdWorkspaceRoute,
+}
+
+const ProjectsProjectIdRouteWithChildren =
+  ProjectsProjectIdRoute._addFileChildren(ProjectsProjectIdRouteChildren)
+
+interface ProjectsRouteChildren {
+  ProjectsProjectIdRoute: typeof ProjectsProjectIdRouteWithChildren
+  ProjectsArchiveRoute: typeof ProjectsArchiveRoute
+  ProjectsCreateRoute: typeof ProjectsCreateRoute
+  ProjectsDashboardRoute: typeof ProjectsDashboardRoute
+  ProjectsMineRoute: typeof ProjectsMineRoute
+  ProjectsTemplatesRoute: typeof ProjectsTemplatesRoute
+}
+
+const ProjectsRouteChildren: ProjectsRouteChildren = {
+  ProjectsProjectIdRoute: ProjectsProjectIdRouteWithChildren,
+  ProjectsArchiveRoute: ProjectsArchiveRoute,
+  ProjectsCreateRoute: ProjectsCreateRoute,
+  ProjectsDashboardRoute: ProjectsDashboardRoute,
+  ProjectsMineRoute: ProjectsMineRoute,
+  ProjectsTemplatesRoute: ProjectsTemplatesRoute,
+}
+
+const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
+  ProjectsRouteChildren,
+)
+
+interface ServicesRouteChildren {
+  ServicesAnalyticsRoute: typeof ServicesAnalyticsRoute
+  ServicesAvailabilityRoute: typeof ServicesAvailabilityRoute
+  ServicesBrowseRoute: typeof ServicesBrowseRoute
+  ServicesCreateRoute: typeof ServicesCreateRoute
+  ServicesDeliveryRoute: typeof ServicesDeliveryRoute
+  ServicesOrdersRoute: typeof ServicesOrdersRoute
+  ServicesPackagesRoute: typeof ServicesPackagesRoute
+  ServicesPromotionsRoute: typeof ServicesPromotionsRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesAnalyticsRoute: ServicesAnalyticsRoute,
+  ServicesAvailabilityRoute: ServicesAvailabilityRoute,
+  ServicesBrowseRoute: ServicesBrowseRoute,
+  ServicesCreateRoute: ServicesCreateRoute,
+  ServicesDeliveryRoute: ServicesDeliveryRoute,
+  ServicesOrdersRoute: ServicesOrdersRoute,
+  ServicesPackagesRoute: ServicesPackagesRoute,
+  ServicesPromotionsRoute: ServicesPromotionsRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
+
+interface SettingsRouteChildren {
+  SettingsIntegrationsRoute: typeof SettingsIntegrationsRoute
+  SettingsWebsiteRoute: typeof SettingsWebsiteRoute
+}
+
+const SettingsRouteChildren: SettingsRouteChildren = {
+  SettingsIntegrationsRoute: SettingsIntegrationsRoute,
+  SettingsWebsiteRoute: SettingsWebsiteRoute,
+}
+
+const SettingsRouteWithChildren = SettingsRoute._addFileChildren(
+  SettingsRouteChildren,
+)
+
+interface SolutionsRouteChildren {
+  SolutionsRoleRoute: typeof SolutionsRoleRoute
+}
+
+const SolutionsRouteChildren: SolutionsRouteChildren = {
+  SolutionsRoleRoute: SolutionsRoleRoute,
+}
+
+const SolutionsRouteWithChildren = SolutionsRoute._addFileChildren(
+  SolutionsRouteChildren,
+)
+
+interface SupportRouteChildren {
+  SupportContactRoute: typeof SupportContactRoute
+}
+
+const SupportRouteChildren: SupportRouteChildren = {
+  SupportContactRoute: SupportContactRoute,
+}
+
+const SupportRouteWithChildren =
+  SupportRoute._addFileChildren(SupportRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AuthRoute: AuthRoute,
+  AboutRoute: AboutRoute,
+  AdminRoute: AdminRouteWithChildren,
+  AiRoute: AiRouteWithChildren,
   CalendarRoute: CalendarRoute,
-  ExploreRoute: ExploreRoute,
+  CommunityRoute: CommunityRouteWithChildren,
+  ContactRoute: ContactRoute,
+  CreationStudioRoute: CreationStudioRouteWithChildren,
+  DashboardRoute: DashboardRouteWithChildren,
+  EnterpriseRoute: EnterpriseRouteWithChildren,
+  EventsRoute: EventsRouteWithChildren,
+  ExploreRoute: ExploreRouteWithChildren,
+  FaqRoute: FaqRoute,
   FeedRoute: FeedRoute,
-  HiringRoute: HiringRoute,
-  InboxRoute: InboxRoute,
+  FinanceRoute: FinanceRouteWithChildren,
+  GigsRoute: GigsRouteWithChildren,
+  GroupsRoute: GroupsRouteWithChildren,
+  HireRoute: HireRouteWithChildren,
+  InboxRoute: InboxRouteWithChildren,
+  JobsRoute: JobsRouteWithChildren,
+  LaunchpadRoute: LaunchpadRouteWithChildren,
+  LearnRoute: LearnRoute,
+  MediaRoute: MediaRouteWithChildren,
+  MentorshipRoute: MentorshipRouteWithChildren,
+  NetworkRoute: NetworkRoute,
   NotificationsRoute: NotificationsRoute,
-  TrackersRoute: TrackersRoute,
-  JobsSlugRoute: JobsSlugRoute,
-  JobsNewRoute: JobsNewRoute,
-  MarketplaceCheckoutReturnRoute: MarketplaceCheckoutReturnRoute,
-  MarketplaceNewRoute: MarketplaceNewRoute,
-  MarketplaceOrdersRoute: MarketplaceOrdersRoute,
-  MediaReelsRoute: MediaReelsRouteWithChildren,
-  UUsernameRoute: UUsernameRoute,
-  JobsIndexRoute: JobsIndexRoute,
-  MarketplaceIndexRoute: MarketplaceIndexRoute,
-  MarketplaceGigSlugRoute: MarketplaceGigSlugRoute,
+  PodcastsRoute: PodcastsRouteWithChildren,
+  PricingRoute: PricingRoute,
+  PrivacyRoute: PrivacyRoute,
+  ProductRoute: ProductRoute,
+  ProfileRoute: ProfileRouteWithChildren,
+  ProjectsRoute: ProjectsRouteWithChildren,
+  ServicesRoute: ServicesRouteWithChildren,
+  SettingsRoute: SettingsRouteWithChildren,
+  SolutionsRoute: SolutionsRouteWithChildren,
+  StatusRoute: StatusRoute,
+  SupportRoute: SupportRouteWithChildren,
+  TermsRoute: TermsRoute,
+  TrustSafetyRoute: TrustSafetyRoute,
+  UserAgreementsRoute: UserAgreementsRoute,
+  WorkRoute: WorkRoute,
+  AgencyAgencyIdRoute: AgencyAgencyIdRoute,
+  AuthAccountLockedRoute: AuthAccountLockedRoute,
+  AuthForgotPasswordRoute: AuthForgotPasswordRoute,
+  AuthOnboardingRoute: AuthOnboardingRoute,
+  AuthResetPasswordRoute: AuthResetPasswordRoute,
+  AuthSignInRoute: AuthSignInRoute,
+  AuthSignUpRoute: AuthSignUpRoute,
+  AuthVerifyRoute: AuthVerifyRoute,
+  CompanyCompanyIdRoute: CompanyCompanyIdRoute,
+  CreatePostRoute: CreatePostRoute,
+  LegalAdvertisingPolicyRoute: LegalAdvertisingPolicyRoute,
+  LegalAppealsRoute: LegalAppealsRoute,
+  LegalCommunityGuidelinesRoute: LegalCommunityGuidelinesRoute,
+  LegalCreatorMonetizationRoute: LegalCreatorMonetizationRoute,
+  LegalDisputesPolicyRoute: LegalDisputesPolicyRoute,
+  LegalPaymentsEscrowRoute: LegalPaymentsEscrowRoute,
+  NetworkingCardsRoute: NetworkingCardsRoute,
+  NetworkingConnectionsRoute: NetworkingConnectionsRoute,
+  NetworkingFollowUpsRoute: NetworkingFollowUpsRoute,
+  NetworkingFollowersRoute: NetworkingFollowersRoute,
+  NetworkingFollowingRoute: NetworkingFollowingRoute,
+  NetworkingHomeRoute: NetworkingHomeRoute,
+  NetworkingInvitationsRoute: NetworkingInvitationsRoute,
+  NetworkingRoomsRoute: NetworkingRoomsRoute,
+  NetworkingSpeedRoute: NetworkingSpeedRoute,
+  NetworkingSuggestedRoute: NetworkingSuggestedRoute,
+  ShowcaseAdsRoute: ShowcaseAdsRoute,
+  ShowcaseCreatorRoute: ShowcaseCreatorRoute,
+  ShowcaseEnterpriseRoute: ShowcaseEnterpriseRoute,
+  ShowcaseEventsRoute: ShowcaseEventsRoute,
+  ShowcaseGigsRoute: ShowcaseGigsRoute,
+  ShowcaseJobsRoute: ShowcaseJobsRoute,
+  ShowcaseLaunchpadRoute: ShowcaseLaunchpadRoute,
+  ShowcaseMentorshipRoute: ShowcaseMentorshipRoute,
+  ShowcaseNavigatorRoute: ShowcaseNavigatorRoute,
+  ShowcaseNetworkingRoute: ShowcaseNetworkingRoute,
+  ShowcasePodcastsRoute: ShowcasePodcastsRoute,
+  ShowcaseProjectsRoute: ShowcaseProjectsRoute,
+  ShowcaseRecruiterRoute: ShowcaseRecruiterRoute,
+  ShowcaseServicesRoute: ShowcaseServicesRoute,
+  CheckoutGigsGigIdRoute: CheckoutGigsGigIdRoute,
+  CheckoutProjectsProjectIdRoute: CheckoutProjectsProjectIdRoute,
+  CheckoutServicesServiceIdRoute: CheckoutServicesServiceIdRoute,
+  ContractsContractIdEscrowRoute: ContractsContractIdEscrowRoute,
+  ContractsContractIdMilestonesRoute: ContractsContractIdMilestonesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
