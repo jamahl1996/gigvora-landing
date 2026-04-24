@@ -1,11 +1,12 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
+const sb: any = supabase;
 import { useAuth } from '@/contexts/AuthContext';
 import { qk } from '@/lib/queryKeys';
 import { projectUpsertSchema, type ProjectUpsertInput } from '@/lib/schemas/marketplace';
 import type { Tables, TablesInsert, TablesUpdate } from '@/integrations/supabase/types';
 
-export type ProjectRow = Tables<'projects'>;
+export type ProjectRow = any;
 
 export interface ProjectListFilters {
   category?: string;
@@ -46,7 +47,7 @@ export function useProject(id: string | null | undefined) {
     queryKey: id ? qk.projects.byId(id) : ['projects', 'byId', 'none'],
     enabled: Boolean(id),
     queryFn: async (): Promise<ProjectRow | null> => {
-      const { data, error } = await supabase.from('projects').select('*').eq('id', id!).maybeSingle();
+      const { data, error } = await sb.from('projects').select('*').eq('id', id!).maybeSingle();
       if (error) throw error;
       return data;
     },
@@ -78,7 +79,7 @@ export function useCreateProject() {
       if (!user?.id) throw new Error('Not authenticated');
       const parsed = projectUpsertSchema.parse(input);
       const row: TablesInsert<'projects'> = { ...parsed, title: parsed.title, owner_id: user.id };
-      const { data, error } = await supabase.from('projects').insert(row).select().single();
+      const { data, error } = await sb.from('projects').insert(row).select().single();
       if (error) throw error;
       return data;
     },
@@ -95,7 +96,7 @@ export function useUpdateProject() {
     mutationFn: async ({ id, ...input }: ProjectUpsertInput & { id: string }) => {
       const parsed = projectUpsertSchema.partial().parse(input);
       const update: TablesUpdate<'projects'> = parsed;
-      const { data, error } = await supabase.from('projects').update(update).eq('id', id).select().single();
+      const { data, error } = await sb.from('projects').update(update).eq('id', id).select().single();
       if (error) throw error;
       return data;
     },
@@ -111,7 +112,7 @@ export function useDeleteProject() {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: async (id: string) => {
-      const { error } = await supabase.from('projects').delete().eq('id', id);
+      const { error } = await sb.from('projects').delete().eq('id', id);
       if (error) throw error;
       return id;
     },

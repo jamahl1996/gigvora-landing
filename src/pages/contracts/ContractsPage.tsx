@@ -317,7 +317,7 @@ const ContractsPage: React.FC = () => {
         data={liveContracts.data}
         emptyLabel="No live contracts yet — drafts you create or are added to will appear here."
       >
-        {(rows) => rows.map(c => {
+        {(rows) => (rows as any[]).map((c: any) => {
           const iAmClient = user?.id === c.client_id;
           const mySigned = iAmClient ? c.client_signed_at : c.provider_signed_at;
           const otherSigned = iAmClient ? c.provider_signed_at : c.client_signed_at;

@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
+const sb: any = supabase;
 import { useAuth } from '@/contexts/AuthContext';
 import { qk } from '@/lib/queryKeys';
 import { jobUpsertSchema, type JobUpsertInput } from '@/lib/schemas/marketplace';
@@ -46,7 +47,7 @@ export function useJob(id: string | null | undefined) {
     queryKey: id ? qk.jobs.byId(id) : ['jobs', 'byId', 'none'],
     enabled: Boolean(id),
     queryFn: async (): Promise<JobRow | null> => {
-      const { data, error } = await supabase.from('jobs').select('*').eq('id', id!).maybeSingle();
+      const { data, error } = await sb.from('jobs').select('*').eq('id', id!).maybeSingle();
       if (error) throw error;
       return data;
     },
@@ -80,7 +81,7 @@ export function useCreateJob() {
       const parsed = jobUpsertSchema.parse(input);
       // `parsed.title` is guaranteed by Zod (.min(3)); the cast satisfies TS only.
       const row: TablesInsert<'jobs'> = { ...parsed, title: parsed.title, owner_id: user.id };
-      const { data, error } = await supabase.from('jobs').insert(row).select().single();
+      const { data, error } = await sb.from('jobs').insert(row).select().single();
       if (error) throw error;
       return data;
     },
@@ -97,7 +98,7 @@ export function useUpdateJob() {
     mutationFn: async ({ id, ...input }: JobUpsertInput & { id: string }) => {
       const parsed = jobUpsertSchema.partial().parse(input);
       const update: TablesUpdate<'jobs'> = parsed;
-      const { data, error } = await supabase.from('jobs').update(update).eq('id', id).select().single();
+      const { data, error } = await sb.from('jobs').update(update).eq('id', id).select().single();
       if (error) throw error;
       return data;
     },
@@ -113,7 +114,7 @@ export function useDeleteJob() {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: async (id: string) => {
-      const { error } = await supabase.from('jobs').delete().eq('id', id);
+      const { error } = await sb.from('jobs').delete().eq('id', id);
       if (error) throw error;
       return id;
     },

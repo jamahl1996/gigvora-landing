@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
+const sb: any = supabase;
 import { useAuth } from '@/contexts/AuthContext';
 import { qk } from '@/lib/queryKeys';
 import type { Tables } from '@/integrations/supabase/types';
 
-export type AuditLogRow = Tables<'audit_logs'>;
+export type AuditLogRow = any;
 
 /**
  * Recent audit-log entries. RLS restricts visibility to super-admin,

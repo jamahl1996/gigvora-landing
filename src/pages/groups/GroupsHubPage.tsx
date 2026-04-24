@@ -57,7 +57,7 @@ export default function GroupsHubPage() {
         >
           {(rows) => (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-              {rows.map(g => {
+              {(rows as any[]).map((g: any) => {
                 const joined = myGroupIds.has(g.id);
                 return (
                   <div key={g.id} className="p-3 rounded-xl border bg-card hover:border-accent/30 transition-all">

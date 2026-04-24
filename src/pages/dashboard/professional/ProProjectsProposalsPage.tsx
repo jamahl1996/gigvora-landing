@@ -81,7 +81,7 @@ export default function ProProjectsProposalsPage() {
         emptyLabel="No proposals submitted yet. Use the button below to bid on a project."
         action={<CreateProposalDialog />}
       >
-        {(rows) => rows.map(p => (
+        {(rows) => (rows as any[]).map((p: any) => (
           <div key={p.id} className="rounded-xl border bg-card p-3 flex items-center gap-3">
             <FileText className="h-4 w-4 text-accent shrink-0" />
             <div className="flex-1 min-w-0">

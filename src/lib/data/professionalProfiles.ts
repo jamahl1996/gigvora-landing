@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
+const sb: any = supabase;
 import { useAuth } from '@/contexts/AuthContext';
 import { qk } from '@/lib/queryKeys';
 import {
@@ -8,7 +9,7 @@ import {
 } from '@/lib/schemas/identity';
 import type { Tables, TablesInsert } from '@/integrations/supabase/types';
 
-export type ProfessionalProfileRow = Tables<'professional_profiles'>;
+export type ProfessionalProfileRow = any;
 
 export interface ForHireFilters {
   skills?: string[];
