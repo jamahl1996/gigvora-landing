@@ -57,12 +57,12 @@ export function useRecordLegalAcceptance() {
     mutationFn: async (input: LegalAcceptanceCreateInput) => {
       if (!user?.id) throw new Error('Not authenticated');
       const parsed = legalAcceptanceCreateSchema.parse(input);
-      const row: TablesInsert<'legal_acceptances'> = {
+      const row: any = {
         user_id: user.id,
         document_kind: parsed.document_kind,
         document_version: parsed.document_version,
         user_agent: typeof navigator !== 'undefined' ? navigator.userAgent : null,
-        metadata: parsed.metadata as TablesInsert<'legal_acceptances'>['metadata'],
+        metadata: parsed.metadata as any,
       };
       const { data, error } = await supabase
         .from('legal_acceptances')

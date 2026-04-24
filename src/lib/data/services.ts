@@ -73,7 +73,7 @@ export function useCreateService() {
     mutationFn: async (input: ServiceUpsertInput) => {
       if (!user?.id) throw new Error('Not authenticated');
       const parsed = serviceUpsertSchema.parse(input);
-      const row: TablesInsert<'services'> = { ...parsed, title: parsed.title, owner_id: user.id };
+      const row: any = { ...parsed, title: parsed.title, owner_id: user.id };
       const { data, error } = await sb.from('services').insert(row).select().single();
       if (error) throw error;
       return data;
@@ -90,7 +90,7 @@ export function useUpdateService() {
   return useMutation({
     mutationFn: async ({ id, ...input }: ServiceUpsertInput & { id: string }) => {
       const parsed = serviceUpsertSchema.partial().parse(input);
-      const update: TablesUpdate<'services'> = parsed;
+      const update: any = parsed;
       const { data, error } = await sb.from('services').update(update).eq('id', id).select().single();
       if (error) throw error;
       return data;

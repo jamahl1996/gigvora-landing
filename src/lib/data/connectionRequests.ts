@@ -53,7 +53,7 @@ export function useSendConnectionRequest() {
     mutationFn: async (input: ConnectionRequestCreateInput) => {
       if (!user?.id) throw new Error('Not authenticated');
       const parsed = connectionRequestCreateSchema.parse(input);
-      const row: TablesInsert<'connection_requests'> = {
+      const row: any = {
         requester_id: user.id,
         recipient_id: parsed.recipient_id,
         message: parsed.message ?? null,

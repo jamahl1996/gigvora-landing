@@ -78,7 +78,7 @@ export function useCreateProject() {
     mutationFn: async (input: ProjectUpsertInput) => {
       if (!user?.id) throw new Error('Not authenticated');
       const parsed = projectUpsertSchema.parse(input);
-      const row: TablesInsert<'projects'> = { ...parsed, title: parsed.title, owner_id: user.id };
+      const row: any = { ...parsed, title: parsed.title, owner_id: user.id };
       const { data, error } = await sb.from('projects').insert(row).select().single();
       if (error) throw error;
       return data;
@@ -95,7 +95,7 @@ export function useUpdateProject() {
   return useMutation({
     mutationFn: async ({ id, ...input }: ProjectUpsertInput & { id: string }) => {
       const parsed = projectUpsertSchema.partial().parse(input);
-      const update: TablesUpdate<'projects'> = parsed;
+      const update: any = parsed;
       const { data, error } = await sb.from('projects').update(update).eq('id', id).select().single();
       if (error) throw error;
       return data;

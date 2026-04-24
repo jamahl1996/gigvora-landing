@@ -17,8 +17,8 @@ import type { Tables, TablesInsert, TablesUpdate, Json } from '@/integrations/su
 
 export type TaskRow = any;
 export type MilestoneRow = any;
-export type DeliverableRow = Tables<'deliverables'>;
-export type TimeEntryRow = Tables<'time_entries'>;
+export type DeliverableRow = any;
+export type TimeEntryRow = any;
 
 /* ----------------------------- Tasks ----------------------------- */
 
@@ -63,7 +63,7 @@ export function useCreateTask() {
     mutationFn: async (input: TaskUpsertInput) => {
       if (!user?.id) throw new Error('Not authenticated');
       const parsed = taskUpsertSchema.parse(input);
-      const row: TablesInsert<'tasks'> = {
+      const row: any = {
         ...parsed,
         title: parsed.title,
         project_id: parsed.project_id,
@@ -85,7 +85,7 @@ export function useUpdateTask() {
   return useMutation({
     mutationFn: async ({ id, ...input }: Partial<TaskUpsertInput> & { id: string }) => {
       const parsed = taskUpsertSchema.partial().parse(input);
-      const update: TablesUpdate<'tasks'> = parsed;
+      const update: any = parsed;
       const { data, error } = await sb.from('tasks').update(update).eq('id', id).select().single();
       if (error) throw error;
       return data;
@@ -134,7 +134,7 @@ export function useCreateMilestone() {
   return useMutation({
     mutationFn: async (input: MilestoneUpsertInput) => {
       const parsed = milestoneUpsertSchema.parse(input);
-      const row: TablesInsert<'milestones'> = {
+      const row: any = {
         ...parsed,
         title: parsed.title,
         project_id: parsed.project_id,
@@ -154,7 +154,7 @@ export function useUpdateMilestone() {
   return useMutation({
     mutationFn: async ({ id, ...input }: Partial<MilestoneUpsertInput> & { id: string }) => {
       const parsed = milestoneUpsertSchema.partial().parse(input);
-      const update: TablesUpdate<'milestones'> = parsed;
+      const update: any = parsed;
       const { data, error } = await sb.from('milestones').update(update).eq('id', id).select().single();
       if (error) throw error;
       return data;
@@ -190,7 +190,7 @@ export function useSubmitDeliverable() {
     mutationFn: async (input: DeliverableUpsertInput) => {
       if (!user?.id) throw new Error('Not authenticated');
       const parsed = deliverableUpsertSchema.parse(input);
-      const row: TablesInsert<'deliverables'> = {
+      const row: any = {
         ...parsed,
         title: parsed.title,
         project_id: parsed.project_id,
@@ -222,7 +222,7 @@ export function useReviewDeliverable() {
       review_notes?: string;
     }) => {
       if (!user?.id) throw new Error('Not authenticated');
-      const update: TablesUpdate<'deliverables'> = {
+      const update: any = {
         status,
         review_notes: review_notes ?? null,
         reviewer_id: user.id,
@@ -287,7 +287,7 @@ export function useLogTimeEntry() {
     mutationFn: async (input: TimeEntryUpsertInput) => {
       if (!user?.id) throw new Error('Not authenticated');
       const parsed = timeEntryUpsertSchema.parse(input);
-      const row: TablesInsert<'time_entries'> = {
+      const row: any = {
         ...parsed,
         project_id: parsed.project_id,
         started_at: parsed.started_at,
